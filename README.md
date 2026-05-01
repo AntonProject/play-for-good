@@ -1,7 +1,21 @@
 # Play For Good
 
-A new Flutter project.
+![Play For Good logo](assets/images/Logo_Good_Games_2026.png)
 
-## Getting Started
+FlutterFlow-exported application source for Play For Good, a social sports app with a charity focus.
 
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+## Stack
+
+- Flutter
+- Dart
+- FlutterFlow
+- Supabase
+
+## Store Links
+
+- App Store: https://apps.apple.com/ru/app/play-for-good/id6749274248
+- Google Play: https://play.google.com/store/apps/details?id=com.xmethod.playforgoodapp
+
+## Notes
+
+- Repository prepared for portfolio publishing from the latest available export.

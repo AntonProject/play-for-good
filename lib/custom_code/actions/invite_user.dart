@@ -1,0 +1,99 @@
+// Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import '/backend/supabase/supabase.dart';
+import '/actions/actions.dart' as action_blocks;
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'index.dart'; // Imports other custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+import 'package:flutter/material.dart';
+// Begin custom action code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+Future<String> inviteUser(String invitedEmail) async {
+  try {
+    final supabase = Supabase.instance.client;
+    final currentUser = supabase.auth.currentUser;
+
+    if (currentUser == null) {
+      return 'not_authenticated';
+    }
+
+    // Email validation - Simple and working regex
+    if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+        .hasMatch(invitedEmail)) {
+      return 'invalid_email';
+    }
+
+    // Check if user is trying to invite themselves
+    final userProfile = await supabase
+        .from('users')
+        .select('email')
+        .eq('id', currentUser.id)
+        .single();
+
+    if (userProfile['email'] == invitedEmail.toLowerCase()) {
+      return 'cannot_invite_self';
+    }
+
+    print('Inviting user: $invitedEmail');
+
+    // Check if email is already invited
+    final existingInvite = await supabase
+        .from('invites')
+        .select('id, was_used')
+        .eq('invited_email', invitedEmail.toLowerCase())
+        .maybeSingle();
+
+    if (existingInvite != null) {
+      if (existingInvite['was_used'] == true) {
+        return 'already_registered';
+      } else {
+        return 'already_invited';
+      }
+    }
+
+    // Create invitation
+    await supabase.from('invites').insert({
+      'inviter_user_id': currentUser.id,
+      'invited_email': invitedEmail.toLowerCase().trim(),
+    });
+
+    print('Invite created successfully');
+
+    // Send invitation email via Edge Function
+    try {
+      print('Sending invitation email...');
+      final emailResponse = await supabase.functions.invoke(
+        'send-invite-email',
+        body: {
+          'invited_email': invitedEmail.toLowerCase().trim(),
+          'inviter_user_id': currentUser.id,
+        },
+      );
+
+      print('Email response status: ${emailResponse.status}');
+      print('Email response data: ${emailResponse.data}');
+
+      if (emailResponse.status == 200 &&
+          emailResponse.data?['success'] == true) {
+        print('Invitation email sent successfully');
+      } else {
+        print(
+            'Failed to send invitation email: ${emailResponse.data?['error']}');
+        // Don't fail the whole invite process if email fails
+      }
+    } catch (emailError) {
+      print('Error sending invitation email: $emailError');
+      // Don't fail the whole invite process if email fails
+    }
+
+    return 'success';
+  } catch (e) {
+    print('Error inviting user: $e');
+    return 'error';
+  }
+}

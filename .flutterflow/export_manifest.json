@@ -1,0 +1,2303 @@
+{
+  "schema_version": 1,
+  "project": {
+    "id": "play-for-good-o0lpcq",
+    "name": "Play For Good",
+    "directory": "play_for_good"
+  },
+  "build": {
+    "mode": "export",
+    "format": true
+  },
+  "exported_at": "2026-05-01T11:59:08.527246Z",
+  "files": [
+    ".flutterflow/export_manifest.json",
+    ".gitignore",
+    ".metadata",
+    "README.md",
+    "analysis_options.yaml",
+    "android/.gitignore",
+    "android/app/build.gradle",
+    "android/app/proguard-rules.pro",
+    "android/app/src/debug/AndroidManifest.xml",
+    "android/app/src/main/AndroidManifest.xml",
+    "android/app/src/main/kotlin/com/example/my_project/MainActivity.kt",
+    "android/app/src/main/res/drawable/launch_background.xml",
+    "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+    "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+    "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+    "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+    "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+    "android/app/src/main/res/values-night-v31/styles.xml",
+    "android/app/src/main/res/values-night/styles.xml",
+    "android/app/src/main/res/values-v31/styles.xml",
+    "android/app/src/main/res/values/strings.xml",
+    "android/app/src/main/res/values/styles.xml",
+    "android/app/src/profile/AndroidManifest.xml",
+    "android/build.gradle",
+    "android/gradle.properties",
+    "android/gradle/wrapper/gradle-wrapper.properties",
+    "android/settings.gradle",
+    "assets/audios/favicon.png",
+    "assets/environment_values/environment.json",
+    "assets/fonts/favicon.png",
+    "assets/images/favicon.png",
+    "assets/jsons/favicon.png",
+    "assets/pdfs/favicon.png",
+    "assets/rive_animations/favicon.png",
+    "assets/videos/favicon.png",
+    "flutter_native_splash.yaml",
+    "ios/.gitignore",
+    "ios/Flutter/AppFrameworkInfo.plist",
+    "ios/Flutter/Debug.xcconfig",
+    "ios/Flutter/Release.xcconfig",
+    "ios/ImageNotification/Info.plist",
+    "ios/ImageNotification/NotificationService.swift",
+    "ios/Podfile",
+    "ios/Runner.xcodeproj/project.pbxproj",
+    "ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+    "ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
+    "ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
+    "ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme",
+    "ios/Runner.xcworkspace/contents.xcworkspacedata",
+    "ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
+    "ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
+    "ios/Runner/AppDelegate.swift",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png",
+    "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png",
+    "ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+    "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png",
+    "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png",
+    "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png",
+    "ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md",
+    "ios/Runner/Base.lproj/LaunchScreen.storyboard",
+    "ios/Runner/Base.lproj/Main.storyboard",
+    "ios/Runner/Info.plist",
+    "ios/Runner/PrivacyInfo.xcprivacy",
+    "ios/Runner/Runner-Bridging-Header.h",
+    "ios/Runner/Runner.entitlements",
+    "lib/actions/actions.dart",
+    "lib/admin/admin_dialog/admin_dialog_model.dart",
+    "lib/admin/admin_dialog/admin_dialog_widget.dart",
+    "lib/admin/confirm_admin/confirm_admin_model.dart",
+    "lib/admin/confirm_admin/confirm_admin_widget.dart",
+    "lib/admin/create_receipt_dialog/create_receipt_dialog_model.dart",
+    "lib/admin/create_receipt_dialog/create_receipt_dialog_widget.dart",
+    "lib/admin/dialog_admin_table/dialog_admin_table_model.dart",
+    "lib/admin/dialog_admin_table/dialog_admin_table_widget.dart",
+    "lib/admin/drawer_admin/drawer_admin_model.dart",
+    "lib/admin/drawer_admin/drawer_admin_widget.dart",
+    "lib/admin/header_admin/header_admin_model.dart",
+    "lib/admin/header_admin/header_admin_widget.dart",
+    "lib/admin/login_admin/login_admin_model.dart",
+    "lib/admin/login_admin/login_admin_widget.dart",
+    "lib/admin/organisation_details_admin/organisation_details_admin_model.dart",
+    "lib/admin/organisation_details_admin/organisation_details_admin_widget.dart",
+    "lib/admin/organisations_add_admin/organisations_add_admin_model.dart",
+    "lib/admin/organisations_add_admin/organisations_add_admin_widget.dart",
+    "lib/admin/organisations_admin/organisations_admin_model.dart",
+    "lib/admin/organisations_admin/organisations_admin_widget.dart",
+    "lib/admin/organisations_edit_admin/organisations_edit_admin_model.dart",
+    "lib/admin/organisations_edit_admin/organisations_edit_admin_widget.dart",
+    "lib/admin/post_details_admin/post_details_admin_model.dart",
+    "lib/admin/post_details_admin/post_details_admin_widget.dart",
+    "lib/admin/posts_admin/posts_admin_model.dart",
+    "lib/admin/posts_admin/posts_admin_widget.dart",
+    "lib/admin/receipts_admin/receipts_admin_model.dart",
+    "lib/admin/receipts_admin/receipts_admin_widget.dart",
+    "lib/admin/receipts_dialog_admin_table/receipts_dialog_admin_table_model.dart",
+    "lib/admin/receipts_dialog_admin_table/receipts_dialog_admin_table_widget.dart",
+    "lib/admin/statistic_card_admin/statistic_card_admin_model.dart",
+    "lib/admin/statistic_card_admin/statistic_card_admin_widget.dart",
+    "lib/admin/statistics_admin/statistics_admin_model.dart",
+    "lib/admin/statistics_admin/statistics_admin_widget.dart",
+    "lib/admin/user_details_admin/user_details_admin_model.dart",
+    "lib/admin/user_details_admin/user_details_admin_widget.dart",
+    "lib/admin/users_add_admin/users_add_admin_model.dart",
+    "lib/admin/users_add_admin/users_add_admin_widget.dart",
+    "lib/admin/users_admin/users_admin_model.dart",
+    "lib/admin/users_admin/users_admin_widget.dart",
+    "lib/admin/users_edit_admin/users_edit_admin_model.dart",
+    "lib/admin/users_edit_admin/users_edit_admin_widget.dart",
+    "lib/app_constants.dart",
+    "lib/app_state.dart",
+    "lib/auth/auth_manager.dart",
+    "lib/auth/base_auth_user_provider.dart",
+    "lib/auth/supabase_auth/auth_util.dart",
+    "lib/auth/supabase_auth/email_auth.dart",
+    "lib/auth/supabase_auth/supabase_auth_manager.dart",
+    "lib/auth/supabase_auth/supabase_user_provider.dart",
+    "lib/backend/api_requests/api_calls.dart",
+    "lib/backend/api_requests/api_manager.dart",
+    "lib/backend/api_requests/browser_client_stub.dart",
+    "lib/backend/api_requests/get_streamed_response.dart",
+    "lib/backend/schema/enums/enums.dart",
+    "lib/backend/schema/structs/donation_struct.dart",
+    "lib/backend/schema/structs/game_struct.dart",
+    "lib/backend/schema/structs/index.dart",
+    "lib/backend/schema/structs/type_struct.dart",
+    "lib/backend/schema/util/schema_util.dart",
+    "lib/backend/supabase/database/database.dart",
+    "lib/backend/supabase/database/row.dart",
+    "lib/backend/supabase/database/table.dart",
+    "lib/backend/supabase/database/tables/followers.dart",
+    "lib/backend/supabase/database/tables/games.dart",
+    "lib/backend/supabase/database/tables/invites.dart",
+    "lib/backend/supabase/database/tables/organization.dart",
+    "lib/backend/supabase/database/tables/posts.dart",
+    "lib/backend/supabase/database/tables/receipts.dart",
+    "lib/backend/supabase/database/tables/transactions.dart",
+    "lib/backend/supabase/database/tables/user_otp_codes.dart",
+    "lib/backend/supabase/database/tables/users.dart",
+    "lib/backend/supabase/storage/storage.dart",
+    "lib/backend/supabase/supabase.dart",
+    "lib/components/apbar_b_g/apbar_b_g_model.dart",
+    "lib/components/apbar_b_g/apbar_b_g_widget.dart",
+    "lib/components/close_keyboard_model.dart",
+    "lib/components/close_keyboard_widget.dart",
+    "lib/components/dialogs/auth_dialog/auth_dialog_model.dart",
+    "lib/components/dialogs/auth_dialog/auth_dialog_widget.dart",
+    "lib/components/dialogs/berechnung_dialog/berechnung_dialog_model.dart",
+    "lib/components/dialogs/berechnung_dialog/berechnung_dialog_widget.dart",
+    "lib/components/dialogs/cancel_game_dialog/cancel_game_dialog_model.dart",
+    "lib/components/dialogs/cancel_game_dialog/cancel_game_dialog_widget.dart",
+    "lib/components/dialogs/dein_start/dein_start_model.dart",
+    "lib/components/dialogs/dein_start/dein_start_widget.dart",
+    "lib/components/dialogs/delete_acc_dialog/delete_acc_dialog_model.dart",
+    "lib/components/dialogs/delete_acc_dialog/delete_acc_dialog_widget.dart",
+    "lib/components/dialogs/donat_add/donat_add_model.dart",
+    "lib/components/dialogs/donat_add/donat_add_widget.dart",
+    "lib/components/dialogs/followers_list/followers_list_model.dart",
+    "lib/components/dialogs/followers_list/followers_list_widget.dart",
+    "lib/components/dialogs/game_title_edit/game_title_edit_model.dart",
+    "lib/components/dialogs/game_title_edit/game_title_edit_widget.dart",
+    "lib/components/dialogs/good_games_players_filters/good_games_players_filters_model.dart",
+    "lib/components/dialogs/good_games_players_filters/good_games_players_filters_widget.dart",
+    "lib/components/dialogs/home_info_dialog/home_info_dialog_model.dart",
+    "lib/components/dialogs/home_info_dialog/home_info_dialog_widget.dart",
+    "lib/components/dialogs/invite_email/invite_email_model.dart",
+    "lib/components/dialogs/invite_email/invite_email_widget.dart",
+    "lib/components/dialogs/invites_list/invites_list_model.dart",
+    "lib/components/dialogs/invites_list/invites_list_widget.dart",
+    "lib/components/dialogs/organisation_list/organisation_list_model.dart",
+    "lib/components/dialogs/organisation_list/organisation_list_widget.dart",
+    "lib/components/dialogs/organisation_list_play/organisation_list_play_model.dart",
+    "lib/components/dialogs/organisation_list_play/organisation_list_play_widget.dart",
+    "lib/components/dialogs/profile_edit_dialog/profile_edit_dialog_model.dart",
+    "lib/components/dialogs/profile_edit_dialog/profile_edit_dialog_widget.dart",
+    "lib/components/dialogs/profile_games_orgs_dialog/profile_games_orgs_dialog_model.dart",
+    "lib/components/dialogs/profile_games_orgs_dialog/profile_games_orgs_dialog_widget.dart",
+    "lib/components/dialogs/receipt_dialog/receipt_dialog_model.dart",
+    "lib/components/dialogs/receipt_dialog/receipt_dialog_widget.dart",
+    "lib/components/dialogs/snack_bar/snack_bar_model.dart",
+    "lib/components/dialogs/snack_bar/snack_bar_widget.dart",
+    "lib/components/dialogs/snack_bar_light_error/snack_bar_light_error_model.dart",
+    "lib/components/dialogs/snack_bar_light_error/snack_bar_light_error_widget.dart",
+    "lib/components/dialogs/snack_bar_white_success/snack_bar_white_success_model.dart",
+    "lib/components/dialogs/snack_bar_white_success/snack_bar_white_success_widget.dart",
+    "lib/components/dialogs/sponsor_list/sponsor_list_model.dart",
+    "lib/components/dialogs/sponsor_list/sponsor_list_widget.dart",
+    "lib/components/dialogs/types_points/types_points_model.dart",
+    "lib/components/dialogs/types_points/types_points_widget.dart",
+    "lib/components/dialogs/types_points_single/types_points_single_model.dart",
+    "lib/components/dialogs/types_points_single/types_points_single_widget.dart",
+    "lib/components/dialogs/user_profile/user_profile_model.dart",
+    "lib/components/dialogs/user_profile/user_profile_widget.dart",
+    "lib/components/empty_favoriten_profile/empty_favoriten_profile_model.dart",
+    "lib/components/empty_favoriten_profile/empty_favoriten_profile_widget.dart",
+    "lib/components/empty_good_circle_profile/empty_good_circle_profile_model.dart",
+    "lib/components/empty_good_circle_profile/empty_good_circle_profile_widget.dart",
+    "lib/components/empty_post_profile/empty_post_profile_model.dart",
+    "lib/components/empty_post_profile/empty_post_profile_widget.dart",
+    "lib/components/energy_comp/energy_comp_model.dart",
+    "lib/components/energy_comp/energy_comp_widget.dart",
+    "lib/components/energy_comp_guest/energy_comp_guest_model.dart",
+    "lib/components/energy_comp_guest/energy_comp_guest_widget.dart",
+    "lib/components/games_org_comp/games_org_comp_model.dart",
+    "lib/components/games_org_comp/games_org_comp_widget.dart",
+    "lib/components/games_user_comp/games_user_comp_model.dart",
+    "lib/components/games_user_comp/games_user_comp_widget.dart",
+    "lib/components/home_page_guest_content/home_page_guest_content_model.dart",
+    "lib/components/home_page_guest_content/home_page_guest_content_widget.dart",
+    "lib/components/home_page_score/home_page_score_model.dart",
+    "lib/components/home_page_score/home_page_score_widget.dart",
+    "lib/components/home_page_score_empty/home_page_score_empty_model.dart",
+    "lib/components/home_page_score_empty/home_page_score_empty_widget.dart",
+    "lib/components/image/image_model.dart",
+    "lib/components/image/image_widget.dart",
+    "lib/components/impact_comp/impact_comp_model.dart",
+    "lib/components/impact_comp/impact_comp_widget.dart",
+    "lib/components/navbar/navbar_model.dart",
+    "lib/components/navbar/navbar_widget.dart",
+    "lib/components/org_comp/org_comp_model.dart",
+    "lib/components/org_comp/org_comp_widget.dart",
+    "lib/components/org_comp_home/org_comp_home_model.dart",
+    "lib/components/org_comp_home/org_comp_home_widget.dart",
+    "lib/components/org_profile/org_profile_model.dart",
+    "lib/components/org_profile/org_profile_widget.dart",
+    "lib/components/organisation_comp/organisation_comp_model.dart",
+    "lib/components/organisation_comp/organisation_comp_widget.dart",
+    "lib/components/organisation_comp_play/organisation_comp_play_model.dart",
+    "lib/components/organisation_comp_play/organisation_comp_play_widget.dart",
+    "lib/components/organizations_home_empty/organizations_home_empty_model.dart",
+    "lib/components/organizations_home_empty/organizations_home_empty_widget.dart",
+    "lib/components/payment_method/payment_method_model.dart",
+    "lib/components/payment_method/payment_method_widget.dart",
+    "lib/components/pfg_org_for_guest/pfg_org_for_guest_model.dart",
+    "lib/components/pfg_org_for_guest/pfg_org_for_guest_widget.dart",
+    "lib/components/pfg_org_sum/pfg_org_sum_model.dart",
+    "lib/components/pfg_org_sum/pfg_org_sum_widget.dart",
+    "lib/components/pfg_org_sum_home/pfg_org_sum_home_model.dart",
+    "lib/components/pfg_org_sum_home/pfg_org_sum_home_widget.dart",
+    "lib/components/players_home_empty/players_home_empty_model.dart",
+    "lib/components/players_home_empty/players_home_empty_widget.dart",
+    "lib/components/post_comp/post_comp_model.dart",
+    "lib/components/post_comp/post_comp_widget.dart",
+    "lib/components/profile_option/profile_option_model.dart",
+    "lib/components/profile_option/profile_option_widget.dart",
+    "lib/components/recent_game_home/recent_game_home_model.dart",
+    "lib/components/recent_game_home/recent_game_home_widget.dart",
+    "lib/components/recent_games_home_empty/recent_games_home_empty_model.dart",
+    "lib/components/recent_games_home_empty/recent_games_home_empty_widget.dart",
+    "lib/components/team_sum/team_sum_model.dart",
+    "lib/components/team_sum/team_sum_widget.dart",
+    "lib/components/user_profile_info_stats_row/user_profile_info_stats_row_model.dart",
+    "lib/components/user_profile_info_stats_row/user_profile_info_stats_row_widget.dart",
+    "lib/components/users_follow_comp/users_follow_comp_model.dart",
+    "lib/components/users_follow_comp/users_follow_comp_widget.dart",
+    "lib/components/users_invites_comp/users_invites_comp_model.dart",
+    "lib/components/users_invites_comp/users_invites_comp_widget.dart",
+    "lib/custom_code/actions/close_keyboard.dart",
+    "lib/custom_code/actions/create_user_by_admin.dart",
+    "lib/custom_code/actions/delete_user.dart",
+    "lib/custom_code/actions/games_count.dart",
+    "lib/custom_code/actions/index.dart",
+    "lib/custom_code/actions/invite_user.dart",
+    "lib/custom_code/actions/is_admin.dart",
+    "lib/custom_code/actions/lock_landscape_mode.dart",
+    "lib/custom_code/actions/open_stripe_checkout.dart",
+    "lib/custom_code/actions/orgs_count.dart",
+    "lib/custom_code/actions/posts_count.dart",
+    "lib/custom_code/actions/resend_otp.dart",
+    "lib/custom_code/actions/send_password_reset_otp.dart",
+    "lib/custom_code/actions/send_sign_in_otp.dart",
+    "lib/custom_code/actions/set_dark_theme.dart",
+    "lib/custom_code/actions/set_status_bar_color.dart",
+    "lib/custom_code/actions/set_white_system_u_i_overlay_style.dart",
+    "lib/custom_code/actions/sign_in_after_otp_verification.dart",
+    "lib/custom_code/actions/sign_up_with_otp.dart",
+    "lib/custom_code/actions/update_password.dart",
+    "lib/custom_code/actions/users_count.dart",
+    "lib/custom_code/actions/verify_otp.dart",
+    "lib/custom_code/widgets/custom_circular_progress_indicator.dart",
+    "lib/custom_code/widgets/custom_donation_slider.dart",
+    "lib/custom_code/widgets/double_arc_gauge_widget.dart",
+    "lib/custom_code/widgets/index.dart",
+    "lib/custom_code/widgets/visibilitydetector.dart",
+    "lib/environment_values.dart",
+    "lib/flutter_flow/custom_functions.dart",
+    "lib/flutter_flow/custom_icons.dart",
+    "lib/flutter_flow/flutter_flow_animations.dart",
+    "lib/flutter_flow/flutter_flow_data_table.dart",
+    "lib/flutter_flow/flutter_flow_drop_down.dart",
+    "lib/flutter_flow/flutter_flow_expanded_image_view.dart",
+    "lib/flutter_flow/flutter_flow_icon_button.dart",
+    "lib/flutter_flow/flutter_flow_model.dart",
+    "lib/flutter_flow/flutter_flow_theme.dart",
+    "lib/flutter_flow/flutter_flow_timer.dart",
+    "lib/flutter_flow/flutter_flow_util.dart",
+    "lib/flutter_flow/flutter_flow_widgets.dart",
+    "lib/flutter_flow/form_field_controller.dart",
+    "lib/flutter_flow/instant_timer.dart",
+    "lib/flutter_flow/internationalization.dart",
+    "lib/flutter_flow/lat_lng.dart",
+    "lib/flutter_flow/nav/nav.dart",
+    "lib/flutter_flow/nav/serialization_util.dart",
+    "lib/flutter_flow/place.dart",
+    "lib/flutter_flow/request_manager.dart",
+    "lib/flutter_flow/upload_data.dart",
+    "lib/flutter_flow/uploaded_file.dart",
+    "lib/index.dart",
+    "lib/main.dart",
+    "lib/pages/confirm/confirm_model.dart",
+    "lib/pages/confirm/confirm_widget.dart",
+    "lib/pages/energy_page/energy_page_model.dart",
+    "lib/pages/energy_page/energy_page_widget.dart",
+    "lib/pages/fail_page/fail_page_model.dart",
+    "lib/pages/fail_page/fail_page_widget.dart",
+    "lib/pages/finish_page/finish_page_model.dart",
+    "lib/pages/finish_page/finish_page_widget.dart",
+    "lib/pages/forgotpassword/forgotpassword_model.dart",
+    "lib/pages/forgotpassword/forgotpassword_widget.dart",
+    "lib/pages/forgotpassword_send/forgotpassword_send_model.dart",
+    "lib/pages/forgotpassword_send/forgotpassword_send_widget.dart",
+    "lib/pages/game_page/game_page_model.dart",
+    "lib/pages/game_page/game_page_widget.dart",
+    "lib/pages/good_games_page/good_games_page_model.dart",
+    "lib/pages/good_games_page/good_games_page_widget.dart",
+    "lib/pages/good_news_page/good_news_page_model.dart",
+    "lib/pages/good_news_page/good_news_page_widget.dart",
+    "lib/pages/home_page/home_page_model.dart",
+    "lib/pages/home_page/home_page_widget.dart",
+    "lib/pages/login/login_model.dart",
+    "lib/pages/login/login_widget.dart",
+    "lib/pages/onboarding_page_initial/onboarding_page_initial_model.dart",
+    "lib/pages/onboarding_page_initial/onboarding_page_initial_widget.dart",
+    "lib/pages/onboarding_page_main/onboarding_page_main_model.dart",
+    "lib/pages/onboarding_page_main/onboarding_page_main_widget.dart",
+    "lib/pages/organisation_page/organisation_page_model.dart",
+    "lib/pages/organisation_page/organisation_page_widget.dart",
+    "lib/pages/play_page/play_page_model.dart",
+    "lib/pages/play_page/play_page_widget.dart",
+    "lib/pages/play_payment_page/play_payment_page_model.dart",
+    "lib/pages/play_payment_page/play_payment_page_widget.dart",
+    "lib/pages/splash/splash_model.dart",
+    "lib/pages/splash/splash_widget.dart",
+    "lib/pages/success_page/success_page_model.dart",
+    "lib/pages/success_page/success_page_widget.dart",
+    "lib/pages/user_profile_page/user_profile_page_model.dart",
+    "lib/pages/user_profile_page/user_profile_page_widget.dart",
+    "pubspec.yaml",
+    "test/widget_test.dart",
+    "web/favicon.png",
+    "web/flutter_bootstrap.js",
+    "web/icons/Icon-192.png",
+    "web/icons/Icon-512.png",
+    "web/index.html",
+    "web/manifest.json"
+  ],
+  "entities": [
+    {
+      "type": "action_block",
+      "key": "f95sy7",
+      "name": "login",
+      "primary_files": [
+        "lib/actions/actions.dart"
+      ]
+    },
+    {
+      "type": "action_block",
+      "key": "h4s54p",
+      "name": "refresh",
+      "primary_files": [
+        "lib/actions/actions.dart"
+      ]
+    },
+    {
+      "type": "api_call",
+      "key": "01qmv",
+      "name": "stripeAccPersonInfo",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ]
+    },
+    {
+      "type": "api_call",
+      "key": "3yyg8",
+      "name": "stripeAccInfo",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ]
+    },
+    {
+      "type": "api_call",
+      "key": "7wk9w",
+      "name": "createOrg",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ],
+      "group_name": "supabaseEdge"
+    },
+    {
+      "type": "api_call",
+      "key": "8m4xn",
+      "name": "syncStripeAccount",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ],
+      "group_name": "supabaseEdge"
+    },
+    {
+      "type": "api_call",
+      "key": "9y8ck",
+      "name": "stripeAccPersonListInfo",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ]
+    },
+    {
+      "type": "api_call",
+      "key": "fcc1j",
+      "name": "updatePayout",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ],
+      "group_name": "supabaseEdge"
+    },
+    {
+      "type": "api_call",
+      "key": "q5aw8",
+      "name": "stripeAccInfoLive",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ]
+    },
+    {
+      "type": "api_call",
+      "key": "udz1e",
+      "name": "createPaymentCheckout",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ],
+      "group_name": "supabaseEdge"
+    },
+    {
+      "type": "api_call",
+      "key": "yvizq",
+      "name": "createReceipt",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ],
+      "group_name": "supabaseEdge"
+    },
+    {
+      "type": "api_call",
+      "key": "zz40r",
+      "name": "getInfoStripe",
+      "primary_files": [
+        "lib/backend/api_requests/api_calls.dart"
+      ],
+      "group_name": "supabaseEdge"
+    },
+    {
+      "type": "component",
+      "key": "Container_077onm1f",
+      "name": "emptyGoodCircleProfile",
+      "primary_files": [
+        "lib/components/empty_good_circle_profile/empty_good_circle_profile_model.dart",
+        "lib/components/empty_good_circle_profile/empty_good_circle_profile_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_0kub4i1t",
+      "name": "DrawerAdmin",
+      "primary_files": [
+        "lib/admin/drawer_admin/drawer_admin_model.dart",
+        "lib/admin/drawer_admin/drawer_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_0y43hjif",
+      "name": "followersList",
+      "primary_files": [
+        "lib/components/dialogs/followers_list/followers_list_model.dart",
+        "lib/components/dialogs/followers_list/followers_list_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_1r3kfihm",
+      "name": "usersInvitesComp",
+      "primary_files": [
+        "lib/components/users_invites_comp/users_invites_comp_model.dart",
+        "lib/components/users_invites_comp/users_invites_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_493zve3c",
+      "name": "homePageGuestContent",
+      "primary_files": [
+        "lib/components/home_page_guest_content/home_page_guest_content_model.dart",
+        "lib/components/home_page_guest_content/home_page_guest_content_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_4uyu9wmn",
+      "name": "paymentMethod",
+      "primary_files": [
+        "lib/components/payment_method/payment_method_model.dart",
+        "lib/components/payment_method/payment_method_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_585gycim",
+      "name": "goodGamesPlayersFilters",
+      "primary_files": [
+        "lib/components/dialogs/good_games_players_filters/good_games_players_filters_model.dart",
+        "lib/components/dialogs/good_games_players_filters/good_games_players_filters_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_640lc16d",
+      "name": "receiptDialog",
+      "primary_files": [
+        "lib/components/dialogs/receipt_dialog/receipt_dialog_model.dart",
+        "lib/components/dialogs/receipt_dialog/receipt_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_6ynkn41t",
+      "name": "orgProfile",
+      "primary_files": [
+        "lib/components/org_profile/org_profile_model.dart",
+        "lib/components/org_profile/org_profile_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_78zbkt9l",
+      "name": "dialogAdminTable",
+      "primary_files": [
+        "lib/admin/dialog_admin_table/dialog_admin_table_model.dart",
+        "lib/admin/dialog_admin_table/dialog_admin_table_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_7cb1u9ct",
+      "name": "pfgOrgSumHome",
+      "primary_files": [
+        "lib/components/pfg_org_sum_home/pfg_org_sum_home_model.dart",
+        "lib/components/pfg_org_sum_home/pfg_org_sum_home_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_7ed8j6n1",
+      "name": "snackBar",
+      "primary_files": [
+        "lib/components/dialogs/snack_bar/snack_bar_model.dart",
+        "lib/components/dialogs/snack_bar/snack_bar_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_7qj8hxnj",
+      "name": "userProfileInfoStatsRow",
+      "primary_files": [
+        "lib/components/user_profile_info_stats_row/user_profile_info_stats_row_model.dart",
+        "lib/components/user_profile_info_stats_row/user_profile_info_stats_row_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_81n1qr9u",
+      "name": "profileEditDialog",
+      "primary_files": [
+        "lib/components/dialogs/profile_edit_dialog/profile_edit_dialog_model.dart",
+        "lib/components/dialogs/profile_edit_dialog/profile_edit_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_8gxuflip",
+      "name": "emptyPostProfile",
+      "primary_files": [
+        "lib/components/empty_post_profile/empty_post_profile_model.dart",
+        "lib/components/empty_post_profile/empty_post_profile_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_96hamtie",
+      "name": "ReceiptsDialogAdminTable",
+      "primary_files": [
+        "lib/admin/receipts_dialog_admin_table/receipts_dialog_admin_table_model.dart",
+        "lib/admin/receipts_dialog_admin_table/receipts_dialog_admin_table_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_9e89yt8e",
+      "name": "berechnungDialog",
+      "primary_files": [
+        "lib/components/dialogs/berechnung_dialog/berechnung_dialog_model.dart",
+        "lib/components/dialogs/berechnung_dialog/berechnung_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_9l0a17e4",
+      "name": "CreateReceiptDialog",
+      "primary_files": [
+        "lib/admin/create_receipt_dialog/create_receipt_dialog_model.dart",
+        "lib/admin/create_receipt_dialog/create_receipt_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_9n798hb2",
+      "name": "postComp",
+      "primary_files": [
+        "lib/components/post_comp/post_comp_model.dart",
+        "lib/components/post_comp/post_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_9stkvexl",
+      "name": "recentGamesHomeEmpty",
+      "primary_files": [
+        "lib/components/recent_games_home_empty/recent_games_home_empty_model.dart",
+        "lib/components/recent_games_home_empty/recent_games_home_empty_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_apw2bfpv",
+      "name": "homeInfoDialog",
+      "primary_files": [
+        "lib/components/dialogs/home_info_dialog/home_info_dialog_model.dart",
+        "lib/components/dialogs/home_info_dialog/home_info_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_b355dyjx",
+      "name": "teamSum",
+      "primary_files": [
+        "lib/components/team_sum/team_sum_model.dart",
+        "lib/components/team_sum/team_sum_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_b7kv9rfh",
+      "name": "navbar",
+      "primary_files": [
+        "lib/components/navbar/navbar_model.dart",
+        "lib/components/navbar/navbar_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_b8aqalo9",
+      "name": "deinStart",
+      "primary_files": [
+        "lib/components/dialogs/dein_start/dein_start_model.dart",
+        "lib/components/dialogs/dein_start/dein_start_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_com62eq8",
+      "name": "deleteAccDialog",
+      "primary_files": [
+        "lib/components/dialogs/delete_acc_dialog/delete_acc_dialog_model.dart",
+        "lib/components/dialogs/delete_acc_dialog/delete_acc_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_cq8pbbkc",
+      "name": "homePageScore",
+      "primary_files": [
+        "lib/components/home_page_score/home_page_score_model.dart",
+        "lib/components/home_page_score/home_page_score_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_d39wxsp6",
+      "name": "cancelGameDialog",
+      "primary_files": [
+        "lib/components/dialogs/cancel_game_dialog/cancel_game_dialog_model.dart",
+        "lib/components/dialogs/cancel_game_dialog/cancel_game_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_dvodmk1w",
+      "name": "energyCompGuest",
+      "primary_files": [
+        "lib/components/energy_comp_guest/energy_comp_guest_model.dart",
+        "lib/components/energy_comp_guest/energy_comp_guest_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_ejm7y3xw",
+      "name": "authDialog",
+      "primary_files": [
+        "lib/components/dialogs/auth_dialog/auth_dialog_model.dart",
+        "lib/components/dialogs/auth_dialog/auth_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_ez9yr8az",
+      "name": "usersFollowComp",
+      "primary_files": [
+        "lib/components/users_follow_comp/users_follow_comp_model.dart",
+        "lib/components/users_follow_comp/users_follow_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_f1ihd94m",
+      "name": "gamesUserComp",
+      "primary_files": [
+        "lib/components/games_user_comp/games_user_comp_model.dart",
+        "lib/components/games_user_comp/games_user_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_fwaimnuc",
+      "name": "invitesList",
+      "primary_files": [
+        "lib/components/dialogs/invites_list/invites_list_model.dart",
+        "lib/components/dialogs/invites_list/invites_list_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_j9hloanf",
+      "name": "homePageScoreEmpty",
+      "primary_files": [
+        "lib/components/home_page_score_empty/home_page_score_empty_model.dart",
+        "lib/components/home_page_score_empty/home_page_score_empty_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_jn9ghuwl",
+      "name": "adminDialog",
+      "primary_files": [
+        "lib/admin/admin_dialog/admin_dialog_model.dart",
+        "lib/admin/admin_dialog/admin_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_jplbitnt",
+      "name": "headerAdmin",
+      "primary_files": [
+        "lib/admin/header_admin/header_admin_model.dart",
+        "lib/admin/header_admin/header_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_kha5ws67",
+      "name": "donatAdd",
+      "primary_files": [
+        "lib/components/dialogs/donat_add/donat_add_model.dart",
+        "lib/components/dialogs/donat_add/donat_add_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_lbhvzl8i",
+      "name": "closeKeyboard",
+      "primary_files": [
+        "lib/components/close_keyboard_model.dart",
+        "lib/components/close_keyboard_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_lmw0xt58",
+      "name": "profileOption",
+      "primary_files": [
+        "lib/components/profile_option/profile_option_model.dart",
+        "lib/components/profile_option/profile_option_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_ml5l0n32",
+      "name": "typesPointsSingle",
+      "primary_files": [
+        "lib/components/dialogs/types_points_single/types_points_single_model.dart",
+        "lib/components/dialogs/types_points_single/types_points_single_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_nwumnu47",
+      "name": "organizationsHomeEmpty",
+      "primary_files": [
+        "lib/components/organizations_home_empty/organizations_home_empty_model.dart",
+        "lib/components/organizations_home_empty/organizations_home_empty_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_o5vvcjs0",
+      "name": "sponsorList",
+      "primary_files": [
+        "lib/components/dialogs/sponsor_list/sponsor_list_model.dart",
+        "lib/components/dialogs/sponsor_list/sponsor_list_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_of71ddzj",
+      "name": "gamesOrgComp",
+      "primary_files": [
+        "lib/components/games_org_comp/games_org_comp_model.dart",
+        "lib/components/games_org_comp/games_org_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_okbnzy5p",
+      "name": "recentGameHome",
+      "primary_files": [
+        "lib/components/recent_game_home/recent_game_home_model.dart",
+        "lib/components/recent_game_home/recent_game_home_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_ox2jvwip",
+      "name": "organisationCompPlay",
+      "primary_files": [
+        "lib/components/organisation_comp_play/organisation_comp_play_model.dart",
+        "lib/components/organisation_comp_play/organisation_comp_play_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_py4g82i5",
+      "name": "Image",
+      "primary_files": [
+        "lib/components/image/image_model.dart",
+        "lib/components/image/image_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_pzeyp3ad",
+      "name": "userProfile",
+      "primary_files": [
+        "lib/components/dialogs/user_profile/user_profile_model.dart",
+        "lib/components/dialogs/user_profile/user_profile_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_qncjfeub",
+      "name": "impactComp",
+      "primary_files": [
+        "lib/components/impact_comp/impact_comp_model.dart",
+        "lib/components/impact_comp/impact_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_qxnwhhc4",
+      "name": "typesPoints",
+      "primary_files": [
+        "lib/components/dialogs/types_points/types_points_model.dart",
+        "lib/components/dialogs/types_points/types_points_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_s812xi7w",
+      "name": "statisticCardAdmin",
+      "primary_files": [
+        "lib/admin/statistic_card_admin/statistic_card_admin_model.dart",
+        "lib/admin/statistic_card_admin/statistic_card_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_sc1p6wju",
+      "name": "inviteEmail",
+      "primary_files": [
+        "lib/components/dialogs/invite_email/invite_email_model.dart",
+        "lib/components/dialogs/invite_email/invite_email_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_sy8cdsxm",
+      "name": "snackBarWhiteSuccess",
+      "primary_files": [
+        "lib/components/dialogs/snack_bar_white_success/snack_bar_white_success_model.dart",
+        "lib/components/dialogs/snack_bar_white_success/snack_bar_white_success_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_t1w23098",
+      "name": "apbarBG",
+      "primary_files": [
+        "lib/components/apbar_b_g/apbar_b_g_model.dart",
+        "lib/components/apbar_b_g/apbar_b_g_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_t6hmik1t",
+      "name": "energyComp",
+      "primary_files": [
+        "lib/components/energy_comp/energy_comp_model.dart",
+        "lib/components/energy_comp/energy_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_tilsx3ml",
+      "name": "organisationComp",
+      "primary_files": [
+        "lib/components/organisation_comp/organisation_comp_model.dart",
+        "lib/components/organisation_comp/organisation_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_u20pjug3",
+      "name": "pfgOrgForGuest",
+      "primary_files": [
+        "lib/components/pfg_org_for_guest/pfg_org_for_guest_model.dart",
+        "lib/components/pfg_org_for_guest/pfg_org_for_guest_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_u5xy3qq3",
+      "name": "pfgOrgSum",
+      "primary_files": [
+        "lib/components/pfg_org_sum/pfg_org_sum_model.dart",
+        "lib/components/pfg_org_sum/pfg_org_sum_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_uidx7yjt",
+      "name": "gameTitleEdit",
+      "primary_files": [
+        "lib/components/dialogs/game_title_edit/game_title_edit_model.dart",
+        "lib/components/dialogs/game_title_edit/game_title_edit_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_v8axazzp",
+      "name": "orgCompHome",
+      "primary_files": [
+        "lib/components/org_comp_home/org_comp_home_model.dart",
+        "lib/components/org_comp_home/org_comp_home_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_v9kjrlwb",
+      "name": "emptyFavoritenProfile",
+      "primary_files": [
+        "lib/components/empty_favoriten_profile/empty_favoriten_profile_model.dart",
+        "lib/components/empty_favoriten_profile/empty_favoriten_profile_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_vka8xs43",
+      "name": "orgComp",
+      "primary_files": [
+        "lib/components/org_comp/org_comp_model.dart",
+        "lib/components/org_comp/org_comp_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_vwgvugrp",
+      "name": "organisationList",
+      "primary_files": [
+        "lib/components/dialogs/organisation_list/organisation_list_model.dart",
+        "lib/components/dialogs/organisation_list/organisation_list_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_w3ticr6v",
+      "name": "organisationListPlay",
+      "primary_files": [
+        "lib/components/dialogs/organisation_list_play/organisation_list_play_model.dart",
+        "lib/components/dialogs/organisation_list_play/organisation_list_play_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_wq6dlg94",
+      "name": "playersHomeEmpty",
+      "primary_files": [
+        "lib/components/players_home_empty/players_home_empty_model.dart",
+        "lib/components/players_home_empty/players_home_empty_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_x7urym6i",
+      "name": "snackBarLightError",
+      "primary_files": [
+        "lib/components/dialogs/snack_bar_light_error/snack_bar_light_error_model.dart",
+        "lib/components/dialogs/snack_bar_light_error/snack_bar_light_error_widget.dart"
+      ]
+    },
+    {
+      "type": "component",
+      "key": "Container_ylgrii98",
+      "name": "profileGamesOrgsDialog",
+      "primary_files": [
+        "lib/components/dialogs/profile_games_orgs_dialog/profile_games_orgs_dialog_model.dart",
+        "lib/components/dialogs/profile_games_orgs_dialog/profile_games_orgs_dialog_widget.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "0gbxe",
+      "name": "resendOtp",
+      "primary_files": [
+        "lib/custom_code/actions/resend_otp.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "5e06x",
+      "name": "setStatusBarColor",
+      "primary_files": [
+        "lib/custom_code/actions/set_status_bar_color.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "6x5by",
+      "name": "sendSignInOtp",
+      "primary_files": [
+        "lib/custom_code/actions/send_sign_in_otp.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "7lzcc",
+      "name": "gamesCount",
+      "primary_files": [
+        "lib/custom_code/actions/games_count.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "7snja",
+      "name": "setDarkTheme",
+      "primary_files": [
+        "lib/custom_code/actions/set_dark_theme.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "92tmr",
+      "name": "sendPasswordResetOtp",
+      "primary_files": [
+        "lib/custom_code/actions/send_password_reset_otp.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "93z1i",
+      "name": "createUserByAdmin",
+      "primary_files": [
+        "lib/custom_code/actions/create_user_by_admin.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "baobo",
+      "name": "signUpWithOtp",
+      "primary_files": [
+        "lib/custom_code/actions/sign_up_with_otp.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "dn5md",
+      "name": "inviteUser",
+      "primary_files": [
+        "lib/custom_code/actions/invite_user.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "dq8ek",
+      "name": "lockLandscapeMode",
+      "primary_files": [
+        "lib/custom_code/actions/lock_landscape_mode.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "huahk",
+      "name": "usersCount",
+      "primary_files": [
+        "lib/custom_code/actions/users_count.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "jgtt4",
+      "name": "openStripeCheckout",
+      "primary_files": [
+        "lib/custom_code/actions/open_stripe_checkout.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "jxngx",
+      "name": "verifyOtp",
+      "primary_files": [
+        "lib/custom_code/actions/verify_otp.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "k1swe",
+      "name": "updatePassword",
+      "primary_files": [
+        "lib/custom_code/actions/update_password.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "k1wfe",
+      "name": "deleteUser",
+      "primary_files": [
+        "lib/custom_code/actions/delete_user.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "kfcld",
+      "name": "closeKeyboard",
+      "primary_files": [
+        "lib/custom_code/actions/close_keyboard.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "nglnt",
+      "name": "orgsCount",
+      "primary_files": [
+        "lib/custom_code/actions/orgs_count.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "so60j",
+      "name": "postsCount",
+      "primary_files": [
+        "lib/custom_code/actions/posts_count.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "v3dv1",
+      "name": "isAdmin",
+      "primary_files": [
+        "lib/custom_code/actions/is_admin.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "vakde",
+      "name": "setWhiteSystemUIOverlayStyle",
+      "primary_files": [
+        "lib/custom_code/actions/set_white_system_u_i_overlay_style.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_action",
+      "key": "vlj74",
+      "name": "signInAfterOtpVerification",
+      "primary_files": [
+        "lib/custom_code/actions/sign_in_after_otp_verification.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/actions/index.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "0cc0d",
+      "name": "uniqSupporters",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "0nfj1",
+      "name": "gamesForPeriod",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "168oo",
+      "name": "filterAllGames",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "1hc1j",
+      "name": "numFormat",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "33g24",
+      "name": "searchInvites",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "34jyx",
+      "name": "imageToString",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "3xc2k",
+      "name": "searchFollowers",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "56jq3",
+      "name": "searchName",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "8cos1",
+      "name": "businessStructures",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "9owe1",
+      "name": "ratingUsersPerUser",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "a4fnw",
+      "name": "ratingUserGamesByGoodEnergyPerGame",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "aqdtd",
+      "name": "ratingUserLichtwattPerGame",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "b8mr2",
+      "name": "totalSumPeriodGoodPower",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "bp8x5",
+      "name": "getOrgIdsSortedByGamesCount",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "co0q8",
+      "name": "formatCompactWithComma",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "cpt3y",
+      "name": "getEmptyInvitesList",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "dfmq5",
+      "name": "orgSortingAdmin",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "dsbew",
+      "name": "totalSum",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "ejko4",
+      "name": "totalSumMAX",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "f5a5l",
+      "name": "searchOrg",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "h1v82",
+      "name": "totalSumPeriodGoodPowerPerGame",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "h390d",
+      "name": "hasMoreRatingUsers",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "h3vgw",
+      "name": "usersSortingAdmin",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "hbh07",
+      "name": "numParse",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "ie9ug",
+      "name": "ratingUserGames",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "ivbte",
+      "name": "businessTypes",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "j6cd1",
+      "name": "getUserRatingScore",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "jooez",
+      "name": "ratingUsers",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "mcvm7",
+      "name": "youtubeUrlParse",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "mkpl4",
+      "name": "ratingUsersIds",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "mn8bv",
+      "name": "totalSumPeriodGoodEnergyOrg",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "noyq5",
+      "name": "hasMoreGames",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "nzma8",
+      "name": "facebookUrlParse",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "o3l3c",
+      "name": "lastGamesOrg",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "ohpum",
+      "name": "donationCalculate",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "qkflq",
+      "name": "ratingUserGamesByGoodEnergy",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "qt0yp",
+      "name": "businessTypeConverter",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "r8ngf",
+      "name": "validateEmail",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "rycdg",
+      "name": "businessStructureConverter",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "s8i5s",
+      "name": "validatePassword",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "soc9z",
+      "name": "instagramUrlParse",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "t1kjr",
+      "name": "validateHandle",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "tl9pw",
+      "name": "totalSumPeriodLichtwatt",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "vuu24",
+      "name": "totalSumAVG",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "vwwne",
+      "name": "totalSumPeriodLichtwattPerGame",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "wqtx4",
+      "name": "urlParse",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "x4kdb",
+      "name": "getRandomGuestNumber",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "xidio",
+      "name": "listStringToString",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "xn7n6",
+      "name": "ratingUserLichtwatt",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "xwzt1",
+      "name": "categories",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "xzjze",
+      "name": "validateName",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_function",
+      "key": "z8hdq",
+      "name": "postsSortingAdmin",
+      "primary_files": [
+        "lib/flutter_flow/custom_functions.dart"
+      ]
+    },
+    {
+      "type": "custom_widget",
+      "key": "bhy5r",
+      "name": "CustomDonationSlider",
+      "primary_files": [
+        "lib/custom_code/widgets/custom_donation_slider.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/widgets/index.dart"
+      ]
+    },
+    {
+      "type": "custom_widget",
+      "key": "lsykd",
+      "name": "Visibilitydetector",
+      "primary_files": [
+        "lib/custom_code/widgets/visibilitydetector.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/widgets/index.dart"
+      ]
+    },
+    {
+      "type": "custom_widget",
+      "key": "safc8",
+      "name": "CustomCircularProgressIndicator",
+      "primary_files": [
+        "lib/custom_code/widgets/custom_circular_progress_indicator.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/widgets/index.dart"
+      ]
+    },
+    {
+      "type": "custom_widget",
+      "key": "y0aub",
+      "name": "DoubleArcGaugeWidget",
+      "primary_files": [
+        "lib/custom_code/widgets/double_arc_gauge_widget.dart"
+      ],
+      "related_files": [
+        "lib/custom_code/widgets/index.dart"
+      ]
+    },
+    {
+      "type": "data_struct",
+      "key": "9qjf5",
+      "name": "type",
+      "primary_files": [
+        "lib/backend/schema/structs/type_struct.dart"
+      ],
+      "related_files": [
+        "lib/backend/schema/structs/index.dart",
+        "lib/backend/schema/util/schema_util.dart"
+      ]
+    },
+    {
+      "type": "data_struct",
+      "key": "f9ljq",
+      "name": "game",
+      "primary_files": [
+        "lib/backend/schema/structs/game_struct.dart"
+      ],
+      "related_files": [
+        "lib/backend/schema/structs/index.dart",
+        "lib/backend/schema/util/schema_util.dart"
+      ]
+    },
+    {
+      "type": "data_struct",
+      "key": "zjtck",
+      "name": "donation",
+      "primary_files": [
+        "lib/backend/schema/structs/donation_struct.dart"
+      ],
+      "related_files": [
+        "lib/backend/schema/structs/index.dart",
+        "lib/backend/schema/util/schema_util.dart"
+      ]
+    },
+    {
+      "type": "enum",
+      "key": "2hro1",
+      "name": "adminPages",
+      "primary_files": [
+        "lib/backend/schema/enums/enums.dart"
+      ]
+    },
+    {
+      "type": "enum",
+      "key": "9lc16",
+      "name": "paymentMethods",
+      "primary_files": [
+        "lib/backend/schema/enums/enums.dart"
+      ]
+    },
+    {
+      "type": "enum",
+      "key": "gazji",
+      "name": "period",
+      "primary_files": [
+        "lib/backend/schema/enums/enums.dart"
+      ]
+    },
+    {
+      "type": "enum",
+      "key": "pks08",
+      "name": "ratingGamesFilter",
+      "primary_files": [
+        "lib/backend/schema/enums/enums.dart"
+      ]
+    },
+    {
+      "type": "enum",
+      "key": "v68gw",
+      "name": "pointsType",
+      "primary_files": [
+        "lib/backend/schema/enums/enums.dart"
+      ]
+    },
+    {
+      "type": "global",
+      "key": "app_state",
+      "name": "app_state",
+      "primary_files": [
+        "lib/app_state.dart"
+      ]
+    },
+    {
+      "type": "global",
+      "key": "index",
+      "name": "index.dart",
+      "primary_files": [
+        "lib/index.dart"
+      ]
+    },
+    {
+      "type": "global",
+      "key": "main",
+      "name": "main.dart",
+      "primary_files": [
+        "lib/main.dart"
+      ]
+    },
+    {
+      "type": "global",
+      "key": "routing",
+      "name": "routing",
+      "primary_files": [
+        "lib/flutter_flow/nav/nav.dart",
+        "lib/flutter_flow/nav/serialization_util.dart"
+      ]
+    },
+    {
+      "type": "global",
+      "key": "theme",
+      "name": "theme",
+      "primary_files": [
+        "lib/flutter_flow/flutter_flow_theme.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_1ko7zbx8",
+      "name": "ReceiptsAdmin",
+      "primary_files": [
+        "lib/admin/receipts_admin/receipts_admin_model.dart",
+        "lib/admin/receipts_admin/receipts_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_2jgrf8u8",
+      "name": "Confirm",
+      "primary_files": [
+        "lib/pages/confirm/confirm_model.dart",
+        "lib/pages/confirm/confirm_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_3vyajbce",
+      "name": "GoodNewsPage",
+      "primary_files": [
+        "lib/pages/good_news_page/good_news_page_model.dart",
+        "lib/pages/good_news_page/good_news_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_418g7vdd",
+      "name": "UsersEditAdmin",
+      "primary_files": [
+        "lib/admin/users_edit_admin/users_edit_admin_model.dart",
+        "lib/admin/users_edit_admin/users_edit_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_6qbcgvjq",
+      "name": "PlayPaymentPage",
+      "primary_files": [
+        "lib/pages/play_payment_page/play_payment_page_model.dart",
+        "lib/pages/play_payment_page/play_payment_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_7mguadgj",
+      "name": "OnboardingPageInitial",
+      "primary_files": [
+        "lib/pages/onboarding_page_initial/onboarding_page_initial_model.dart",
+        "lib/pages/onboarding_page_initial/onboarding_page_initial_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_7tx5auj0",
+      "name": "splash",
+      "primary_files": [
+        "lib/pages/splash/splash_model.dart",
+        "lib/pages/splash/splash_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_8xe0bulc",
+      "name": "FinishPage",
+      "primary_files": [
+        "lib/pages/finish_page/finish_page_model.dart",
+        "lib/pages/finish_page/finish_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_ai8is92n",
+      "name": "LoginAdmin",
+      "primary_files": [
+        "lib/admin/login_admin/login_admin_model.dart",
+        "lib/admin/login_admin/login_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_b3v914ev",
+      "name": "OrganisationsEditAdmin",
+      "primary_files": [
+        "lib/admin/organisations_edit_admin/organisations_edit_admin_model.dart",
+        "lib/admin/organisations_edit_admin/organisations_edit_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_bw6zsh47",
+      "name": "OrganisationsAddAdmin",
+      "primary_files": [
+        "lib/admin/organisations_add_admin/organisations_add_admin_model.dart",
+        "lib/admin/organisations_add_admin/organisations_add_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_caqt7zc6",
+      "name": "GoodGamesPage",
+      "primary_files": [
+        "lib/pages/good_games_page/good_games_page_model.dart",
+        "lib/pages/good_games_page/good_games_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_dbr4geh2",
+      "name": "ForgotpasswordSend",
+      "primary_files": [
+        "lib/pages/forgotpassword_send/forgotpassword_send_model.dart",
+        "lib/pages/forgotpassword_send/forgotpassword_send_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_dg7k5otf",
+      "name": "Login",
+      "primary_files": [
+        "lib/pages/login/login_model.dart",
+        "lib/pages/login/login_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_e8txllej",
+      "name": "OrganisationPage",
+      "primary_files": [
+        "lib/pages/organisation_page/organisation_page_model.dart",
+        "lib/pages/organisation_page/organisation_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_ehsazml4",
+      "name": "UsersAdmin",
+      "primary_files": [
+        "lib/admin/users_admin/users_admin_model.dart",
+        "lib/admin/users_admin/users_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_g9q5ssjc",
+      "name": "OrganisationDetailsAdmin",
+      "primary_files": [
+        "lib/admin/organisation_details_admin/organisation_details_admin_model.dart",
+        "lib/admin/organisation_details_admin/organisation_details_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_gbpqrixw",
+      "name": "SuccessPage",
+      "primary_files": [
+        "lib/pages/success_page/success_page_model.dart",
+        "lib/pages/success_page/success_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_gw40dayk",
+      "name": "PlayPage",
+      "primary_files": [
+        "lib/pages/play_page/play_page_model.dart",
+        "lib/pages/play_page/play_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_hb943e9o",
+      "name": "GamePage",
+      "primary_files": [
+        "lib/pages/game_page/game_page_model.dart",
+        "lib/pages/game_page/game_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_hnrd1b1k",
+      "name": "PostDetailsAdmin",
+      "primary_files": [
+        "lib/admin/post_details_admin/post_details_admin_model.dart",
+        "lib/admin/post_details_admin/post_details_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_i8xba7jg",
+      "name": "OrganisationsAdmin",
+      "primary_files": [
+        "lib/admin/organisations_admin/organisations_admin_model.dart",
+        "lib/admin/organisations_admin/organisations_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_k4r7u4dx",
+      "name": "StatisticsAdmin",
+      "primary_files": [
+        "lib/admin/statistics_admin/statistics_admin_model.dart",
+        "lib/admin/statistics_admin/statistics_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_kvtv6adx",
+      "name": "userProfilePage",
+      "primary_files": [
+        "lib/pages/user_profile_page/user_profile_page_model.dart",
+        "lib/pages/user_profile_page/user_profile_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_nlt6p1qc",
+      "name": "OnboardingPageMain",
+      "primary_files": [
+        "lib/pages/onboarding_page_main/onboarding_page_main_model.dart",
+        "lib/pages/onboarding_page_main/onboarding_page_main_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_py7699pr",
+      "name": "EnergyPage",
+      "primary_files": [
+        "lib/pages/energy_page/energy_page_model.dart",
+        "lib/pages/energy_page/energy_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_q1qwji27",
+      "name": "Forgotpassword",
+      "primary_files": [
+        "lib/pages/forgotpassword/forgotpassword_model.dart",
+        "lib/pages/forgotpassword/forgotpassword_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_s86xj2qc",
+      "name": "UsersAddAdmin",
+      "primary_files": [
+        "lib/admin/users_add_admin/users_add_admin_model.dart",
+        "lib/admin/users_add_admin/users_add_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_suwvfj7u",
+      "name": "PostsAdmin",
+      "primary_files": [
+        "lib/admin/posts_admin/posts_admin_model.dart",
+        "lib/admin/posts_admin/posts_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_taetim4b",
+      "name": "UserDetailsAdmin",
+      "primary_files": [
+        "lib/admin/user_details_admin/user_details_admin_model.dart",
+        "lib/admin/user_details_admin/user_details_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_tfy71bw2",
+      "name": "HomePage",
+      "primary_files": [
+        "lib/pages/home_page/home_page_model.dart",
+        "lib/pages/home_page/home_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_xhut7v9a",
+      "name": "FailPage",
+      "primary_files": [
+        "lib/pages/fail_page/fail_page_model.dart",
+        "lib/pages/fail_page/fail_page_widget.dart"
+      ]
+    },
+    {
+      "type": "page",
+      "key": "Scaffold_yblzk5vf",
+      "name": "ConfirmAdmin",
+      "primary_files": [
+        "lib/admin/confirm_admin/confirm_admin_model.dart",
+        "lib/admin/confirm_admin/confirm_admin_widget.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "followers",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/followers.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "games",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/games.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "invites",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/invites.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "organization",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/organization.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "posts",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/posts.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "receipts",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/receipts.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "transactions",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/transactions.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "user_otp_codes",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/user_otp_codes.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    },
+    {
+      "type": "supabase_table",
+      "key": "",
+      "name": "users",
+      "primary_files": [
+        "lib/backend/supabase/database/tables/users.dart"
+      ],
+      "related_files": [
+        "lib/backend/supabase/database/database.dart",
+        "lib/backend/supabase/database/row.dart",
+        "lib/backend/supabase/database/table.dart",
+        "lib/backend/supabase/supabase.dart"
+      ]
+    }
+  ]
+}

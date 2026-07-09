@@ -144,102 +144,110 @@ class _GamesUserCompWidgetState extends State<GamesUserCompWidget> {
                   ),
                 ),
                 Expanded(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
+                  flex: 6,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: 40.0,
+                        height: 40.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          shape: BoxShape.circle,
+                          border: Border.all(
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                            ),
                           ),
-                          child: wrapWithModel(
-                            model: _model.imageModel,
-                            updateCallback: () => safeSetState(() {}),
-                            child: ImageWidget(
-                              size: 40.0,
-                              image: valueOrDefault<String>(
-                                rowUsersRow?.photoUrl,
-                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/play-for-good-o0lpcq/assets/c527zeyipzi3/Profilbild.png',
-                              ),
+                        ),
+                        child: wrapWithModel(
+                          model: _model.imageModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: ImageWidget(
+                            size: 40.0,
+                            image: valueOrDefault<String>(
+                              rowUsersRow?.photoUrl,
+                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/play-for-good-o0lpcq/assets/c527zeyipzi3/Profilbild.png',
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: Text(
-                            valueOrDefault<String>(
-                              rowUsersRow?.displayName,
-                              'unnamed',
-                            ),
-                            maxLines: 3,
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
-                                  color: valueOrDefault<Color>(
-                                    rowUsersRow?.id == currentUserUid
-                                        ? FlutterFlowTheme.of(context).primary
-                                        : FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                    FlutterFlowTheme.of(context).primaryText,
-                                  ),
-                                  letterSpacing: -0.4,
-                                  fontWeight: FontWeight.bold,
-                                  lineHeight: 1.5,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .titleSmallIsCustom,
+                      ),
+                      Expanded(
+                        child: Text(
+                          valueOrDefault<String>(
+                            rowUsersRow?.displayName,
+                            'unnamed',
+                          ),
+                          maxLines: 4,
+                          style: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                color: valueOrDefault<Color>(
+                                  rowUsersRow?.id == currentUserUid
+                                      ? FlutterFlowTheme.of(context).primary
+                                      : FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                                 ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                                fontSize: 16.0,
+                                letterSpacing: -0.4,
+                                fontWeight: FontWeight.bold,
+                                lineHeight: 1.1,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .titleSmallIsCustom,
+                              ),
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      ].divide(SizedBox(width: 16.0)),
-                    ),
+                      ),
+                    ].divide(SizedBox(width: 16.0)),
                   ),
                 ),
-                Text(
-                  valueOrDefault<String>(
-                    functions.formatCompactWithComma(
-                        functions.getUserRatingScore(
-                            widget!.games
-                                ?.where((e) =>
-                                    (e.status == 'completed') &&
-                                    (e.creatorUserId == widget!.userId))
-                                .toList()
-                                ?.toList(),
-                            widget!.period,
-                            widget!.value,
-                            widget!.invites?.toList(),
-                            widget!.userId!)!),
-                    '0',
-                  ),
-                  textAlign: TextAlign.end,
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
-                        color: valueOrDefault<Color>(
-                          rowUsersRow?.id == currentUserUid
-                              ? FlutterFlowTheme.of(context).primary
-                              : FlutterFlowTheme.of(context).primaryText,
-                          FlutterFlowTheme.of(context).primaryText,
+                Flexible(
+                  child: Align(
+                    alignment: AlignmentDirectional(1.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          functions.formatCompactWithComma(
+                              functions.getUserRatingScore(
+                                  widget!.games
+                                      ?.where((e) =>
+                                          (e.status == 'completed') &&
+                                          (e.creatorUserId == widget!.userId))
+                                      .toList()
+                                      ?.toList(),
+                                  widget!.period,
+                                  widget!.value,
+                                  widget!.invites?.toList(),
+                                  widget!.userId!)!),
+                          '0',
                         ),
-                        fontSize: 16.0,
-                        letterSpacing: -0.4,
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                        textAlign: TextAlign.end,
+                        maxLines: 1,
+                        style: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              fontFamily: FlutterFlowTheme.of(context)
+                                  .titleMediumFamily,
+                              color: valueOrDefault<Color>(
+                                rowUsersRow?.id == currentUserUid
+                                    ? FlutterFlowTheme.of(context).primary
+                                    : FlutterFlowTheme.of(context).primaryText,
+                                FlutterFlowTheme.of(context).primaryText,
+                              ),
+                              fontSize: 16.0,
+                              letterSpacing: -0.4,
+                              fontWeight: FontWeight.bold,
+                              lineHeight: 1.5,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .titleMediumIsCustom,
+                            ),
                       ),
+                    ),
+                  ),
                 ),
               ],
             ),

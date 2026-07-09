@@ -114,68 +114,85 @@ class _PfgOrgForGuestWidgetState extends State<PfgOrgForGuestWidget> {
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        valueOrDefault<String>(
-                          rowOrganizationRow?.title,
-                          'Players For Good',
+                  flex: 6,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          valueOrDefault<String>(
+                            rowOrganizationRow?.title,
+                            'Players For Good',
+                          ),
+                          maxLines: 3,
+                          style: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                fontSize: 16.0,
+                                letterSpacing: valueOrDefault<double>(
+                                  -0.4,
+                                  -0.4,
+                                ),
+                                fontWeight: FontWeight.bold,
+                                lineHeight: 1.1,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .titleSmallIsCustom,
+                              ),
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines: 3,
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).titleSmallFamily,
-                              letterSpacing: valueOrDefault<double>(
-                                -0.4,
-                                -0.4,
+                        Text(
+                          '0,10 € je eigener Punkt\n5 Games, max. 2 €/Game',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 14.0,
+                                letterSpacing: valueOrDefault<double>(
+                                  -0.35,
+                                  -0.35,
+                                ),
+                                fontWeight: FontWeight.w500,
+                                lineHeight: 1.25,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .bodyMediumIsCustom,
                               ),
-                              fontWeight: FontWeight.bold,
-                              lineHeight: 1.5,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .titleSmallIsCustom,
-                            ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        '0,10 € je eigener Punkt\n5 Games, max. 2 €/Game',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 14.0,
-                              letterSpacing: valueOrDefault<double>(
-                                -0.35,
-                                -0.35,
-                              ),
-                              fontWeight: FontWeight.w500,
-                              lineHeight: 1.5,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .bodyMediumIsCustom,
-                            ),
-                      ),
-                    ],
+                        ),
+                      ].divide(SizedBox(height: 2.0)),
+                    ),
                   ),
                 ),
-                Text(
-                  '0 €',
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
-                        fontSize: 16.0,
-                        letterSpacing: valueOrDefault<double>(
-                          -0.4,
-                          -0.4,
-                        ),
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                      ),
+                Flexible(
+                  flex: 2,
+                  child: Align(
+                    alignment: AlignmentDirectional(1.0, 0.0),
+                    child: Text(
+                      '0 €',
+                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleMediumFamily,
+                            fontSize: 16.0,
+                            letterSpacing: valueOrDefault<double>(
+                              -0.4,
+                              -0.4,
+                            ),
+                            fontWeight: FontWeight.bold,
+                            lineHeight: 1.5,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .titleMediumIsCustom,
+                          ),
+                    ),
+                  ),
                 ),
-              ].divide(SizedBox(width: 16.0)),
+              ],
             ),
           );
         },

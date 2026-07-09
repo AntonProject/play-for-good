@@ -628,13 +628,19 @@ class _GamePageWidgetState extends State<GamePageWidget> {
                                                           ],
                                                         ),
                                                       Padding(
-                                                        padding: EdgeInsets.all(
-                                                            16.0),
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    20.0,
+                                                                    16.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
                                                             Expanded(
+                                                              flex: 5,
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -707,41 +713,43 @@ class _GamePageWidgetState extends State<GamePageWidget> {
                                                                 ],
                                                               ),
                                                             ),
-                                                            Text(
-                                                              '${valueOrDefault<String>(
-                                                                functions.numFormat(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  ((widget!.gameRow!.userMoney!) +
-                                                                          (widget!
-                                                                              .gameRow!
-                                                                              .teamMoney!) +
-                                                                          (widget!
-                                                                              .gameRow!
-                                                                              .siegMoney!))
-                                                                      .toString(),
-                                                                  '0',
-                                                                )),
-                                                                '0',
-                                                              )} €',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleMediumFamily,
-                                                                    letterSpacing:
-                                                                        -0.63,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    lineHeight:
-                                                                        1.5,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .titleMediumIsCustom,
-                                                                  ),
+                                                            Expanded(
+                                                              flex: 2,
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  '${valueOrDefault<String>(
+                                                                    functions.numFormat(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                      ((widget!.gameRow!.userMoney!) +
+                                                                              (widget!.gameRow!.teamMoney!) +
+                                                                              (widget!.gameRow!.siegMoney!))
+                                                                          .toString(),
+                                                                      '0',
+                                                                    )),
+                                                                    '0',
+                                                                  )} €',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).titleMediumFamily,
+                                                                        letterSpacing:
+                                                                            -0.63,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        lineHeight:
+                                                                            1.5,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                                                                      ),
+                                                                ),
+                                                              ),
                                                             ),
                                                           ].divide(SizedBox(
                                                               width: 8.0)),

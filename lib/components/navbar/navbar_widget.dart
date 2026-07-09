@@ -263,6 +263,12 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                               if (widget!.pageNumber != 4) {
                                 context.pushNamed(
                                   GoodGamesPageWidget.routeName,
+                                  queryParameters: {
+                                    'tab': serializeParam(
+                                      2,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
                                   extra: <String, dynamic>{
                                     '__transition_info__': TransitionInfo(
                                       hasTransition: true,

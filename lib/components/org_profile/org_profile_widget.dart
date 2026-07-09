@@ -87,15 +87,16 @@ class _OrgProfileWidgetState extends State<OrgProfileWidget> {
                   widget!.title,
                   'Blau-Gelbes Kreuz ...',
                 ),
-                maxLines: 1,
+                maxLines: 3,
                 style: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                      fontSize: 16.0,
                       letterSpacing: valueOrDefault<double>(
                         -0.4,
                         -0.4,
                       ),
                       fontWeight: FontWeight.bold,
-                      lineHeight: 1.5,
+                      lineHeight: 1.1,
                       useGoogleFonts:
                           !FlutterFlowTheme.of(context).titleSmallIsCustom,
                     ),
@@ -105,12 +106,8 @@ class _OrgProfileWidgetState extends State<OrgProfileWidget> {
                 '${valueOrDefault<String>(
                   widget!.goodGamesCount?.toString(),
                   '1',
-                )}${widget!.goodGamesCount == 1 ? ' Good Game' : ' Good Games'}'
-                    .maybeHandleOverflow(
-                  maxChars: 30,
-                  replacement: '…',
-                ),
-                maxLines: 1,
+                )}${widget!.goodGamesCount == 1 ? ' Good Game' : ' Good Games'}',
+                maxLines: 4,
                 style: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                       fontSize: 14.0,
@@ -119,12 +116,13 @@ class _OrgProfileWidgetState extends State<OrgProfileWidget> {
                         -0.35,
                       ),
                       fontWeight: FontWeight.w500,
-                      lineHeight: 1.5,
+                      lineHeight: 1.2,
                       useGoogleFonts:
                           !FlutterFlowTheme.of(context).titleSmallIsCustom,
                     ),
+                overflow: TextOverflow.ellipsis,
               ),
-            ],
+            ].divide(SizedBox(height: 2.0)),
           ),
         ),
       ].divide(SizedBox(width: 16.0)),

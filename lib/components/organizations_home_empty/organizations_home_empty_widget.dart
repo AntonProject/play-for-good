@@ -104,12 +104,13 @@ class _OrganizationsHomeEmptyWidgetState
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).titleSmallFamily,
+                              fontSize: 16.0,
                               letterSpacing: valueOrDefault<double>(
                                 -0.4,
                                 -0.4,
                               ),
                               fontWeight: FontWeight.bold,
-                              lineHeight: 1.5,
+                              lineHeight: 1.1,
                               useGoogleFonts: !FlutterFlowTheme.of(context)
                                   .titleSmallIsCustom,
                             ),

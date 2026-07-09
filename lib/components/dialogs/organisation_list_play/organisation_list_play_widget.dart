@@ -440,11 +440,11 @@ class _OrganisationListPlayWidgetState
                                                         _model
                                                             .searchTextController
                                                             .text,
+                                                        _model.guestChosenOrgId,
                                                         loggedIn
-                                                            ? columnUsersRow
+                                                            ? widget!.userId
                                                                 ?.chosenOrg
-                                                            : _model
-                                                                .guestChosenOrgId)
+                                                            : '')
                                                     ?.toList() ??
                                                 [];
                                             if (containerVar.isEmpty) {

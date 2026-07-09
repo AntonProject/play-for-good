@@ -118,12 +118,13 @@ class _OrganisationCompPlayWidgetState
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).titleSmallFamily,
+                        fontSize: 16.0,
                         letterSpacing: valueOrDefault<double>(
                           -0.4,
                           -0.4,
                         ),
                         fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
+                        lineHeight: 1.1,
                         useGoogleFonts:
                             !FlutterFlowTheme.of(context).titleSmallIsCustom,
                       ),
@@ -131,11 +132,8 @@ class _OrganisationCompPlayWidgetState
                 ),
                 if (widget!.orgRow?.city != null && widget!.orgRow?.city != '')
                   Text(
-                    widget!.orgRow!.city!.maybeHandleOverflow(
-                      maxChars: 30,
-                      replacement: '…',
-                    ),
-                    maxLines: 1,
+                    widget!.orgRow!.city!,
+                    maxLines: 2,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleLargeFamily,
@@ -146,12 +144,13 @@ class _OrganisationCompPlayWidgetState
                             -0.35,
                           ),
                           fontWeight: FontWeight.bold,
-                          lineHeight: 1.5,
+                          lineHeight: 1.2,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).titleLargeIsCustom,
                         ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-              ],
+              ].divide(SizedBox(height: 2.0)),
             ),
           ),
           Container(

@@ -1,4 +1,4 @@
-package com.xmethod.playforgood
+package com.xmethod.playforgoodapp
 
 import io.flutter.embedding.android.FlutterActivity
 

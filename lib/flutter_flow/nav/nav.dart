@@ -233,6 +233,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'valueGames',
               ParamType.String,
             ),
+            tab: params.getParam(
+              'tab',
+              ParamType.int,
+            ),
           ),
         ),
         FFRoute(

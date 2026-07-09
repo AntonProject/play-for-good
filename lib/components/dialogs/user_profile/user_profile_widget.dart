@@ -2059,25 +2059,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                                                       updateOnChange: true,
                                                                                       child: UserProfileInfoStatsRowWidget(
                                                                                         title: 'Supporters',
-                                                                                        value: valueOrDefault<String>(
-                                                                                          widget!.userId != 'guest'
-                                                                                              ? formatNumber(
-                                                                                                  functions.getUserRatingScore(
-                                                                                                      containerGamesRowList.where((e) => widget!.userId == e.creatorUserId).toList(),
-                                                                                                      valueOrDefault<String>(
-                                                                                                        _model.infoStatsPeriod == 1 ? 'saison' : 'gesamt',
-                                                                                                        'gesamt',
-                                                                                                      ),
-                                                                                                      'social',
-                                                                                                      invitesContainerInvitesRowList.toList(),
-                                                                                                      widget!.userId!),
-                                                                                                  formatType: FormatType.custom,
-                                                                                                  format: '',
-                                                                                                  locale: '',
-                                                                                                )
-                                                                                              : '0',
-                                                                                          '0',
-                                                                                        ),
+                                                                                        value: '1',
                                                                                         number: '#${widget!.userId != 'guest' ? valueOrDefault<String>(
                                                                                             functions
                                                                                                 .ratingUsersPerUser(
@@ -4679,7 +4661,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                                                                       UserProfileInfoStatsRowWidget(
                                                                     title:
                                                                         'Supporters',
-                                                                    value: '0',
+                                                                    value: '1',
                                                                     number:
                                                                         '#${valueOrDefault<String>(
                                                                       (valueOrDefault<int>(

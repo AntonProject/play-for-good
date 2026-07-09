@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -96,75 +95,82 @@ class _GamesOrgCompWidgetState extends State<GamesOrgCompWidget> {
           return Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                valueOrDefault<String>(
-                  (((valueOrDefault<int>(
-                                        widget!.pageNumber,
-                                        1,
-                                      ) -
-                                      1) *
-                                  10 +
-                              valueOrDefault<int>(
-                                widget!.index,
-                                1,
-                              ) +
-                              1) ??
-                          1)
-                      .toString(),
-                  '1',
-                ),
-                maxLines: 1,
-                style: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                      fontSize: 14.0,
-                      letterSpacing: -0.35,
-                      fontWeight: FontWeight.w600,
-                      lineHeight: 1.5,
-                      useGoogleFonts:
-                          !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                    ),
-              ),
-              Container(
-                width: 40.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Text(
+                  valueOrDefault<String>(
+                    (((valueOrDefault<int>(
+                                          widget!.pageNumber,
+                                          1,
+                                        ) -
+                                        1) *
+                                    10 +
+                                valueOrDefault<int>(
+                                  widget!.index,
+                                  1,
+                                ) +
+                                1) ??
+                            1)
+                        .toString(),
+                    '1',
                   ),
+                  maxLines: 1,
+                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).titleSmallFamily,
+                        fontSize: 14.0,
+                        letterSpacing: -0.35,
+                        fontWeight: FontWeight.w600,
+                        lineHeight: 1.5,
+                        useGoogleFonts:
+                            !FlutterFlowTheme.of(context).titleSmallIsCustom,
+                      ),
                 ),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed(
-                      OrganisationPageWidget.routeName,
-                      queryParameters: {
-                        'orgId': serializeParam(
-                          rowOrganizationRow?.id,
-                          ParamType.String,
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Container(
+                  width: 40.0,
+                  height: 40.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+                  ),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        OrganisationPageWidget.routeName,
+                        queryParameters: {
+                          'orgId': serializeParam(
+                            rowOrganizationRow?.id,
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: wrapWithModel(
+                      model: _model.imageModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: ImageWidget(
+                        size: 40.0,
+                        image: valueOrDefault<String>(
+                          rowOrganizationRow?.imageUrl,
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/play-for-good-o0lpcq/assets/d6ilkv8n1ka3/Avatar.png',
                         ),
-                      }.withoutNulls,
-                    );
-                  },
-                  child: wrapWithModel(
-                    model: _model.imageModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: ImageWidget(
-                      size: 40.0,
-                      image: valueOrDefault<String>(
-                        rowOrganizationRow?.imageUrl,
-                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/play-for-good-o0lpcq/assets/d6ilkv8n1ka3/Avatar.png',
                       ),
                     ),
                   ),
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 6,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,7 +191,7 @@ class _GamesOrgCompWidgetState extends State<GamesOrgCompWidget> {
                             fontSize: 12.0,
                             letterSpacing: -0.24,
                             fontWeight: FontWeight.w500,
-                            lineHeight: 1.5,
+                            lineHeight: 1.2,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .titleSmallIsCustom,
                           ),
@@ -194,27 +200,26 @@ class _GamesOrgCompWidgetState extends State<GamesOrgCompWidget> {
                       valueOrDefault<String>(
                         widget!.game?.title,
                         'Game #1',
-                      ).maybeHandleOverflow(
-                        maxChars: 15,
-                        replacement: '…',
                       ),
-                      maxLines: 1,
+                      maxLines: 4,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontSize: 16.0,
                             letterSpacing: -0.4,
                             fontWeight: FontWeight.bold,
-                            lineHeight: 1.5,
+                            lineHeight: 1.1,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .titleSmallIsCustom,
                           ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       valueOrDefault<String>(
                         rowOrganizationRow?.title,
                         'unnamed',
                       ),
-                      maxLines: 3,
+                      maxLines: 4,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).titleSmallFamily,
@@ -222,66 +227,75 @@ class _GamesOrgCompWidgetState extends State<GamesOrgCompWidget> {
                             fontSize: 14.0,
                             letterSpacing: -0.35,
                             fontWeight: FontWeight.w500,
-                            lineHeight: 1.5,
+                            lineHeight: 1.2,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .titleSmallIsCustom,
                           ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                  ],
+                  ].divide(SizedBox(height: 2.0)),
                 ),
               ),
-              Expanded(
-                child: AutoSizeText(
-                  '${valueOrDefault<String>(
-                    functions.numFormat(valueOrDefault<String>(
-                      ((widget!.game!.userMoney!) +
-                              (widget!.game!.teamMoney!) +
-                              (widget!.game!.siegMoney!) +
-                              (widget!.game!.additionalDonationMoney!))
-                          .toString(),
+              Flexible(
+                flex: 2,
+                child: Align(
+                  alignment: AlignmentDirectional(1.0, 0.0),
+                  child: Text(
+                    '${valueOrDefault<String>(
+                      functions.numFormat(valueOrDefault<String>(
+                        ((widget!.game!.userMoney!) +
+                                (widget!.game!.teamMoney!) +
+                                (widget!.game!.siegMoney!) +
+                                (widget!.game!.additionalDonationMoney!))
+                            .toString(),
+                        '0',
+                      )),
                       '0',
-                    )),
-                    '0',
-                  )} €',
-                  textAlign: TextAlign.end,
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
-                        color: FlutterFlowTheme.of(context).tertiary,
-                        letterSpacing: -0.4,
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                      ),
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  valueOrDefault<String>(
-                    functions.formatCompactWithComma(valueOrDefault<double>(
-                      widget!.game?.lichtwatt,
-                      0.0,
-                    )),
-                    '0',
+                    )} €',
+                    textAlign: TextAlign.end,
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).titleMediumFamily,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                          fontSize: 16.0,
+                          letterSpacing: -0.4,
+                          fontWeight: FontWeight.bold,
+                          lineHeight: 1.5,
+                          useGoogleFonts:
+                              !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                        ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  textAlign: TextAlign.end,
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
-                        fontSize: 16.0,
-                        letterSpacing: -0.4,
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                      ),
                 ),
               ),
-            ].divide(SizedBox(width: 16.0)),
+              Flexible(
+                flex: 2,
+                child: Align(
+                  alignment: AlignmentDirectional(1.0, 0.0),
+                  child: Text(
+                    valueOrDefault<String>(
+                      functions.formatCompactWithComma(valueOrDefault<double>(
+                        widget!.game?.lichtwatt,
+                        0.0,
+                      )),
+                      '0',
+                    ),
+                    textAlign: TextAlign.end,
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).titleMediumFamily,
+                          fontSize: 16.0,
+                          letterSpacing: -0.4,
+                          fontWeight: FontWeight.bold,
+                          lineHeight: 1.5,
+                          useGoogleFonts:
+                              !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                        ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ),
+            ],
           );
         },
       ),

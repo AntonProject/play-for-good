@@ -434,6 +434,7 @@ class _SponsorListWidgetState extends State<SponsorListWidget> {
                                                                   _model
                                                                       .searchTextController1
                                                                       .text,
+                                                                  '',
                                                                   '')
                                                               ?.sortedList(
                                                                   keyOf: (e) =>

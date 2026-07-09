@@ -106,16 +106,17 @@ class _OrganisationCompWidgetState extends State<OrganisationCompWidget> {
                     widget!.orgRow?.title,
                     'unnamed',
                   ),
-                  maxLines: 3,
+                  maxLines: 4,
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).titleSmallFamily,
+                        fontSize: 16.0,
                         letterSpacing: valueOrDefault<double>(
                           -0.4,
                           -0.4,
                         ),
                         fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
+                        lineHeight: 1.1,
                         useGoogleFonts:
                             !FlutterFlowTheme.of(context).titleSmallIsCustom,
                       ),
@@ -124,7 +125,7 @@ class _OrganisationCompWidgetState extends State<OrganisationCompWidget> {
                 if (widget!.orgRow?.city != null && widget!.orgRow?.city != '')
                   Text(
                     widget!.orgRow!.city!,
-                    maxLines: 1,
+                    maxLines: 2,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleLargeFamily,
@@ -135,13 +136,13 @@ class _OrganisationCompWidgetState extends State<OrganisationCompWidget> {
                             -0.35,
                           ),
                           fontWeight: FontWeight.bold,
-                          lineHeight: 1.5,
+                          lineHeight: 1.2,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).titleLargeIsCustom,
                         ),
                     overflow: TextOverflow.ellipsis,
                   ),
-              ],
+              ].divide(SizedBox(height: 2.0)),
             ),
           ),
           if (loggedIn)

@@ -47,8 +47,9 @@ class _FinishPageWidgetState extends State<FinishPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setDarkModeSetting(context, ThemeMode.light);
       await actions.setStatusBarColor(
-        false,
+        true,
       );
       unawaited(
         () async {

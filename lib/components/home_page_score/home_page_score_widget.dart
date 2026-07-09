@@ -180,12 +180,12 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).titleMediumFamily,
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          fontSize: 11.0,
+                          fontSize: 12.0,
                           letterSpacing: valueOrDefault<double>(
                             -0.275,
                             -0.275,
                           ),
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           lineHeight: 1.5,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).titleMediumIsCustom,
@@ -387,7 +387,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmallFamily,
                                               color: Color(0xBFFAFAF9),
-                                              fontSize: 12.0,
+                                              fontSize: 14.0,
                                               letterSpacing:
                                                   valueOrDefault<double>(
                                                 -0.24,
@@ -420,7 +420,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
-                                              size: 16.0,
+                                              size: 17.0,
                                             ),
                                             Text(
                                               valueOrDefault<String>(
@@ -453,7 +453,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
-                                                    fontSize: 11.0,
+                                                    fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                     useGoogleFonts:
@@ -570,7 +570,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                         .titleMediumFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    fontSize: 20.0,
+                                    fontSize: 22.0,
                                     letterSpacing: valueOrDefault<double>(
                                       -0.63,
                                       -0.63,
@@ -593,7 +593,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                         .bodyMediumFamily,
                                     color:
                                         FlutterFlowTheme.of(context).primary50,
-                                    fontSize: 11.0,
+                                    fontSize: 13.0,
                                     letterSpacing: valueOrDefault<double>(
                                       -0.22,
                                       -0.22,
@@ -637,7 +637,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                         .titleMediumFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    fontSize: 20.0,
+                                    fontSize: 22.0,
                                     letterSpacing: valueOrDefault<double>(
                                       -0.63,
                                       -0.63,
@@ -660,7 +660,7 @@ class _HomePageScoreWidgetState extends State<HomePageScoreWidget> {
                                         .bodyMediumFamily,
                                     color:
                                         FlutterFlowTheme.of(context).primary50,
-                                    fontSize: 11.0,
+                                    fontSize: 13.0,
                                     letterSpacing: valueOrDefault<double>(
                                       -0.22,
                                       -0.22,

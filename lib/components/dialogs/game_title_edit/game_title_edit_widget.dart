@@ -213,6 +213,10 @@ class _GameTitleEditWidgetState extends State<GameTitleEditWidget> {
                                 buttonSize: 40.0,
                                 fillColor:
                                     FlutterFlowTheme.of(context).alternate,
+                                disabledColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                disabledIconColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
                                 icon: Icon(
                                   FFIcons.kcheck2,
                                   color:
@@ -220,15 +224,26 @@ class _GameTitleEditWidgetState extends State<GameTitleEditWidget> {
                                   size: 14.0,
                                 ),
                                 showLoadingIndicator: true,
-                                onPressed: () async {
-                                  Navigator.pop(context);
-                                  if (_model.textController.text != null &&
-                                      _model.textController.text != '') {
-                                    await widget.updateTitle?.call(
-                                      _model.textController.text,
-                                    );
-                                  }
-                                },
+                                onPressed:
+                                    ((_model.textController.text!.length ?? 0) >
+                                            50)
+                                        ? null
+                                        : () async {
+                                            if ((_model.textController.text!
+                                                        .length ??
+                                                    0) <=
+                                                50) {
+                                              Navigator.pop(context);
+                                              if (_model.textController.text !=
+                                                      null &&
+                                                  _model.textController.text !=
+                                                      '') {
+                                                await widget.updateTitle?.call(
+                                                  _model.textController.text,
+                                                );
+                                              }
+                                            }
+                                          },
                               ),
                             ),
                           ],

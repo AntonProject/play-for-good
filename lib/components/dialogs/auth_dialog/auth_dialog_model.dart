@@ -58,7 +58,7 @@ class AuthDialogModel extends FlutterFlowModel<AuthDialogWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Column widget.
-  ScrollController? columnController;
+  ScrollController? columnController1;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -76,6 +76,10 @@ class AuthDialogModel extends FlutterFlowModel<AuthDialogWidget> {
   TextEditingController? passSigninTextController;
   late bool passSigninVisibility;
   String? Function(BuildContext, String?)? passSigninTextControllerValidator;
+  // Stores action output result for [Custom Action - signUpWithOtp] action in Button widget.
+  String? singUp;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // State field(s) for emailLogin widget.
   FocusNode? emailLoginFocusNode;
   TextEditingController? emailLoginTextController;
@@ -87,8 +91,6 @@ class AuthDialogModel extends FlutterFlowModel<AuthDialogWidget> {
   String? Function(BuildContext, String?)? passLoginTextControllerValidator;
   // Stores action output result for [Custom Action - sendSignInOtp] action in Button widget.
   String? login;
-  // Stores action output result for [Custom Action - signUpWithOtp] action in Button widget.
-  String? singUp;
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
   FocusNode? pinCodeFocusNode;
@@ -135,8 +137,9 @@ class AuthDialogModel extends FlutterFlowModel<AuthDialogWidget> {
 
   @override
   void initState(BuildContext context) {
-    columnController = ScrollController();
+    columnController1 = ScrollController();
     passSigninVisibility = false;
+    columnController2 = ScrollController();
     passLoginVisibility = false;
     pinCodeController = TextEditingController();
     newPassVisibility = false;
@@ -145,7 +148,7 @@ class AuthDialogModel extends FlutterFlowModel<AuthDialogWidget> {
 
   @override
   void dispose() {
-    columnController?.dispose();
+    columnController1?.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
@@ -158,6 +161,7 @@ class AuthDialogModel extends FlutterFlowModel<AuthDialogWidget> {
     passSigninFocusNode?.dispose();
     passSigninTextController?.dispose();
 
+    columnController2?.dispose();
     emailLoginFocusNode?.dispose();
     emailLoginTextController?.dispose();
 

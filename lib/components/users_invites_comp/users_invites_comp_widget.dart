@@ -146,12 +146,13 @@ class _UsersInvitesCompWidgetState extends State<UsersInvitesCompWidget> {
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontSize: 16.0,
                             letterSpacing: valueOrDefault<double>(
                               -0.4,
                               -0.4,
                             ),
                             fontWeight: FontWeight.bold,
-                            lineHeight: 1.5,
+                            lineHeight: 1.1,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .titleSmallIsCustom,
                           ),
@@ -165,7 +166,7 @@ class _UsersInvitesCompWidgetState extends State<UsersInvitesCompWidget> {
                                 FlutterFlowTheme.of(context).labelMediumFamily,
                             letterSpacing: -0.35,
                             fontWeight: FontWeight.w500,
-                            lineHeight: 1.5,
+                            lineHeight: 1.2,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .labelMediumIsCustom,
                           ),
@@ -185,12 +186,12 @@ class _UsersInvitesCompWidgetState extends State<UsersInvitesCompWidget> {
                                 FlutterFlowTheme.of(context).labelMediumFamily,
                             letterSpacing: -0.35,
                             fontWeight: FontWeight.w500,
-                            lineHeight: 1.5,
+                            lineHeight: 1.2,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .labelMediumIsCustom,
                           ),
                     ),
-                  ].divide(SizedBox(height: 4.0)),
+                  ].divide(SizedBox(height: 2.0)),
                 ),
               ),
               Text(

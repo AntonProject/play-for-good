@@ -1810,25 +1810,7 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                                                                               updateOnChange: true,
                                                                                               child: UserProfileInfoStatsRowWidget(
                                                                                                 title: 'Supporters',
-                                                                                                value: valueOrDefault<String>(
-                                                                                                  widget!.userId != 'guest'
-                                                                                                      ? formatNumber(
-                                                                                                          functions.getUserRatingScore(
-                                                                                                              containerGamesRowList.where((e) => widget!.userId == e.creatorUserId).toList(),
-                                                                                                              valueOrDefault<String>(
-                                                                                                                _model.infoStatsPeriod == 1 ? 'saison' : 'gesamt',
-                                                                                                                'gesamt',
-                                                                                                              ),
-                                                                                                              'social',
-                                                                                                              invitesContainerInvitesRowList.toList(),
-                                                                                                              widget!.userId!),
-                                                                                                          formatType: FormatType.custom,
-                                                                                                          format: '',
-                                                                                                          locale: '',
-                                                                                                        )
-                                                                                                      : '0',
-                                                                                                  '0',
-                                                                                                ),
+                                                                                                value: '1',
                                                                                                 number: '#${widget!.userId != 'guest' ? valueOrDefault<String>(
                                                                                                     functions
                                                                                                         .ratingUsersPerUser(
@@ -3269,6 +3251,7 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
+                                                          fontSize: 14.0,
                                                           letterSpacing:
                                                               valueOrDefault<
                                                                   double>(
@@ -3326,7 +3309,7 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 1.0),
+                                                                3.34, 14.81),
                                                         child: Text(
                                                           'Good Power',
                                                           maxLines: 3,
@@ -3340,7 +3323,7 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                fontSize: 11.0,
+                                                                fontSize: 1.0,
                                                                 letterSpacing:
                                                                     valueOrDefault<
                                                                         double>(
@@ -4238,7 +4221,7 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                                                             title:
                                                                                 'Supporters',
                                                                             value:
-                                                                                '0',
+                                                                                '1',
                                                                             number:
                                                                                 '#${valueOrDefault<String>(
                                                                               (valueOrDefault<int>(

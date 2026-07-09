@@ -597,6 +597,7 @@ class _EnergyPageWidgetState extends State<EnergyPageWidget> {
                                                                                     'See more',
                                                                                     style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                           fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                          fontSize: 18.0,
                                                                                           letterSpacing: -0.4,
                                                                                           fontWeight: FontWeight.bold,
                                                                                           lineHeight: 1.5,

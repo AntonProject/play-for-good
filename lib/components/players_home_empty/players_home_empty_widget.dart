@@ -79,9 +79,12 @@ class _PlayersHomeEmptyWidgetState extends State<PlayersHomeEmptyWidget> {
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 12.0,
-                            letterSpacing: 0.0,
+                            letterSpacing: valueOrDefault<double>(
+                              -0.24,
+                              -0.24,
+                            ),
                             fontWeight: FontWeight.w500,
-                            lineHeight: 1.5,
+                            lineHeight: 1.2,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .bodyMediumIsCustom,
                           ),
@@ -91,14 +94,18 @@ class _PlayersHomeEmptyWidgetState extends State<PlayersHomeEmptyWidget> {
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).titleSmallFamily,
-                            letterSpacing: 0.0,
+                            fontSize: 16.0,
+                            letterSpacing: valueOrDefault<double>(
+                              -0.24,
+                              -0.24,
+                            ),
                             fontWeight: FontWeight.bold,
-                            lineHeight: 1.5,
+                            lineHeight: 1.1,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
                                 .titleSmallIsCustom,
                           ),
                     ),
-                  ],
+                  ].divide(SizedBox(height: 4.0)),
                 ),
               ),
               Padding(

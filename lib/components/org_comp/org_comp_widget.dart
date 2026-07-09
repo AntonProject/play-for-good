@@ -83,65 +83,75 @@ class _OrgCompWidgetState extends State<OrgCompWidget> {
             ),
           ),
           Expanded(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  valueOrDefault<String>(
-                    widget!.title,
-                    'Blau-Gelbes Kreuz ...',
+            flex: 6,
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    valueOrDefault<String>(
+                      widget!.title,
+                      'Blau-Gelbes Kreuz ...',
+                    ),
+                    maxLines: 3,
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).titleSmallFamily,
+                          fontSize: 16.0,
+                          letterSpacing: -0.4,
+                          fontWeight: FontWeight.bold,
+                          lineHeight: 1.1,
+                          useGoogleFonts:
+                              !FlutterFlowTheme.of(context).titleSmallIsCustom,
+                        ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 3,
-                  style: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleSmallFamily,
-                        letterSpacing: -0.4,
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                      ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget!.desc,
-                    'Erspielte Punkte',
-                  ).maybeHandleOverflow(
-                    maxChars: 30,
-                    replacement: '…',
+                  Text(
+                    valueOrDefault<String>(
+                      widget!.desc,
+                      'Erspielte Punkte',
+                    ),
+                    maxLines: 4,
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).titleSmallFamily,
+                          fontSize: 14.0,
+                          letterSpacing: -0.35,
+                          fontWeight: FontWeight.w500,
+                          lineHeight: 1.2,
+                          useGoogleFonts:
+                              !FlutterFlowTheme.of(context).titleSmallIsCustom,
+                        ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleSmallFamily,
-                        fontSize: 14.0,
-                        letterSpacing: -0.35,
-                        fontWeight: FontWeight.w500,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                      ),
-                ),
-              ],
+                ].divide(SizedBox(height: 2.0)),
+              ),
             ),
           ),
-          Text(
-            '${functions.numFormat(valueOrDefault<String>(
-              widget!.sum?.toString(),
-              '0',
-            ))} €',
-            style: FlutterFlowTheme.of(context).titleMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
-                  letterSpacing: -0.63,
-                  fontWeight: FontWeight.bold,
-                  lineHeight: 1.5,
-                  useGoogleFonts:
-                      !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                ),
+          Flexible(
+            flex: 2,
+            child: Align(
+              alignment: AlignmentDirectional(1.0, 0.0),
+              child: Text(
+                '${functions.numFormat(valueOrDefault<String>(
+                  widget!.sum?.toString(),
+                  '0',
+                ))} €',
+                style: FlutterFlowTheme.of(context).titleMedium.override(
+                      fontFamily:
+                          FlutterFlowTheme.of(context).titleMediumFamily,
+                      letterSpacing: -0.63,
+                      fontWeight: FontWeight.bold,
+                      lineHeight: 1.5,
+                      useGoogleFonts:
+                          !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                    ),
+              ),
+            ),
           ),
-        ].divide(SizedBox(width: 16.0)),
+        ],
       ),
     );
   }

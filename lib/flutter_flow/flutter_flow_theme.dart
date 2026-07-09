@@ -294,7 +294,7 @@ class MobileTypography extends Typography {
         fontFamily: 'DM Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
-        fontSize: 38.0,
+        fontSize: 36.0,
       );
   String get headlineLargeFamily => 'DM Sans';
   bool get headlineLargeIsCustom => true;
@@ -755,7 +755,7 @@ extension TextStyleHelper on TextStyle {
     List<Shadow>? shadows,
     String? package,
   }) {
-    if (useGoogleFonts && fontFamily != null) {
+    if (useGoogleFonts && fontFamily != null && fontFamily.isNotEmpty) {
       font = GoogleFonts.getFont(fontFamily,
           fontWeight: fontWeight ?? this.fontWeight,
           fontStyle: fontStyle ?? this.fontStyle);

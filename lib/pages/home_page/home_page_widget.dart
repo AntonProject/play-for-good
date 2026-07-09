@@ -103,7 +103,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       if (!FFAppState().hasGuestGetLichtwatt && !loggedIn) {
         await Future.delayed(
           Duration(
-            milliseconds: 3500,
+            milliseconds: 7000,
           ),
         );
         await showModalBottomSheet(
@@ -715,6 +715,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .recent.name,
                                                             ParamType.String,
                                                           ),
+                                                          'tab': serializeParam(
+                                                            1,
+                                                            ParamType.int,
+                                                          ),
                                                         }.withoutNulls,
                                                         extra: <String,
                                                             dynamic>{
@@ -801,7 +805,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       e.createdAt,
                                                                   desc: true)
                                                               .toList()
-                                                              .take(10)
+                                                              .take(5)
                                                               .toList();
 
                                                           return SingleChildScrollView(
@@ -1042,7 +1046,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
-                                                                            8.0,
+                                                                            0.0,
                                                                             16.0),
                                                                     child:
                                                                         InkWell(
@@ -1132,8 +1136,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsets.all(
-                                                                    16.0),
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        16.0,
+                                                                        16.0,
+                                                                        16.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1182,7 +1190,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                 useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                               ),
                                                                         ),
-                                                                      AutoSizeText(
+                                                                      Text(
                                                                         valueOrDefault<
                                                                             String>(
                                                                           !valueOrDefault<bool>(
@@ -1195,19 +1203,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           'Neue Organisation',
                                                                         ),
                                                                         maxLines:
-                                                                            1,
+                                                                            2,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .titleSmall
                                                                             .override(
                                                                               fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                              fontSize: 16.0,
                                                                               letterSpacing: valueOrDefault<double>(
                                                                                 -0.4,
                                                                                 -0.4,
                                                                               ),
                                                                               fontWeight: FontWeight.bold,
-                                                                              lineHeight: 1.5,
+                                                                              lineHeight: 1.1,
                                                                               useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
                                                                             ),
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis,
                                                                       ),
                                                                       if (valueOrDefault<
                                                                           bool>(
@@ -1218,20 +1229,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       ))
                                                                         Text(
                                                                           'Als Nächstes unterstützen',
+                                                                          maxLines:
+                                                                              3,
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
+                                                                              .titleSmall
                                                                               .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: valueOrDefault<double>(
                                                                                   -0.35,
                                                                                   -0.35,
                                                                                 ),
-                                                                                lineHeight: 1.5,
-                                                                                useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                                lineHeight: 1.1,
+                                                                                useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
                                                                               ),
+                                                                          overflow:
+                                                                              TextOverflow.ellipsis,
                                                                         ),
-                                                                    ],
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            2.0)),
                                                                   ),
                                                                 ),
                                                                 Container(
@@ -1505,30 +1523,42 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         ),
                                                       ),
                                                       Expanded(
-                                                        child: Text(
-                                                          'Hilfe & Feedback',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily,
-                                                                letterSpacing:
-                                                                    valueOrDefault<
-                                                                        double>(
-                                                                  -0.4,
-                                                                  -0.4,
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Hilfe & Feedback',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      valueOrDefault<
+                                                                          double>(
+                                                                    -0.4,
+                                                                    -0.4,
+                                                                  ),
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  lineHeight:
+                                                                      1.5,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmallIsCustom,
                                                                 ),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                lineHeight: 1.5,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmallIsCustom,
-                                                              ),
+                                                          ),
                                                         ),
                                                       ),
                                                       Padding(

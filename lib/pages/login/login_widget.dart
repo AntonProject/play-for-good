@@ -302,7 +302,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 4.0)),
+                                        ].divide(SizedBox(width: 16.0)),
                                       ),
                                     ),
                                   ),

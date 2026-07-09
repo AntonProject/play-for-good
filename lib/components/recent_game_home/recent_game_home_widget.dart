@@ -294,7 +294,7 @@ class _RecentGameHomeWidgetState extends State<RecentGameHomeWidget> {
                 alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 2.0),
                   child: Text(
                     valueOrDefault<String>(
                       widget!.game?.title,
@@ -307,7 +307,7 @@ class _RecentGameHomeWidgetState extends State<RecentGameHomeWidget> {
                           fontSize: 16.0,
                           letterSpacing: -0.4,
                           fontWeight: FontWeight.bold,
-                          lineHeight: 1.5,
+                          lineHeight: 1.1,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).titleSmallIsCustom,
                         ),

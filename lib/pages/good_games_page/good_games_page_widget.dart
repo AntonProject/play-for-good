@@ -31,11 +31,14 @@ class GoodGamesPageWidget extends StatefulWidget {
     super.key,
     String? periodGames,
     String? valueGames,
+    int? tab,
   })  : this.periodGames = periodGames ?? 'gesamt',
-        this.valueGames = valueGames ?? 'valuable';
+        this.valueGames = valueGames ?? 'valuable',
+        this.tab = tab ?? 2;
 
   final String periodGames;
   final String valueGames;
+  final int tab;
 
   static String routeName = 'GoodGamesPage';
   static String routePath = '/goodGamesPage';
@@ -56,6 +59,11 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.wait([]);
+      if (widget!.tab != null) {
+        _model.tab = widget!.tab;
+        safeSetState(() {});
+      }
       await actions.setStatusBarColor(
         false,
       );
@@ -839,11 +847,11 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                                 ),
                                                                                               ),
                                                                                               Expanded(
-                                                                                                flex: 4,
+                                                                                                flex: 5,
                                                                                                 child: Align(
-                                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                                   child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                                     child: Text(
                                                                                                       'Details',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -859,7 +867,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                                 ),
                                                                                               ),
                                                                                               Expanded(
-                                                                                                flex: 2,
+                                                                                                flex: 3,
                                                                                                 child: Align(
                                                                                                   alignment: AlignmentDirectional(1.0, 0.0),
                                                                                                   child: Padding(
@@ -883,7 +891,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                                 child: Align(
                                                                                                   alignment: AlignmentDirectional(0.0, 0.0),
                                                                                                   child: Padding(
-                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
+                                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                                                                     child: Text(
                                                                                                       'Good Power',
                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1022,6 +1030,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                                                       maxLines: 1,
                                                                                                                       style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                             fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                                                            fontSize: 18.0,
                                                                                                                             letterSpacing: -0.4,
                                                                                                                             fontWeight: FontWeight.bold,
                                                                                                                             lineHeight: 1.5,
@@ -2517,11 +2526,11 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                             ),
                                                                                           ),
                                                                                           Expanded(
-                                                                                            flex: 4,
+                                                                                            flex: 5,
                                                                                             child: Align(
-                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                                                 child: Text(
                                                                                                   'Details',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2537,7 +2546,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                             ),
                                                                                           ),
                                                                                           Expanded(
-                                                                                            flex: 2,
+                                                                                            flex: 3,
                                                                                             child: Align(
                                                                                               alignment: AlignmentDirectional(1.0, 0.0),
                                                                                               child: Padding(
@@ -2561,7 +2570,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                             child: Align(
                                                                                               alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 24.0, 0.0),
+                                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                                                                 child: Text(
                                                                                                   'Good Power',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2700,6 +2709,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                                                   maxLines: 1,
                                                                                                                   style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                                                         fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                                                        fontSize: 18.0,
                                                                                                                         letterSpacing: -0.4,
                                                                                                                         fontWeight: FontWeight.bold,
                                                                                                                         lineHeight: 1.5,
@@ -3343,7 +3353,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                                   '#',
                                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                         fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                        fontSize: 12.0,
+                                                                                                        fontSize: 14.0,
                                                                                                         letterSpacing: -0.24,
                                                                                                         fontWeight: FontWeight.bold,
                                                                                                         lineHeight: 1.5,
@@ -3358,7 +3368,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                               'Name',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                    fontSize: 12.0,
+                                                                                                    fontSize: 14.0,
                                                                                                     letterSpacing: -0.24,
                                                                                                     fontWeight: FontWeight.bold,
                                                                                                     lineHeight: 1.5,
@@ -3396,7 +3406,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                                                               maxLines: 1,
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                    fontSize: 12.0,
+                                                                                                    fontSize: 14.0,
                                                                                                     letterSpacing: -0.24,
                                                                                                     fontWeight: FontWeight.bold,
                                                                                                     lineHeight: 1.5,
@@ -3669,7 +3679,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                                 ),
-                                                fontSize: 14.0,
+                                                fontSize: 16.0,
                                                 letterSpacing: -0.35,
                                                 fontWeight: FontWeight.w600,
                                                 lineHeight: 1.5,
@@ -3725,6 +3735,7 @@ class _GoodGamesPageWidgetState extends State<GoodGamesPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                                 ),
+                                                fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(

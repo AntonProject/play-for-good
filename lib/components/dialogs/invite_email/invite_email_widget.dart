@@ -593,7 +593,7 @@ class _InviteEmailWidgetState extends State<InviteEmailWidget> {
                                                 backgroundColor:
                                                     Colors.transparent,
                                                 alignment: AlignmentDirectional(
-                                                        0.0, -0.5)
+                                                        0.0, -1.0)
                                                     .resolve(Directionality.of(
                                                         context)),
                                                 child: SnackBarLightErrorWidget(

@@ -49,8 +49,12 @@ class PlayPageModel extends FlutterFlowModel<PlayPageWidget> {
 
   bool visible = true;
 
+  int? gamesCount = 0;
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - gamesCount] action in PlayPage widget.
+  int? gamesUserCount;
   Stream<List<UsersRow>>? stackSupabaseStream;
   // State field(s) for Column widget.
   ScrollController? columnController1;

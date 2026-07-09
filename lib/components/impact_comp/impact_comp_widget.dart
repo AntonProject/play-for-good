@@ -144,88 +144,99 @@ class _ImpactCompWidgetState extends State<ImpactCompWidget> {
                 ),
               ),
               Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      dateTimeFormat(
-                        "dd.MM.yyyy",
-                        widget!.game!.gameDate!,
-                        locale: FFLocalizations.of(context).languageCode,
+                flex: 6,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        dateTimeFormat(
+                          "dd.MM.yyyy",
+                          widget!.game!.gameDate!,
+                          locale: FFLocalizations.of(context).languageCode,
+                        ),
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 12.0,
+                              letterSpacing: -0.24,
+                              lineHeight: 1.2,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .titleSmallIsCustom,
+                            ),
                       ),
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 12.0,
-                            letterSpacing: -0.24,
-                            lineHeight: 1.5,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .titleSmallIsCustom,
-                          ),
-                    ),
-                    Text(
-                      valueOrDefault<String>(
-                        widget!.game?.title,
-                        'unnamed',
+                      Text(
+                        valueOrDefault<String>(
+                          widget!.game?.title,
+                          'unnamed',
+                        ),
+                        maxLines: 3,
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displaySmallFamily,
+                                  fontSize: 16.0,
+                                  letterSpacing: -0.4,
+                                  lineHeight: 1.1,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .displaySmallIsCustom,
+                                ),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 3,
-                      style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).displaySmallFamily,
-                            fontSize: 16.0,
-                            letterSpacing: -0.4,
-                            lineHeight: 1.5,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .displaySmallIsCustom,
-                          ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Text(
-                      valueOrDefault<String>(
-                        rowOrganizationRow?.title,
-                        'unnamed',
+                      Text(
+                        valueOrDefault<String>(
+                          rowOrganizationRow?.title,
+                          'unnamed',
+                        ),
+                        maxLines: 4,
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 14.0,
+                              letterSpacing: -0.35,
+                              lineHeight: 1.2,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .titleSmallIsCustom,
+                            ),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 3,
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            fontSize: 14.0,
-                            letterSpacing: -0.35,
-                            lineHeight: 1.5,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .titleSmallIsCustom,
-                          ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+                    ].divide(SizedBox(height: 2.0)),
+                  ),
                 ),
               ),
-              Text(
-                '${valueOrDefault<String>(
-                  functions.numFormat(valueOrDefault<String>(
-                    ((widget!.game!.userMoney!) +
-                            (widget!.game!.teamMoney!) +
-                            (widget!.game!.siegMoney!) +
-                            (widget!.game!.additionalDonationMoney!))
-                        .toString(),
-                    '0',
-                  )),
-                  '0',
-                )} €',
-                style: FlutterFlowTheme.of(context).displaySmall.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).displaySmallFamily,
-                      fontSize: 16.0,
-                      letterSpacing: -0.4,
-                      lineHeight: 1.5,
-                      useGoogleFonts:
-                          !FlutterFlowTheme.of(context).displaySmallIsCustom,
-                    ),
+              Flexible(
+                flex: 2,
+                child: Align(
+                  alignment: AlignmentDirectional(1.0, 0.0),
+                  child: Text(
+                    '${valueOrDefault<String>(
+                      functions.numFormat(valueOrDefault<String>(
+                        ((widget!.game!.userMoney!) +
+                                (widget!.game!.teamMoney!) +
+                                (widget!.game!.siegMoney!) +
+                                (widget!.game!.additionalDonationMoney!))
+                            .toString(),
+                        '0',
+                      )),
+                      '0',
+                    )} €',
+                    style: FlutterFlowTheme.of(context).displaySmall.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).displaySmallFamily,
+                          fontSize: 16.0,
+                          letterSpacing: -0.4,
+                          lineHeight: 1.5,
+                          useGoogleFonts: !FlutterFlowTheme.of(context)
+                              .displaySmallIsCustom,
+                        ),
+                  ),
+                ),
               ),
-            ].divide(SizedBox(width: 16.0)),
+            ],
           ),
         );
       },

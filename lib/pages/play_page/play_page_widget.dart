@@ -60,47 +60,62 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.setStatusBarColor(
-        false,
-      );
-      if (widget!.gameDT != null) {
-        _model.game = widget!.gameDT;
-        safeSetState(() {});
-        safeSetState(() {
-          _model.userPointsTextController1?.text =
-              functions.numFormat(widget!.gameDT!.userPoints.toString())!;
-        });
-        if (widget!.gameDT!.teamPoints > 0.0) {
-          safeSetState(() {
-            _model.teamPointsTextController1?.text =
-                functions.numFormat(widget!.gameDT!.teamPoints.toString())!;
-          });
-          _model.addToChosenPoints(PointsType.team.name);
-          safeSetState(() {});
-        }
-        if (widget!.gameDT!.siegPoints > 0.0) {
-          _model.addToChosenPoints(PointsType.sieg.name);
-          safeSetState(() {});
-        }
-      } else {
-        _model.game = GameStruct(
-          userPoints: 0.0,
-          teamPoints: 0.0,
-          siegPoints: 0.0,
-          userMoney: 0.0,
-          teamMoney: 0.0,
-          siegMoney: 0.0,
-          userMoneyRate: 1.0,
-          teamMoneyRate: 1.0,
-          siegMoneyRate: 1.0,
-          sponsorMoney: 0.0,
-          donatMoney: 0.0,
-          sponsorPoints: 0.0,
-          sponsorRate: 0.1,
-        );
-        safeSetState(() {});
-      }
-
+      await Future.wait([
+        Future(() async {
+          await actions.setStatusBarColor(
+            false,
+          );
+        }),
+        Future(() async {
+          if (widget!.gameDT != null) {
+            _model.game = widget!.gameDT;
+            safeSetState(() {});
+            safeSetState(() {
+              _model.userPointsTextController1?.text =
+                  functions.numFormat(widget!.gameDT!.userPoints.toString())!;
+            });
+            if (widget!.gameDT!.teamPoints > 0.0) {
+              safeSetState(() {
+                _model.teamPointsTextController1?.text =
+                    functions.numFormat(widget!.gameDT!.teamPoints.toString())!;
+              });
+              _model.addToChosenPoints(PointsType.team.name);
+              safeSetState(() {});
+            }
+            if (widget!.gameDT!.siegPoints > 0.0) {
+              _model.addToChosenPoints(PointsType.sieg.name);
+              safeSetState(() {});
+            }
+          } else {
+            _model.game = GameStruct(
+              userPoints: 0.0,
+              teamPoints: 0.0,
+              siegPoints: 0.0,
+              userMoney: 0.0,
+              teamMoney: 0.0,
+              siegMoney: 0.0,
+              userMoneyRate: 1.0,
+              teamMoneyRate: 1.0,
+              siegMoneyRate: 1.0,
+              sponsorMoney: 0.0,
+              donatMoney: 0.0,
+              sponsorPoints: 0.0,
+              sponsorRate: 0.1,
+            );
+            safeSetState(() {});
+          }
+        }),
+        Future(() async {
+          if (loggedIn) {
+            _model.gamesUserCount = await actions.gamesCount(
+              currentUserUid,
+            );
+            _model.gamesCount = _model.gamesUserCount;
+            safeSetState(() {});
+            safeSetState(() {});
+          }
+        }),
+      ]);
       unawaited(
         () async {
           await actions.closeKeyboard(
@@ -364,6 +379,7 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                           : 'Game #${((stackUsersRow!.gamesCount!) + 1).toString()}',
                                                       'Game #1',
                                                     ),
+                                                    textAlign: TextAlign.center,
                                                     maxLines: 3,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1711,88 +1727,115 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                   ),
                                                 ),
                                               ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24.0, 36.0,
-                                                          24.0, 0.0),
-                                                  child: Text(
-                                                    'Deine Sponsoren',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 18.0,
-                                                          letterSpacing:
-                                                              valueOrDefault<
-                                                                  double>(
-                                                            -0.63,
-                                                            -0.63,
-                                                          ),
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          lineHeight: 1.4,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 8.0, 12.0, 0.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  constraints: BoxConstraints(
-                                                    minHeight: 106.0,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            16.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 4.0,
-                                                                12.0, 4.0),
-                                                    child: wrapWithModel(
-                                                      model: _model
-                                                          .pfgOrgSumModel1,
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      updateOnChange: true,
-                                                      child: PfgOrgSumWidget(
-                                                        text:
-                                                            '0,10 € je eigener Punkt\n5 Games, max. 2 €/Game ',
-                                                        sum: valueOrDefault<
-                                                            double>(
-                                                          (_model.game!.userPoints *
-                                                                      0.1) >
-                                                                  2.0
-                                                              ? 2.0
-                                                              : (_model.game!
-                                                                      .userPoints *
-                                                                  0.1),
-                                                          0.0,
+                                              if (_model.gamesCount! < 5)
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    36.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'Deine Sponsoren',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontSize: 18.0,
+                                                                letterSpacing:
+                                                                    valueOrDefault<
+                                                                        double>(
+                                                                  -0.63,
+                                                                  -0.63,
+                                                                ),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                lineHeight: 1.4,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  8.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        constraints:
+                                                            BoxConstraints(
+                                                          minHeight: 106.0,
+                                                        ),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      4.0,
+                                                                      12.0,
+                                                                      4.0),
+                                                          child: wrapWithModel(
+                                                            model: _model
+                                                                .pfgOrgSumModel1,
+                                                            updateCallback: () =>
+                                                                safeSetState(
+                                                                    () {}),
+                                                            updateOnChange:
+                                                                true,
+                                                            child:
+                                                                PfgOrgSumWidget(
+                                                              text:
+                                                                  '0,10 € je eigener Punkt\n5 Games, max. 2 €/Game ',
+                                                              sum:
+                                                                  valueOrDefault<
+                                                                      double>(
+                                                                (_model.game!.userPoints *
+                                                                            0.1) >
+                                                                        2.0
+                                                                    ? 2.0
+                                                                    : (_model
+                                                                            .game!
+                                                                            .userPoints *
+                                                                        0.1),
+                                                                0.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ),
                                             ],
                                           ),
                                         ),
@@ -2161,18 +2204,30 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                               ..sponsorMoney =
                                                                   valueOrDefault<
                                                                       double>(
-                                                                (_model.game!.userPoints *
-                                                                            0.1) >
-                                                                        2.0
-                                                                    ? 2.0
-                                                                    : (_model
+                                                                () {
+                                                                  if (_model
+                                                                          .gamesCount! >=
+                                                                      5) {
+                                                                    return 0.0;
+                                                                  } else if ((_model
+                                                                              .game!
+                                                                              .userPoints *
+                                                                          0.1) >
+                                                                      2.0) {
+                                                                    return 2.0;
+                                                                  } else {
+                                                                    return (_model
                                                                             .game!
                                                                             .userPoints *
-                                                                        0.1),
+                                                                        0.1);
+                                                                  }
+                                                                }(),
                                                                 0.0,
                                                               )
-                                                              ..sponsorPoints =
-                                                                  valueOrDefault<
+                                                              ..sponsorPoints = _model
+                                                                          .gamesCount! <
+                                                                      5
+                                                                  ? (valueOrDefault<
                                                                           double>(
                                                                         (_model.game!.userPoints * 0.1) >
                                                                                 2.0
@@ -2183,7 +2238,8 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                                       ) /
                                                                       _model
                                                                           .game!
-                                                                          .sponsorRate,
+                                                                          .sponsorRate)
+                                                                  : 0.0,
                                                           );
                                                           safeSetState(() {});
                                                           unawaited(
@@ -2553,6 +2609,7 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                       : 'Game #1',
                                                   'Game #1',
                                                 ),
+                                                textAlign: TextAlign.center,
                                                 maxLines: 3,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -2834,6 +2891,7 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                                               'Eigene Punkte',
                                                                               style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                    fontSize: 18.0,
                                                                                     letterSpacing: valueOrDefault<double>(
                                                                                       -0.4,
                                                                                       -0.4,
@@ -3211,6 +3269,7 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                                               'Team-Punkte',
                                                                               style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                    fontSize: 18.0,
                                                                                     letterSpacing: valueOrDefault<double>(
                                                                                       -0.4,
                                                                                       -0.4,
@@ -3586,6 +3645,7 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                                               'Sieg',
                                                                               style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                    fontSize: 18.0,
                                                                                     letterSpacing: valueOrDefault<double>(
                                                                                       -0.4,
                                                                                       -0.4,
@@ -3975,84 +4035,102 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                               ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 36.0, 24.0, 0.0),
-                                              child: Text(
-                                                'Deine Sponsoren',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 18.0,
-                                                          letterSpacing:
-                                                              valueOrDefault<
-                                                                  double>(
-                                                            -0.63,
-                                                            -0.63,
+                                          if (_model.gamesCount! < 5)
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                24.0,
+                                                                36.0,
+                                                                24.0,
+                                                                0.0),
+                                                    child: Text(
+                                                      'Deine Sponsoren',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            fontSize: 18.0,
+                                                            letterSpacing:
+                                                                valueOrDefault<
+                                                                    double>(
+                                                              -0.63,
+                                                              -0.63,
+                                                            ),
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            lineHeight: 1.4,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
                                                           ),
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          lineHeight: 1.4,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 8.0, 12.0, 0.0),
-                                            child: Container(
-                                              width: double.infinity,
-                                              constraints: BoxConstraints(
-                                                minHeight: 106.0,
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 4.0, 12.0, 4.0),
-                                                child: wrapWithModel(
-                                                  model: _model.pfgOrgSumModel2,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  updateOnChange: true,
-                                                  child: PfgOrgSumWidget(
-                                                    text:
-                                                        '0,10 € je eigener Punkt\n5 Games, max. 2 €/Game ',
-                                                    sum: valueOrDefault<double>(
-                                                      (_model.game!.userPoints *
-                                                                  0.1) >
-                                                              2.0
-                                                          ? 2.0
-                                                          : (_model.game!
-                                                                  .userPoints *
-                                                              0.1),
-                                                      0.0,
                                                     ),
                                                   ),
                                                 ),
-                                              ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 8.0, 12.0, 0.0),
+                                                  child: Container(
+                                                    width: double.infinity,
+                                                    constraints: BoxConstraints(
+                                                      minHeight: 106.0,
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  4.0,
+                                                                  12.0,
+                                                                  4.0),
+                                                      child: wrapWithModel(
+                                                        model: _model
+                                                            .pfgOrgSumModel2,
+                                                        updateCallback: () =>
+                                                            safeSetState(() {}),
+                                                        updateOnChange: true,
+                                                        child: PfgOrgSumWidget(
+                                                          text:
+                                                              '0,10 € je eigener Punkt\n5 Games, max. 2 €/Game ',
+                                                          sum: valueOrDefault<
+                                                              double>(
+                                                            (_model.game!.userPoints *
+                                                                        0.1) >
+                                                                    2.0
+                                                                ? 2.0
+                                                                : (_model.game!
+                                                                        .userPoints *
+                                                                    0.1),
+                                                            0.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ),
                                         ],
                                       ),
                                     ),
@@ -4408,17 +4486,30 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                           ..sponsorMoney =
                                                               valueOrDefault<
                                                                   double>(
-                                                            (_model.game!.userPoints *
-                                                                        0.1) >
-                                                                    2.0
-                                                                ? 2.0
-                                                                : (_model.game!
+                                                            () {
+                                                              if (_model
+                                                                      .gamesCount! >=
+                                                                  5) {
+                                                                return 0.0;
+                                                              } else if ((_model
+                                                                          .game!
+                                                                          .userPoints *
+                                                                      0.1) >
+                                                                  2.0) {
+                                                                return 2.0;
+                                                              } else {
+                                                                return (_model
+                                                                        .game!
                                                                         .userPoints *
-                                                                    0.1),
+                                                                    0.1);
+                                                              }
+                                                            }(),
                                                             0.0,
                                                           )
-                                                          ..sponsorPoints =
-                                                              valueOrDefault<
+                                                          ..sponsorPoints = _model
+                                                                      .gamesCount! <
+                                                                  5
+                                                              ? (valueOrDefault<
                                                                       double>(
                                                                     (_model.game!.userPoints *
                                                                                 0.1) >
@@ -4429,7 +4520,8 @@ class _PlayPageWidgetState extends State<PlayPageWidget> {
                                                                     0.0,
                                                                   ) /
                                                                   _model.game!
-                                                                      .sponsorRate,
+                                                                      .sponsorRate)
+                                                              : 0.0,
                                                       );
                                                       safeSetState(() {});
                                                       unawaited(

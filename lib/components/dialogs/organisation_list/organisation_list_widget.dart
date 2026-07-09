@@ -357,7 +357,8 @@ class _OrganisationListWidgetState extends State<OrganisationListWidget> {
                                                       _model
                                                           .searchTextController
                                                           .text,
-                                                      null)
+                                                      null,
+                                                      '')
                                                   ?.toList() ??
                                               [];
                                           if (containerVar.isEmpty) {

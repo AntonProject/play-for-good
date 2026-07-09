@@ -81,6 +81,7 @@ class _TeamSumWidgetState extends State<TeamSumWidget> {
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).titleSmallFamily,
+                        fontSize: 16.0,
                         letterSpacing: valueOrDefault<double>(
                           -0.4,
                           -0.4,

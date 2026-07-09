@@ -128,9 +128,10 @@ class _PfgOrgSumWidgetState extends State<PfgOrgSumWidget> {
                   ),
                 ),
                 Expanded(
+                  flex: 6,
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 4.0, 16.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -147,12 +148,13 @@ class _PfgOrgSumWidgetState extends State<PfgOrgSumWidget> {
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .titleSmallFamily,
+                                fontSize: 16.0,
                                 letterSpacing: valueOrDefault<double>(
                                   -0.4,
                                   -0.4,
                                 ),
                                 fontWeight: FontWeight.bold,
-                                lineHeight: 1.5,
+                                lineHeight: 1.1,
                                 useGoogleFonts: !FlutterFlowTheme.of(context)
                                     .titleSmallIsCustom,
                               ),
@@ -163,6 +165,7 @@ class _PfgOrgSumWidgetState extends State<PfgOrgSumWidget> {
                             widget!.text,
                             'Freiwilliger Beitrag',
                           ),
+                          maxLines: 4,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -173,37 +176,44 @@ class _PfgOrgSumWidgetState extends State<PfgOrgSumWidget> {
                                 fontSize: 14.0,
                                 letterSpacing: -0.35,
                                 fontWeight: FontWeight.w500,
-                                lineHeight: 1.5,
+                                lineHeight: 1.2,
                                 useGoogleFonts: !FlutterFlowTheme.of(context)
                                     .bodyMediumIsCustom,
                               ),
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      ],
+                      ].divide(SizedBox(height: 2.0)),
                     ),
                   ),
                 ),
-                Text(
-                  '${valueOrDefault<String>(
-                    functions.numFormat(valueOrDefault<String>(
-                      widget!.sum?.toString(),
-                      '0',
-                    )),
-                    '0',
-                  )} €',
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
-                        letterSpacing: valueOrDefault<double>(
-                          -0.63,
-                          -0.63,
-                        ),
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                      ),
+                Flexible(
+                  flex: 2,
+                  child: Align(
+                    alignment: AlignmentDirectional(1.0, 0.0),
+                    child: Text(
+                      '${valueOrDefault<String>(
+                        functions.numFormat(valueOrDefault<String>(
+                          widget!.sum?.toString(),
+                          '0',
+                        )),
+                        '0',
+                      )} €',
+                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleMediumFamily,
+                            letterSpacing: valueOrDefault<double>(
+                              -0.63,
+                              -0.63,
+                            ),
+                            fontWeight: FontWeight.bold,
+                            lineHeight: 1.5,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .titleMediumIsCustom,
+                          ),
+                    ),
+                  ),
                 ),
-              ].divide(SizedBox(width: 16.0)),
+              ],
             ),
           );
         },

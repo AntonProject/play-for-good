@@ -128,191 +128,207 @@ class _OrgCompHomeWidgetState extends State<OrgCompHomeWidget> {
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        dateTimeFormat(
-                          "dd.MM.yyyy",
-                          widget!.game!.createdAt,
-                          locale: FFLocalizations.of(context).languageCode,
-                        ),
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).titleSmallFamily,
-                              color: FlutterFlowTheme.of(context).primaryText75,
-                              fontSize: 12.0,
-                              letterSpacing: valueOrDefault<double>(
-                                -0.24,
-                                -0.24,
+                  flex: 6,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 4.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          dateTimeFormat(
+                            "dd.MM.yyyy",
+                            widget!.game!.createdAt,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryText75,
+                                fontSize: 12.0,
+                                letterSpacing: valueOrDefault<double>(
+                                  -0.24,
+                                  -0.24,
+                                ),
+                                fontWeight: FontWeight.w500,
+                                lineHeight: 1.5,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .titleSmallIsCustom,
                               ),
-                              fontWeight: FontWeight.w500,
-                              lineHeight: 1.5,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .titleSmallIsCustom,
-                            ),
-                      ),
-                      Text(
-                        valueOrDefault<String>(
-                          rowOrganizationRow?.title,
-                          'unnamed',
                         ),
-                        maxLines: 3,
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).titleSmallFamily,
-                              letterSpacing: valueOrDefault<double>(
-                                -0.4,
-                                -0.4,
+                        Text(
+                          valueOrDefault<String>(
+                            rowOrganizationRow?.title,
+                            'unnamed',
+                          ),
+                          maxLines: 4,
+                          style: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                fontSize: 16.0,
+                                letterSpacing: valueOrDefault<double>(
+                                  -0.4,
+                                  -0.4,
+                                ),
+                                fontWeight: FontWeight.bold,
+                                lineHeight: 1.1,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .titleSmallIsCustom,
                               ),
-                              fontWeight: FontWeight.bold,
-                              lineHeight: 1.5,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .titleSmallIsCustom,
-                            ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        'Kürzlich gesendet ${valueOrDefault<String>(
-                          functions.numFormat(valueOrDefault<String>(
-                            (valueOrDefault<double>(
-                                      widget!.games
-                                          ?.where((e) =>
-                                              (e.organizationId ==
-                                                  widget!
-                                                      .game?.organizationId) &&
-                                              ((e.status == 'completed') &&
-                                                  (e.creatorUserId ==
-                                                      currentUserUid)))
-                                          .toList()
-                                          ?.lastOrNull
-                                          ?.userMoney,
-                                      0.0,
-                                    ) +
-                                    valueOrDefault<double>(
-                                      widget!.games
-                                          ?.where((e) =>
-                                              (e.organizationId ==
-                                                  widget!
-                                                      .game?.organizationId) &&
-                                              ((e.status == 'completed') &&
-                                                  (e.creatorUserId ==
-                                                      currentUserUid)))
-                                          .toList()
-                                          ?.lastOrNull
-                                          ?.teamMoney,
-                                      0.0,
-                                    ) +
-                                    valueOrDefault<double>(
-                                      widget!.games
-                                          ?.where((e) =>
-                                              (e.organizationId ==
-                                                  widget!
-                                                      .game?.organizationId) &&
-                                              ((e.status == 'completed') &&
-                                                  (e.creatorUserId ==
-                                                      currentUserUid)))
-                                          .toList()
-                                          ?.lastOrNull
-                                          ?.siegMoney,
-                                      0.0,
-                                    ))
-                                .toString(),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          'Kürzlich gesendet ${valueOrDefault<String>(
+                            functions.numFormat(valueOrDefault<String>(
+                              (valueOrDefault<double>(
+                                        widget!.games
+                                            ?.where((e) =>
+                                                (e.organizationId ==
+                                                    widget!.game
+                                                        ?.organizationId) &&
+                                                ((e.status == 'completed') &&
+                                                    (e.creatorUserId ==
+                                                        currentUserUid)))
+                                            .toList()
+                                            ?.lastOrNull
+                                            ?.userMoney,
+                                        0.0,
+                                      ) +
+                                      valueOrDefault<double>(
+                                        widget!.games
+                                            ?.where((e) =>
+                                                (e.organizationId ==
+                                                    widget!.game
+                                                        ?.organizationId) &&
+                                                ((e.status == 'completed') &&
+                                                    (e.creatorUserId ==
+                                                        currentUserUid)))
+                                            .toList()
+                                            ?.lastOrNull
+                                            ?.teamMoney,
+                                        0.0,
+                                      ) +
+                                      valueOrDefault<double>(
+                                        widget!.games
+                                            ?.where((e) =>
+                                                (e.organizationId ==
+                                                    widget!.game
+                                                        ?.organizationId) &&
+                                                ((e.status == 'completed') &&
+                                                    (e.creatorUserId ==
+                                                        currentUserUid)))
+                                            .toList()
+                                            ?.lastOrNull
+                                            ?.siegMoney,
+                                        0.0,
+                                      ))
+                                  .toString(),
+                              '0',
+                            )),
                             '0',
-                          )),
-                          '0',
-                        )} €'
-                            .maybeHandleOverflow(
-                          maxChars: 30,
-                          replacement: '…',
-                        ),
-                        maxLines: 1,
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).titleSmallFamily,
-                              fontSize: 14.0,
-                              letterSpacing: valueOrDefault<double>(
-                                -0.35,
-                                -0.35,
+                          )} €',
+                          maxLines: 4,
+                          style: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .titleSmallFamily,
+                                fontSize: 14.0,
+                                letterSpacing: valueOrDefault<double>(
+                                  -0.35,
+                                  -0.35,
+                                ),
+                                fontWeight: FontWeight.w500,
+                                lineHeight: 1.2,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .titleSmallIsCustom,
                               ),
-                              fontWeight: FontWeight.w500,
-                              lineHeight: 1.5,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .titleSmallIsCustom,
-                            ),
-                      ),
-                    ],
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ].divide(SizedBox(height: 2.0)),
+                    ),
                   ),
                 ),
-                Text(
-                  '${valueOrDefault<String>(
-                    functions.numFormat(valueOrDefault<String>(
-                      (valueOrDefault<double>(
-                                functions.totalSum(widget!.games
-                                    ?.where((e) =>
-                                        (e.organizationId ==
-                                            widget!.game?.organizationId) &&
-                                        ((e.status == 'completed') &&
-                                            (e.creatorUserId ==
-                                                currentUserUid)))
-                                    .toList()
-                                    ?.map((e) => e.userMoney)
-                                    .withoutNulls
-                                    .toList()
-                                    ?.toList()),
-                                0.0,
-                              ) +
-                              valueOrDefault<double>(
-                                functions.totalSum(widget!.games
-                                    ?.where((e) =>
-                                        (e.organizationId ==
-                                            widget!.game?.organizationId) &&
-                                        ((e.status == 'completed') &&
-                                            (e.creatorUserId ==
-                                                currentUserUid)))
-                                    .toList()
-                                    ?.map((e) => e.teamMoney)
-                                    .withoutNulls
-                                    .toList()
-                                    ?.toList()),
-                                0.0,
-                              ) +
-                              valueOrDefault<double>(
-                                functions.totalSum(widget!.games
-                                    ?.where((e) =>
-                                        (e.organizationId ==
-                                            widget!.game?.organizationId) &&
-                                        ((e.status == 'completed') &&
-                                            (e.creatorUserId ==
-                                                currentUserUid)))
-                                    .toList()
-                                    ?.map((e) => e.siegMoney)
-                                    .withoutNulls
-                                    .toList()
-                                    ?.toList()),
-                                0.0,
-                              ))
-                          .toString(),
-                      '0',
-                    )),
-                    '0',
-                  )} €',
-                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
-                        fontSize: 16.0,
-                        letterSpacing: valueOrDefault<double>(
-                          -0.4,
-                          -0.4,
-                        ),
-                        fontWeight: FontWeight.bold,
-                        lineHeight: 1.5,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                      ),
+                Flexible(
+                  flex: 2,
+                  child: Align(
+                    alignment: AlignmentDirectional(1.0, 0.0),
+                    child: Text(
+                      '${valueOrDefault<String>(
+                        functions.numFormat(valueOrDefault<String>(
+                          (valueOrDefault<double>(
+                                    functions.totalSum(widget!.games
+                                        ?.where((e) =>
+                                            (e.organizationId ==
+                                                widget!.game?.organizationId) &&
+                                            ((e.status == 'completed') &&
+                                                (e.creatorUserId ==
+                                                    currentUserUid)))
+                                        .toList()
+                                        ?.map((e) => e.userMoney)
+                                        .withoutNulls
+                                        .toList()
+                                        ?.toList()),
+                                    0.0,
+                                  ) +
+                                  valueOrDefault<double>(
+                                    functions.totalSum(widget!.games
+                                        ?.where((e) =>
+                                            (e.organizationId ==
+                                                widget!.game?.organizationId) &&
+                                            ((e.status == 'completed') &&
+                                                (e.creatorUserId ==
+                                                    currentUserUid)))
+                                        .toList()
+                                        ?.map((e) => e.teamMoney)
+                                        .withoutNulls
+                                        .toList()
+                                        ?.toList()),
+                                    0.0,
+                                  ) +
+                                  valueOrDefault<double>(
+                                    functions.totalSum(widget!.games
+                                        ?.where((e) =>
+                                            (e.organizationId ==
+                                                widget!.game?.organizationId) &&
+                                            ((e.status == 'completed') &&
+                                                (e.creatorUserId ==
+                                                    currentUserUid)))
+                                        .toList()
+                                        ?.map((e) => e.siegMoney)
+                                        .withoutNulls
+                                        .toList()
+                                        ?.toList()),
+                                    0.0,
+                                  ))
+                              .toString(),
+                          '0',
+                        )),
+                        '0',
+                      )} €',
+                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleMediumFamily,
+                            fontSize: 16.0,
+                            letterSpacing: valueOrDefault<double>(
+                              -0.4,
+                              -0.4,
+                            ),
+                            fontWeight: FontWeight.bold,
+                            lineHeight: 1.5,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .titleMediumIsCustom,
+                          ),
+                    ),
+                  ),
                 ),
-              ].divide(SizedBox(width: 16.0)),
+              ],
             ),
           );
         },

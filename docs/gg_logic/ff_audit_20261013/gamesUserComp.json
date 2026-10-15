@@ -1,0 +1,163 @@
+{
+  "kind": "component",
+  "name": "gamesUserComp",
+  "key": "Container_f1ihd94m",
+  "params": [
+    {
+      "name": "games",
+      "key": "wyj80m",
+      "type": "List<PostgresRow>"
+    },
+    {
+      "name": "invites",
+      "key": "4scwk7",
+      "type": "List<PostgresRow>"
+    },
+    {
+      "name": "period",
+      "key": "9p7rcr",
+      "type": "String",
+      "defaultValue": "gesamt"
+    },
+    {
+      "name": "rating",
+      "key": "phsgpm",
+      "type": "Integer",
+      "defaultValue": "1"
+    },
+    {
+      "name": "userId",
+      "key": "njtyqh",
+      "type": "String"
+    },
+    {
+      "name": "value",
+      "key": "sujgnr",
+      "type": "String",
+      "defaultValue": "valuable"
+    }
+  ],
+  "root": {
+    "key": "Container_f1ihd94m",
+    "type": "Container",
+    "path": "gamesUserComp",
+    "name": "gamesUserComp",
+    "children": [
+      {
+        "key": "Container_9xooiwg2",
+        "type": "Container",
+        "path": "gamesUserComp.children[0]",
+        "children": [
+          {
+            "key": "Row_za59pjqz",
+            "type": "Row",
+            "path": "gamesUserComp.children[0].children[0]",
+            "children": [
+              {
+                "key": "Container_rzgvzjsq",
+                "type": "Container",
+                "path": "gamesUserComp.children[0].children[0].children[0]"
+              },
+              {
+                "key": "Row_bddabz8e",
+                "type": "Row",
+                "path": "gamesUserComp.children[0].children[0].children[1]",
+                "triggers": [
+                  "ON_TAP"
+                ],
+                "children": [
+                  {
+                    "key": "Container_mx092mji",
+                    "type": "Container",
+                    "path": "gamesUserComp.children[0].children[0].children[1].children[0]",
+                    "children": [
+                      {
+                        "key": "Text_yttsso1d",
+                        "type": "Text",
+                        "path": "gamesUserComp.children[0].children[0].children[1].children[0].children[0]"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "Row_ky0exy13",
+                    "type": "Row",
+                    "path": "gamesUserComp.children[0].children[0].children[1].children[1]",
+                    "children": [
+                      {
+                        "key": "Container_msgfn523",
+                        "type": "Container",
+                        "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[0]",
+                        "children": [
+                          {
+                            "key": "Container_ggg9b52y",
+                            "type": "Container",
+                            "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[0].children[0]",
+                            "component": "Image"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "Column_pjg2kyqw",
+                        "type": "Column",
+                        "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1]",
+                        "children": [
+                          {
+                            "key": "Text_tnfcf2yg",
+                            "type": "Text",
+                            "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[0]"
+                          },
+                          {
+                            "key": "Row_7z1vdj6y",
+                            "type": "Row",
+                            "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1]",
+                            "children": [
+                              {
+                                "key": "Image_0vehu90a",
+                                "type": "Image",
+                                "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1].children[0]"
+                              },
+                              {
+                                "key": "Image_nzqe916o",
+                                "type": "Image",
+                                "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1].children[1]"
+                              },
+                              {
+                                "key": "Image_htydfn2a",
+                                "type": "Image",
+                                "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1].children[2]"
+                              },
+                              {
+                                "key": "Image_xxzxnlnx",
+                                "type": "Image",
+                                "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1].children[3]"
+                              },
+                              {
+                                "key": "Image_8c1rk6o5",
+                                "type": "Image",
+                                "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1].children[4]"
+                              },
+                              {
+                                "key": "Image_4yiaiipt",
+                                "type": "Image",
+                                "path": "gamesUserComp.children[0].children[0].children[1].children[1].children[1].children[1].children[5]"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "key": "Text_l3frcpxh",
+                    "type": "Text",
+                    "path": "gamesUserComp.children[0].children[0].children[1].children[2]"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

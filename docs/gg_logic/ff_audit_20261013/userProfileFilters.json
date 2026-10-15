@@ -1,0 +1,380 @@
+{
+  "kind": "component",
+  "name": "userProfileFilters",
+  "key": "Container_n1kuc7i2",
+  "params": [
+    {
+      "name": "period",
+      "key": "6d3bf7",
+      "type": "String",
+      "defaultValue": "gesamt"
+    },
+    {
+      "name": "update",
+      "key": "zc8lp0",
+      "type": "Action"
+    }
+  ],
+  "stateFields": [
+    {
+      "name": "periodState",
+      "key": "ub024",
+      "type": "String",
+      "defaultValue": "gesamt"
+    }
+  ],
+  "root": {
+    "key": "Container_n1kuc7i2",
+    "type": "Container",
+    "path": "userProfileFilters",
+    "name": "userProfileFilters",
+    "triggers": [
+      "ON_INIT_STATE"
+    ],
+    "children": [
+      {
+        "key": "Column_acpicm1w",
+        "type": "Column",
+        "path": "userProfileFilters.children[0]",
+        "triggers": [
+          "ON_TAP"
+        ],
+        "children": [
+          {
+            "key": "Container_lzpa8277",
+            "type": "Container",
+            "path": "userProfileFilters.children[0].children[0]",
+            "children": [
+              {
+                "key": "Container_2p4abf2m",
+                "type": "Container",
+                "path": "userProfileFilters.children[0].children[0].children[0]",
+                "children": [
+                  {
+                    "key": "Column_uojgp1vg",
+                    "type": "Column",
+                    "path": "userProfileFilters.children[0].children[0].children[0].children[0]",
+                    "children": [
+                      {
+                        "key": "Row_612iyyxn",
+                        "type": "Row",
+                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[0]",
+                        "children": [
+                          {
+                            "key": "Container_8dxiyop8",
+                            "type": "Container",
+                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[0].children[0]",
+                            "children": [
+                              {
+                                "key": "IconButton_rttu0uls",
+                                "type": "IconButton",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[0].children[0].children[0]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "key": "Text_g2wmgy8q",
+                            "type": "Text",
+                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[0].children[1]",
+                            "text": "Zeitrahmen"
+                          },
+                          {
+                            "key": "Container_cbqw7v29",
+                            "type": "Container",
+                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[0].children[2]",
+                            "children": [
+                              {
+                                "key": "IconButton_1xnvcpmt",
+                                "type": "IconButton",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[0].children[2].children[0]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "key": "Container_1wj2lz97",
+                        "type": "Container",
+                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1]",
+                        "children": [
+                          {
+                            "key": "Column_c1vf1cvl",
+                            "type": "Column",
+                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0]",
+                            "children": [
+                              {
+                                "key": "Row_1ys63o4d",
+                                "type": "Row",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ],
+                                "children": [
+                                  {
+                                    "key": "Text_b28zv917",
+                                    "type": "Text",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[0]",
+                                    "text": "Saison 2026/27"
+                                  },
+                                  {
+                                    "key": "ConditionalBuilder_vqelk5hy",
+                                    "type": "ConditionalBuilder",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[1]",
+                                    "children": [
+                                      {
+                                        "key": "PlaceholderWidget_59bpg2y0",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[1].children[0]",
+                                        "children": [
+                                          {
+                                            "key": "Container_sll3o53f",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[1].children[0].children[0]"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "key": "PlaceholderWidget_1494gep9",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[1].children[1]",
+                                        "children": [
+                                          {
+                                            "key": "Container_xos8unvc",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[1].children[1].children[0]"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "key": "Divider_m2voytep",
+                                "type": "Divider",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[1]"
+                              },
+                              {
+                                "key": "Row_8up2b7lw",
+                                "type": "Row",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ],
+                                "children": [
+                                  {
+                                    "key": "Text_lzezfm3v",
+                                    "type": "Text",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2].children[0]",
+                                    "text": "Saison 2025/26"
+                                  },
+                                  {
+                                    "key": "ConditionalBuilder_m649l1kl",
+                                    "type": "ConditionalBuilder",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2].children[1]",
+                                    "children": [
+                                      {
+                                        "key": "PlaceholderWidget_rmb6hzno",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2].children[1].children[0]",
+                                        "children": [
+                                          {
+                                            "key": "Container_e5o4le9m",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2].children[1].children[0].children[0]"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "key": "PlaceholderWidget_7yqql4zk",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2].children[1].children[1]",
+                                        "children": [
+                                          {
+                                            "key": "Container_z9i90dev",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[2].children[1].children[1].children[0]"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "key": "Divider_hirr4iff",
+                                "type": "Divider",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[3]"
+                              },
+                              {
+                                "key": "Row_nipjvnie",
+                                "type": "Row",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ],
+                                "children": [
+                                  {
+                                    "key": "Text_s2qdgx12",
+                                    "type": "Text",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4].children[0]",
+                                    "text": "Letzten Monat"
+                                  },
+                                  {
+                                    "key": "ConditionalBuilder_llzx6z0k",
+                                    "type": "ConditionalBuilder",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4].children[1]",
+                                    "children": [
+                                      {
+                                        "key": "PlaceholderWidget_8y3lb2g8",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4].children[1].children[0]",
+                                        "children": [
+                                          {
+                                            "key": "Container_clzukc6j",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4].children[1].children[0].children[0]"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "key": "PlaceholderWidget_r5e3tuah",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4].children[1].children[1]",
+                                        "children": [
+                                          {
+                                            "key": "Container_6wytjxii",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[4].children[1].children[1].children[0]"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "key": "Divider_8rogouc3",
+                                "type": "Divider",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[5]"
+                              },
+                              {
+                                "key": "Row_mikivqyk",
+                                "type": "Row",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ],
+                                "children": [
+                                  {
+                                    "key": "Text_i53hoksz",
+                                    "type": "Text",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6].children[0]",
+                                    "text": "Diesen Monat"
+                                  },
+                                  {
+                                    "key": "ConditionalBuilder_4hyladpa",
+                                    "type": "ConditionalBuilder",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6].children[1]",
+                                    "children": [
+                                      {
+                                        "key": "PlaceholderWidget_ghiir36v",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6].children[1].children[0]",
+                                        "children": [
+                                          {
+                                            "key": "Container_hfcc1f3e",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6].children[1].children[0].children[0]"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "key": "PlaceholderWidget_dw4fl5j1",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6].children[1].children[1]",
+                                        "children": [
+                                          {
+                                            "key": "Container_zmxz27pp",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[6].children[1].children[1].children[0]"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "key": "Divider_euwobxx3",
+                                "type": "Divider",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[7]"
+                              },
+                              {
+                                "key": "Row_p5hdtoen",
+                                "type": "Row",
+                                "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8]",
+                                "triggers": [
+                                  "ON_TAP"
+                                ],
+                                "children": [
+                                  {
+                                    "key": "Text_sb3ma5tr",
+                                    "type": "Text",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8].children[0]",
+                                    "text": "All-Time"
+                                  },
+                                  {
+                                    "key": "ConditionalBuilder_6w9tqhmy",
+                                    "type": "ConditionalBuilder",
+                                    "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8].children[1]",
+                                    "children": [
+                                      {
+                                        "key": "PlaceholderWidget_ohid8oi2",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8].children[1].children[0]",
+                                        "children": [
+                                          {
+                                            "key": "Container_tbh9zkis",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8].children[1].children[0].children[0]"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "key": "PlaceholderWidget_ga7qgp06",
+                                        "type": "PlaceholderWidget",
+                                        "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8].children[1].children[1]",
+                                        "children": [
+                                          {
+                                            "key": "Container_r4vipp22",
+                                            "type": "Container",
+                                            "path": "userProfileFilters.children[0].children[0].children[0].children[0].children[1].children[0].children[8].children[1].children[1].children[0]"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

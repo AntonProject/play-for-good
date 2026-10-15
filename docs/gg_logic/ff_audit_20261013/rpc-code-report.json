@@ -1,0 +1,404 @@
+{
+  "variant": "rpc",
+  "scope": "custom-code-only",
+  "pages_changed": false,
+  "definitions": [
+    {
+      "kind": "action",
+      "name": "ggClaimSignupBonus",
+      "file": "shared/gg_claim_signup_bonus.dart",
+      "arguments": [
+        {
+          "name": "test",
+          "type": "bool",
+          "nullable": false
+        }
+      ],
+      "returns": "json"
+    },
+    {
+      "kind": "widget",
+      "name": "GgScrollBoundary",
+      "file": "shared/gg_scroll_boundary.dart",
+      "arguments": [
+        {
+          "name": "content",
+          "type": "builder",
+          "nullable": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "kind": "action",
+      "name": "ggV2Rankings",
+      "file": "02_rpc/flutterflow/gg_v2_rankings.dart",
+      "arguments": [
+        {
+          "name": "period",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "pageSize",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "userId",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "test",
+          "type": "bool",
+          "nullable": false
+        }
+      ],
+      "returns": "json"
+    },
+    {
+      "kind": "action",
+      "name": "ggV2ProfileStats",
+      "file": "02_rpc/flutterflow/gg_v2_profile_stats.dart",
+      "arguments": [
+        {
+          "name": "userId",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "period",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "test",
+          "type": "bool",
+          "nullable": false
+        }
+      ],
+      "returns": "json"
+    },
+    {
+      "kind": "action",
+      "name": "ggV2Games",
+      "file": "02_rpc/flutterflow/gg_v2_games.dart",
+      "arguments": [
+        {
+          "name": "userId",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "period",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "pageSize",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "test",
+          "type": "bool",
+          "nullable": false
+        }
+      ],
+      "returns": "json"
+    },
+    {
+      "kind": "function",
+      "name": "ggGamesRows",
+      "file": "02_rpc/flutterflow/gg_games_rows.dart",
+      "arguments": [
+        {
+          "name": "response",
+          "type": "json",
+          "nullable": true
+        }
+      ],
+      "returns": "games[]"
+    },
+    {
+      "kind": "widget",
+      "name": "GgStatsListener",
+      "file": "02_rpc/flutterflow/gg_stats_listener.dart",
+      "arguments": [
+        {
+          "name": "refreshKey",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "onRefresh",
+          "type": "action",
+          "nullable": false
+        }
+      ],
+      "returns": null
+    },
+    {
+      "kind": "function",
+      "name": "ggPeriodKey",
+      "file": "02_rpc/flutterflow/functions/gg_period_key.dart",
+      "arguments": [
+        {
+          "name": "value",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "kind": "function",
+      "name": "ggPeriodLabel",
+      "file": "02_rpc/flutterflow/functions/gg_period_label.dart",
+      "arguments": [
+        {
+          "name": "value",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "response",
+          "type": "json",
+          "nullable": true
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "kind": "function",
+      "name": "ggTotalPower",
+      "file": "02_rpc/flutterflow/functions/gg_total_power.dart",
+      "arguments": [
+        {
+          "name": "response",
+          "type": "json",
+          "nullable": true
+        }
+      ],
+      "returns": "double"
+    },
+    {
+      "kind": "function",
+      "name": "ggMetricValue",
+      "file": "02_rpc/flutterflow/functions/gg_metric_value.dart",
+      "arguments": [
+        {
+          "name": "response",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "metric",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "allTime",
+          "type": "bool",
+          "nullable": false
+        }
+      ],
+      "returns": "double"
+    },
+    {
+      "kind": "function",
+      "name": "ggMetricRank",
+      "file": "02_rpc/flutterflow/functions/gg_metric_rank.dart",
+      "arguments": [
+        {
+          "name": "response",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "metric",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "allTime",
+          "type": "bool",
+          "nullable": false
+        }
+      ],
+      "returns": "int"
+    },
+    {
+      "kind": "function",
+      "name": "ggIsFinalSeason",
+      "file": "02_rpc/flutterflow/functions/gg_is_final_season.dart",
+      "arguments": [
+        {
+          "name": "ranking",
+          "type": "json",
+          "nullable": true
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "kind": "function",
+      "name": "ggHasAward",
+      "file": "02_rpc/flutterflow/functions/gg_has_award.dart",
+      "arguments": [
+        {
+          "name": "player",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "place",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "season",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "kind": "function",
+      "name": "ggShowCurrentPlace",
+      "file": "02_rpc/flutterflow/functions/gg_show_current_place.dart",
+      "arguments": [
+        {
+          "name": "ranking",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "player",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "place",
+          "type": "int",
+          "nullable": false
+        }
+      ],
+      "returns": "bool"
+    },
+    {
+      "kind": "function",
+      "name": "ggRowStyle",
+      "file": "02_rpc/flutterflow/functions/gg_row_style.dart",
+      "arguments": [
+        {
+          "name": "ranking",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "player",
+          "type": "json",
+          "nullable": true
+        }
+      ],
+      "returns": "string"
+    },
+    {
+      "kind": "function",
+      "name": "ggPlayerRow",
+      "file": "02_rpc/flutterflow/functions/gg_player_row.dart",
+      "arguments": [
+        {
+          "name": "ranking",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "userId",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "returns": "json"
+    },
+    {
+      "kind": "function",
+      "name": "ggAwards",
+      "file": "02_rpc/flutterflow/functions/gg_awards.dart",
+      "arguments": [
+        {
+          "name": "player",
+          "type": "json",
+          "nullable": true
+        },
+        {
+          "name": "season",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "returns": "json[]"
+    },
+    {
+      "kind": "function",
+      "name": "ggFiltersChanged",
+      "file": "02_rpc/flutterflow/functions/gg_filters_changed.dart",
+      "arguments": [
+        {
+          "name": "selectedPeriod",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "appliedPeriod",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "selectedCategory",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "appliedCategory",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "returns": "bool"
+    }
+  ]
+}

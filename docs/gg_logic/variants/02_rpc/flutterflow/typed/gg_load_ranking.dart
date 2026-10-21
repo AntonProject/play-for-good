@@ -119,6 +119,19 @@ GgPlayerStruct? _player(dynamic raw) {
 List<GgPlayerStruct> _players(dynamic raw) =>
     [for (final p in _l(raw)) _player(p)].whereType<GgPlayerStruct>().toList();
 
+GgGuestPlacesStruct _guestPlaces(dynamic raw) {
+  final m = _m(raw);
+  return GgGuestPlacesStruct(
+    goodPower: _i(m['good_power']),
+    games: _i(m['games']),
+    goodPowerPerGame: _i(m['good_power_per_game']),
+    goodEnergy: _i(m['good_energy']),
+    goodEnergyPerGame: _i(m['good_energy_per_game']),
+    sponsoredGames: _i(m['sponsored_games']),
+    allTimeGoodPower: _i(m['all_time_good_power']),
+  );
+}
+
 GgRankingStruct _ranking(Map m) {
   final pagination = _m(m['pagination']);
   return GgRankingStruct(
@@ -135,6 +148,7 @@ GgRankingStruct _ranking(Map m) {
     players: _players(m['players']),
     currentUser: _player(m['current_user']),
     guestRank: _i(m['guest_rank']),
+    guestPlaces: _guestPlaces(m['guest_places']),
     page: _i(pagination['page']),
     pageSize: _i(pagination['page_size']),
     totalCount: _i(pagination['total_count']),
@@ -145,5 +159,6 @@ GgRankingStruct _ranking(Map m) {
     test: _b(m['test']),
     signupBonusMigrated: _b(m['signup_bonus_migrated']),
     legacyBonusUsersCount: _i(m['legacy_bonus_users_count']),
+    envOtherUsersCount: _i(m['env_other_users_count']),
   );
 }

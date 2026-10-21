@@ -743,6 +743,33 @@
       },
       {
         "kind": "function",
+        "name": "ggPlaceLabelOf",
+        "file": "02_rpc/flutterflow/typed/functions/gg_place_label_of.dart",
+        "arguments": [
+          {
+            "name": "place",
+            "type": "int",
+            "nullable": true
+          }
+        ],
+        "returns": "string"
+      },
+      {
+        "kind": "function",
+        "name": "ggUuidOrNone",
+        "file": "02_rpc/flutterflow/typed/functions/gg_uuid_or_none.dart",
+        "arguments": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true
+          }
+        ],
+        "returns": "string",
+        "returnsNullable": true
+      },
+      {
+        "kind": "function",
         "name": "ggPeriodLabelOf",
         "file": "02_rpc/flutterflow/typed/functions/gg_period_label_of.dart",
         "arguments": [
@@ -929,6 +956,47 @@
           {
             "name": "entry",
             "type": "GgGamesEntry",
+            "nullable": true
+          }
+        ],
+        "returns": "bool"
+      },
+      {
+        "kind": "function",
+        "name": "ggShowGamesListOf",
+        "file": "02_rpc/flutterflow/typed/functions/gg_show_games_list_of.dart",
+        "arguments": [
+          {
+            "name": "stats",
+            "type": "GgProfileStats",
+            "nullable": true
+          },
+          {
+            "name": "history",
+            "type": "GgGamesEntry",
+            "nullable": true
+          }
+        ],
+        "returns": "bool"
+      },
+      {
+        "kind": "function",
+        "name": "ggShowNameLineOf",
+        "file": "02_rpc/flutterflow/typed/functions/gg_show_name_line_of.dart",
+        "arguments": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "firstName",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "surname",
+            "type": "string",
             "nullable": true
           }
         ],
@@ -1157,6 +1225,69 @@
           }
         ],
         "returns": "string[]"
+      },
+      {
+        "kind": "action",
+        "name": "signUpWithOtp",
+        "file": "02_rpc/flutterflow/legacy_env/sign_up_with_otp.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "verifyOtp",
+        "file": "02_rpc/flutterflow/legacy_env/verify_otp.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "updatePassword",
+        "file": "02_rpc/flutterflow/legacy_env/update_password.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "sendSignInOtp",
+        "file": "02_rpc/flutterflow/legacy_env/send_sign_in_otp.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "resendOtp",
+        "file": "02_rpc/flutterflow/legacy_env/resend_otp.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "sendPasswordResetOtp",
+        "file": "02_rpc/flutterflow/legacy_env/send_password_reset_otp.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "orgsCount",
+        "file": "02_rpc/flutterflow/legacy_env/orgs_count.dart",
+        "code_only": true
+      },
+      {
+        "kind": "action",
+        "name": "ggCloseIfOpen",
+        "file": "02_rpc/flutterflow/gg_close_if_open.dart",
+        "arguments": [],
+        "includeContext": true
+      },
+      {
+        "kind": "action",
+        "name": "ggWaitUntilOnTop",
+        "file": "02_rpc/flutterflow/gg_wait_until_on_top.dart",
+        "arguments": [
+          {
+            "name": "maxSeconds",
+            "type": "int",
+            "nullable": false
+          }
+        ],
+        "returns": "bool",
+        "includeContext": true
       }
     ],
     "admin": [

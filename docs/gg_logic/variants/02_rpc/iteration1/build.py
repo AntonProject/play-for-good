@@ -100,7 +100,19 @@ rpc = sub(rpc, "order by p.score desc,p.user_id", "order by p.place,p.user_id")
 # Registered users are compared by their server MVP score (no client +100 since 14 Oct).
 rpc = sub(rpc, "    'top_players',coalesce(",
     "    'guest_rank',(select count(*)+1 from scores s where s.bucket='selected' and s.good_power>100),\n"
+    "    'guest_places',jsonb_build_object(\n"
+    "      'good_power',(select count(*)+1 from scores s where s.bucket='selected' and s.good_power>100),\n"
+    "      'games',(select count(*)+1 from scores s where s.bucket='selected' and s.games_count>0),\n"
+    "      'good_power_per_game',(select count(*)+1 from scores s where s.bucket='selected' and s.games_count>0),\n"
+    "      'good_energy',(select count(*)+1 from scores s where s.bucket='selected' and s.good_energy>0),\n"
+    "      'good_energy_per_game',(select count(*)+1 from scores s where s.bucket='selected' and s.games_count>0),\n"
+    "      'sponsored_games',(select count(*)+1 from scores s where s.bucket='selected' and s.sponsored_games>0),\n"
+    "      'all_time_good_power',(select count(*)+1 from scores s where s.bucket='all_time' and s.good_power>100)),\n"
+    "    'env_other_users_count',gg_v2.env_users_count(p_test,p_user_id),\n"
     "    'top_players',coalesce(")
+# GUEST PLACES (16 Oct): the guest profile Stats rows. Demo 100 points, nothing
+# else, so every other metric is the last place (as for a zero in the profile).
+# all_time_good_power: the profile header (All-Time), from the same call.
 # PROFILE ZERO RANKS (13 Oct): every Stats row shows a place. A zero value has
 # no computed rank; it gets "after everyone with a value > 0" (as on Home).
 def after_all(metric, cond, bucket='selected'):
@@ -137,7 +149,21 @@ finalize = finalize.replace('begin\n', "begin\n  if not (gg_v2.config()->>'final
 
 overlay = (out / 'settings_calendar.sql').read_text()
 sql = 'begin;\n' + base + '\n-- CURRENT ITERATION OVERRIDES\n' + overlay
-sql += '\n' + '\n'.join([period_info, category, scores, payload, finalize, rpc])
+# ENV USERS (16 Oct): users of one environment for the Home gauge average:
+# signed up from this build (signup_test) or with points in this environment,
+# without p_exclude (the requested user; null for a guest).
+env_users = """create or replace function gg_v2.env_users_count(p_test boolean,p_exclude uuid default null) returns bigint
+language sql stable security definer set search_path='' as $$
+  select count(*) from public.users u
+  where u.id is distinct from p_exclude
+    and (u.signup_test = p_test
+     or exists (select 1 from public.games g where g.creator_user_id = u.id and g.status = 'completed' and g.test = p_test)
+     or exists (select 1 from public.invites i where i.inviter_user_id = u.id and i.was_used and i.test = p_test)
+     or exists (select 1 from gg_v2.point_awards a where a.user_id = u.id and a.test = p_test));
+$$;
+revoke all on function gg_v2.env_users_count(boolean,uuid) from public,anon,authenticated;
+grant execute on function gg_v2.env_users_count(boolean,uuid) to anon,authenticated;"""
+sql += '\n' + '\n'.join([env_users, period_info, category, scores, payload, finalize, rpc])
 sql += "\nnotify pgrst, 'reload schema';\ncommit;\n"
 (out / '01_install.sql').write_text(sql)
 shutil.copyfile(root / '02_rpc/11_notifications.sql', out / '02_listener.sql')

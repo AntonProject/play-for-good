@@ -25,6 +25,7 @@
 |---|---|---|---|
 | `games.test` | bool, default false | Игра из тестовой сборки. Рейтинги считают только свою среду. Старая прод-сборка поле не шлёт → прод. | PlayPaymentPage при создании игры: `FFDevEnvironmentValues().test` |
 | `invites.test` | bool, default false | То же для инвайтов. | Действие `inviteUser` |
+| `posts.test` | bool, default false | То же для постов (с 16.10, `13_posts_test.sql`). | Триггер `gg_v2_posts_test`: из игры по `game_id` при вставке поста |
 | `users.signup_test` | bool, default false | Регистрация из тестовой сборки → бонус в тестовой среде. | `signInAfterOtpVerification` при создании профиля |
 | `users.guest_signup_bonus` | int, default 0 | Копия журнала для просмотра/админки: 100 — получил бонус за регистрацию из гостя, 0 — нет. Рейтинги его не читают. | Только сервер (`gg_v2.claim_signup_bonus`). Триггер `gg_v2_users_guest_bonus_guard` не даёт приложению установить или изменить значение |
 
@@ -115,7 +116,7 @@
 
 | Функция | Параметры | Возвращает | Где во фронте |
 |---|---|---|---|
-| `gg_v2_rankings` | `p_period`, `p_category`, `p_page`, `p_page_size`, `p_user_id`, `p_test` | Рейтинг: `top_players`, `players` (страница), `current_user`, `pagination`, `period`, `available_periods`, `total_good_power`, `max_good_power`, `guest_rank`, `results_finalized`, `awards_season` и др. | Действие `ggLoadRanking` → Data Type `GgRanking`: GoodGamesPage, главная (`homePageScore`, шкала `ggHomeGaugeOf`), профиль гостя |
+| `gg_v2_rankings` | `p_period`, `p_category`, `p_page`, `p_page_size`, `p_user_id`, `p_test` | Рейтинг: `top_players`, `players` (страница), `current_user`, `pagination`, `period`, `available_periods`, `total_good_power`, `max_good_power`, `guest_rank`, `guest_places` (места гостя по показателям и All-Time, с 16.10 — `12_guest_places.sql`), `env_other_users_count` (пользователи этой среды кроме запрошенного — знаменатель средней на шкале главной, `15_env_users.sql`), `results_finalized`, `awards_season` и др. | Действие `ggLoadRanking` → Data Type `GgRanking`: GoodGamesPage, главная (`homePageScore`, шкала `ggHomeGaugeOf`), профиль гостя |
 | `gg_v2_profile_stats` | `p_user_id`, `p_period`, `p_test` | Профиль: `stats` (значение и место по каждой метрике), `all_time`, `awards`, `award_flags`, имя/фото, `period`, `available_periods` | Действие `ggLoadProfileStats` → `GgProfileStats`: профиль, окно профиля, GoodGamesPage, `energyComp` |
 | `gg_v2_games` | `p_user_id`, `p_period`, `p_category`, `p_page`, `p_page_size`, `p_test` | Игры игрока за период с пагинацией | Действие `ggLoadGames` → `GgGamesEntry` (игры как `GamesRow`): GoodGamesPage |
 | `gg_v2_context` | `p_period`, `p_test` | Период, закрыт ли, вклад бонусов/инвайтов, награды по игрокам, `available_periods` | Приложение пока не вызывает (служебная/для админки) |
@@ -156,6 +157,7 @@
 | Триггер | Таблица | Функция | Что делает |
 |---|---|---|---|
 | `gg_v2_games_changed`, `gg_v2_invites_changed`, `gg_v2_users_changed`, `gg_v2_posts_changed`, `gg_v2_bonus_changed`, `gg_v2_seasons_changed` | `games`, `invites`, `users`, `posts`, `point_awards`, `seasons` | `notify_changed()` | Шлёт в Realtime-канал `gg:v2:stats` событие с именем таблицы. Виджет `GgStatsListener` на экранах перезапрашивает данные (видимый экран — через 0,5 с, остальные — при возврате). |
+| `gg_v2_posts_test` | `posts` | `gg_v2.posts_test_from_game()` | BEFORE INSERT / UPDATE OF game_id: `test` поста = `test` его игры (посты пишет `unified_game_processing`). |
 | `seasons_no_overlap` | `gg_v2.seasons` | `check_season_overlap()` | Запрещает пересечение сезонов. |
 | `gg_v2_users_guest_bonus_guard` | `users` | `users_guest_bonus_guard()` | Не даёт приложению менять `guest_signup_bonus`. |
 

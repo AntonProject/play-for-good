@@ -787,6 +787,17 @@ $$;
 revoke all on function gg_v2.last_finalized_season(boolean) from public,anon,authenticated;
 grant execute on function gg_v2.last_finalized_season(boolean) to anon,authenticated;
 
+create or replace function gg_v2.env_users_count(p_test boolean,p_exclude uuid default null) returns bigint
+language sql stable security definer set search_path='' as $$
+  select count(*) from public.users u
+  where u.id is distinct from p_exclude
+    and (u.signup_test = p_test
+     or exists (select 1 from public.games g where g.creator_user_id = u.id and g.status = 'completed' and g.test = p_test)
+     or exists (select 1 from public.invites i where i.inviter_user_id = u.id and i.was_used and i.test = p_test)
+     or exists (select 1 from gg_v2.point_awards a where a.user_id = u.id and a.test = p_test));
+$$;
+revoke all on function gg_v2.env_users_count(boolean,uuid) from public,anon,authenticated;
+grant execute on function gg_v2.env_users_count(boolean,uuid) to anon,authenticated;
 create or replace function gg_v2.period_info(
   p_period text,p_now timestamptz default transaction_timestamp()
 ) returns jsonb language plpgsql stable security definer set search_path='' as $$
@@ -1070,6 +1081,15 @@ begin
     'max_good_power',coalesce((select max(s.good_power) from scores s where s.bucket='selected'),0),
     'total_good_power_all_time',coalesce((select sum(s.good_power) from scores s where s.bucket='all_time'),0),
     'guest_rank',(select count(*)+1 from scores s where s.bucket='selected' and s.good_power>100),
+    'guest_places',jsonb_build_object(
+      'good_power',(select count(*)+1 from scores s where s.bucket='selected' and s.good_power>100),
+      'games',(select count(*)+1 from scores s where s.bucket='selected' and s.games_count>0),
+      'good_power_per_game',(select count(*)+1 from scores s where s.bucket='selected' and s.games_count>0),
+      'good_energy',(select count(*)+1 from scores s where s.bucket='selected' and s.good_energy>0),
+      'good_energy_per_game',(select count(*)+1 from scores s where s.bucket='selected' and s.games_count>0),
+      'sponsored_games',(select count(*)+1 from scores s where s.bucket='selected' and s.sponsored_games>0),
+      'all_time_good_power',(select count(*)+1 from scores s where s.bucket='all_time' and s.good_power>100)),
+    'env_other_users_count',gg_v2.env_users_count(p_test,p_user_id),
     'top_players',coalesce((select jsonb_agg(t.payload order by t.place,t.user_id) from top_rows t),'[]'::jsonb),
     'players',coalesce((select jsonb_agg(p.payload order by p.place,p.user_id) from page_rows p),'[]'::jsonb),
     'current_user',(select p.payload from players p where p.user_id=p_user_id),

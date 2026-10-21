@@ -98,6 +98,128 @@ Good Games v2 **внедрён в облако**: Supabase (прод-проек�
 * Ревью: параметры `gamesUserComp` переименованы в `player` / `ranking`
   (`7AdiXzEFpKsk8CgCLj0Q`); мёртвого кода нет (58 определений).
 
+### Профиль гостя и диалоги (16 октября, подготовлено)
+
+Найдено на устройстве: у гостя в Stats «#0» (место бралось из пустой статистики
+профиля), фильтр «Saison» без года и без отмеченного пункта (`auto` не
+заменялся на ключ сезона), диалоги-шторки закрывались тапом между строками.
+
+* SQL `12_guest_places.sql` (владелец): `gg_v2_rankings` отдаёт `guest_places` —
+  место 100 очков в периоде и в All-Time, остальные показатели гостя — последнее
+  место (игроков с показателем + 1). Таблицы не меняются.
+* FF одним коммитом: `flutterflow_cli/guest_places_all.dart` (схема
+  `GgGuestPlaces`, `ggLoadRanking`, функция `ggPlaceLabelOf`, привязки профиля
+  гостя, Supporters = `sponsoredGames.value`, `dialog_tap_inside.dart` для 6
+  диалогов). Сначала SQL, потом FF.
+
+### Посты test/prod и шкала гостя (16 октября, подготовлено)
+
+* SQL `13_posts_test.sql` (владелец): `posts.test` (default false), посты
+  тестовых игр получают true, триггер `gg_v2_posts_test` ставит test из игры
+  при вставке (посты пишет `unified_game_processing`), индекс для ленты.
+* Затем в FF: Settings → Supabase → Get Schema, затем
+  `flutterflow_cli/posts_test_all.dart`: лента `ggPostsPage` и списки постов
+  профиля / организации / шторки профиля только своей среды (потоки → запросы
+  с кэшем, ключ + `ggVerGames`); `ggHomeGaugeOf`: гость = демо 100.
+  Админка не меняется.
+
+### Ошибки из теста на симуляторе (16 октября)
+
+* Записано в FF: заглушка Good News (`posts_loaded_flag`), главная — один
+  ConditionalBuilder (`home_score_builder`), экран итога без красного кадра
+  (`finish_money_null_safe`), оплата (`payment_fixes`: лоадер 40×40,
+  `chosen_org` NULL вместо '', организация гостя сохраняется после входа,
+  имя/фамилия не затираются пустыми), `ggUuidOrNone` в 77 uuid-фильтрах
+  (`uuid_filter_guard`) — нет 22P02 для гостя и пустых параметров.
+* Подготовлено: среднее на шкале главной по пользователям своей среды —
+  SQL `15_env_users.sql`, затем `flutterflow_cli/env_users_all.dart`.
+* Проверка всех, кто зарегистрировался сегодня: `14_check_user.sql`
+  (одна таблица, колонка nick).
+* Записано позже: среднее на шкале по среде (`15_env_users.sql` +
+  `env_users_all`), гость — оплата без белого экрана и закрытие диалога
+  регистрации без null-ошибок (`guest_flow_fixes`), гостевые Favoriten /
+  Sponsoren / Good Circle и кнопки «в избранное» открывают регистрацию
+  (`guest_auth_gates`), вход после OTP без перестройки роутера
+  (`signInAfterOtpVerification`, как prepareAuthEvent).
+* Проверено на симуляторе 16.10: тест (2 аккаунта, игры, инвайт, посты test)
+  и прод-регистрация из гостя (+100 prod, место) — все строки OK.
+
+### Безопасность по отчёту docs/modernization (19 октября)
+
+Сделано (FF записано, SQL применён владельцем, проверено на симуляторе):
+* API-вызовы FF с секретным ключом Stripe удалены (`security_fixes`); тестовый
+  ключ перевыпустить в Stripe (владелец).
+* Логи входа/регистрации без пароля и OTP, остальное только в debug.
+* `admin-update-password` — исходник в `supabase/functions/`, меняет пароль
+  только после подтверждённого `password_reset`-кода (15 мин, одноразово).
+* `18_close_otp_codes.sql` — `user_otp_codes` закрыта для anon/authenticated;
+  `resendOtp` ищет пользователя только в `users`.
+* `19_protect_users.sql` — триггер `gg_v2_users_protect`: приложение не меняет
+  role, балансы, good_power, счётчики, Stripe id; серверные триггеры и
+  service_role не ограничены. Проверка: `20_check_security.sql`.
+* `sieg_money`/`sieg_points` записываются правильно (данные не пострадали,
+  `16_check_sieg.sql`); `orgsCount` — таблица `organization`.
+* Снекбары закрываются через `ggCloseIfOpen` (`snackbar_safe_close`).
+
+Отложенные пункты по безопасности (согласовать с заказчиком) — в локальном
+файле `docs/gg_logic/SECURITY_PRIVATE.md`, он не хранится в git.
+
+### Баги тестировщика 20 октября
+
+* Окно «Dein Start» ждёт, пока Home снова наверху, и показывается только гостю
+  (`home_welcome_on_top`, записано `TyDHFlcVr7QLhDpD3tbX`); сезоны 2025/26 и
+  2026/27 всегда в фильтрах, без даты телефона.
+* Вход из гостевого профиля: первая попытка закрывала диалог, вторая
+  срабатывала, приходило два кода. `sendSignInOtp` проверял пароль через
+  клиент приложения (вход и сразу выход); на эту смену сессии роутер
+  пересоздавал страницу профиля вместе с открытым диалогом. Воспроизведено на
+  симуляторе. Теперь пароль проверяет отдельный `GoTrueClient` без хранения
+  сессии, приложение не замечает проверки (проверено: 0 событий авторизации).
+  Почему профиль пересоздавался (в сторе 1.1.18 нет): `first_frame_headers`
+  (часть 1) дал всем переходам на профиль INSTANT-переход; FF передаёт его как
+  `extra: TransitionInfo`, go_router не сохраняет этот объект в состоянии
+  маршрута, и при первом обновлении роутера (вход/выход) страница строится
+  заново другим типом, диалог на ней закрывается. Проверено на симуляторе
+  (State профиля меняется только при открытии с `extra`; сторовый код с той же
+  имитацией диалог сохраняет). `profile_nav_default_transition` убирает
+  INSTANT у 16 переходов на профиль, как было в сторе.
+* Meine Games, прошлый сезон без игр: пустая серая рамка вместо картинки «нет
+  игр». Рамка зависела от игр за всё время; теперь `ggShowGamesListOf` по
+  загруженному списку периода. Расхождение снимка сезона и живых игр —
+  `21_check_meine_games.sql` (read-only).
+* Оба исправления в одной записи: `games_list_empty_state` (dry-run OK).
+
+### Фидбек с демо 21 октября (всё записано в FF, `flutter analyze` 0 ошибок)
+
+* Вход: `games_list_empty_state` (`JeidaixMmVhk9b3WH60j`),
+  `profile_nav_default_transition` (`CkhBerk8ZhBQdwENb0GI`).
+* Плашка TEST: только на Home, слоем сверху по центру, отступ 52
+  (`test_badge_home_and_total` `vby99hbRT5gxnIRcRY3i`, `test_badge_offset`
+  `Apq6KwOnAnvOc9NVrw8w`); из общей шапки убрана (сдвигала аватар).
+* Картинки наград после перезаливки PNG: `repoint_award_assets`
+  (`ON8bPYrxX29ryVvb0zqQ`), битых ссылок 0.
+* Переходы на профиль / организацию: `post_author_nav` (`WhEV14qtsPpuOAJ8n7Nq`,
+  пустой userId в плашке «организация + юзер», ошибка заказчика),
+  `ranking_profile_nav` (`2o9rd2sLHI9Tx2xOD3um`, `m7k6MXa9RF6nH7EpscdS`: строки
+  рейтинга и подиум — id показанного игрока; строка гостя),
+  `row_nav_from_params` (`lichnVKnb9stGhPywG7u`: Meine Games, Energy, Home —
+  id из параметра `game`). Проверка всех переходов: `dsl/gg_scan_navs.dart`.
+* Вёрстка: `ranking_row_indent` (`T1bDma8ELHJCVmZqkWk7`, строки закрытого
+  сезона под шапку), `user_photo_placeholder` (`aKEuQCJggbAfwcCdd7P3`, белая
+  заглушка Profilbild.png вместо Vector.png), `profile_name_line`
+  (`41lOdqfMv0AOeboEVE5j`, без пустой строки под ником).
+* Единые места: пользователь — своё место, без очков — после всех с очками;
+  гость — место демо-игрока (100 Good Power) из `guest_places`.
+  `transfer_rpc_only` (`Em0A9yWA8kupSL1a4T6b`: своя строка под списком и без
+  очков, как в сторе), `guest_stats_places` (`LJiQwYqYwfxkFQ1HzAeV`:
+  `ggLoadProfileStats` для гостя, Energy и Meine Games для гостя, место «Good
+  Power per Game» было от Energy). Energy показывает места по €nergy, не по
+  Good Power — это другой рейтинг.
+* Total Good Power в шапке Good Games — за выбранный период (было за всё
+  время, `vby99hbRT5gxnIRcRY3i`).
+* Открыто: «8 после 1–10» не воспроизвелось (`22_check_me_row.sql` по нику);
+  вопросы заказчику — картинка сезона 2026.
+
 ### Осталось проверить на устройстве
 
 1. Шапка Play при открытии сразу своего размера, без красного экрана.

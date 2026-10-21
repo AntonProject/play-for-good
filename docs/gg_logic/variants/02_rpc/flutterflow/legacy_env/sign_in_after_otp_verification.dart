@@ -16,6 +16,7 @@ import '/custom_code/actions/index.dart';
 import '/flutter_flow/custom_functions.dart';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter/foundation.dart' show kDebugMode;
 
 Future<bool> signInAfterOtpVerification(
   String email,
@@ -28,9 +29,16 @@ Future<bool> signInAfterOtpVerification(
   try {
     final supabase = Supabase.instance.client;
 
-    print('=== First Sign In After OTP Verification ===');
-    print('Email: $email');
-    print('Action Type: $actionType');
+    _log('=== First Sign In After OTP Verification ===');
+    _log('Email: $email');
+    _log('Action Type: $actionType');
+
+    // As FF's prepareAuthEvent(): the router must not rebuild the page stack
+    // on this sign-in. Otherwise the open auth dialog is removed, its
+    // Navigator.pop(context, true) fails and the caller never gets "success".
+    // The callers navigate themselves (Confirm -> Home, dialog -> pop).
+    final router = AppStateNotifier.instance;
+    if (!router.hasRedirect()) router.updateNotifyOnAuthChange(false);
 
     // This is the FIRST and ONLY sign in after OTP verification
     final signInResponse = await supabase.auth.signInWithPassword(
@@ -39,15 +47,15 @@ Future<bool> signInAfterOtpVerification(
     );
 
     if (signInResponse.user == null) {
-      print('Failed to sign in after OTP verification');
+      _log('Failed to sign in after OTP verification');
       return false;
     }
 
-    print('Successfully signed in: ${signInResponse.user!.id}');
+    _log('Successfully signed in: ${signInResponse.user!.id}');
 
     // Additional role check for admin signin
     if (actionType == 'adminSignin') {
-      print('Verifying admin role after OTP...');
+      _log('Verifying admin role after OTP...');
       final userRoleResponse = await supabase
           .from('users')
           .select('role')
@@ -55,23 +63,23 @@ Future<bool> signInAfterOtpVerification(
           .maybeSingle();
 
       if (userRoleResponse == null) {
-        print('Error: User not found in users table');
+        _log('Error: User not found in users table');
         await supabase.auth.signOut();
         return false;
       }
 
       if (userRoleResponse['role'] != 'admin') {
-        print('Error: User is not admin. Role: ${userRoleResponse['role']}');
+        _log('Error: User is not admin. Role: ${userRoleResponse['role']}');
         await supabase.auth.signOut();
         return false;
       }
 
-      print('Admin role confirmed after OTP verification');
+      _log('Admin role confirmed after OTP verification');
     }
 
     // Create user profile in 'users' table for signup
     if (actionType == 'signup' && firstName != null && username != null) {
-      print('Creating user profile in users table...');
+      _log('Creating user profile in users table...');
 
       try {
         // Check if profile exists
@@ -82,7 +90,7 @@ Future<bool> signInAfterOtpVerification(
             .maybeSingle();
 
         if (existingProfile == null) {
-          print('Creating new user profile');
+          _log('Creating new user profile');
           await supabase.from('users').insert({
             'id': signInResponse.user!.id,
             'email': email,
@@ -92,19 +100,19 @@ Future<bool> signInAfterOtpVerification(
             // Environment of the registration (test build -> test +100).
             'signup_test': FFDevEnvironmentValues().test,
           });
-          print('User profile created successfully');
+          _log('User profile created successfully');
         } else {
-          print('User profile already exists, updating...');
+          _log('User profile already exists, updating...');
           await supabase.from('users').update({
             'first_name': firstName,
             'display_name': username,
             'email': email,
             'signup_test': FFDevEnvironmentValues().test,
           }).eq('id', signInResponse.user!.id);
-          print('User profile updated successfully');
+          _log('User profile updated successfully');
         }
       } catch (profileError) {
-        print('Error with user profile: $profileError');
+        _log('Error with user profile: $profileError');
         // Don't fail the sign in because of profile issues
       }
     }
@@ -120,13 +128,19 @@ Future<bool> signInAfterOtpVerification(
           'p_from_guest': true,
         });
       } catch (bonusError) {
-        print('Signup bonus claim skipped: $bonusError');
+        _log('Signup bonus claim skipped: $bonusError');
       }
     }
 
     return true;
   } catch (e) {
-    print('signInAfterOtpVerification error: $e');
+    _log('signInAfterOtpVerification error: $e');
     return false;
   }
+}
+
+// Logs only in debug builds; release builds print nothing (emails,
+// responses). Passwords and OTP codes are never logged.
+void _log(Object? message) {
+  if (kDebugMode) print(message);
 }

@@ -3,7 +3,9 @@
 // Posts loaded in this app session are kept in memory: limit 0 returns them
 // without a request (instant Good News on reopen), any other call loads the
 // page and updates the memory (offset 0 replaces it, later pages append).
+// Only posts of this build's environment (posts.test = Environment test).
 import '/backend/supabase/supabase.dart';
+import '/environment_values.dart';
 
 List<PostsRow> _ggPostsMemo = [];
 
@@ -14,6 +16,7 @@ Future<List<PostsRow>> ggPostsPage(int offset, int limit) async {
   final rows = await SupaFlow.client
       .from('posts')
       .select()
+      .eq('test', FFDevEnvironmentValues().test)
       .order('created_at', ascending: false)
       .range(offset, offset + limit - 1);
   final page = (rows as List)

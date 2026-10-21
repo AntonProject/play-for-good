@@ -126,11 +126,23 @@ SQL и база не меняются. Схема снята с реальных
 | `players` | List `GgPlayer` | `players` (текущая страница) |
 | `currentUser` | `GgPlayer`, nullable | `current_user` |
 | `guestRank` | Integer, nullable | `guest_rank` |
+| `guestPlaces` | `GgGuestPlaces` | `guest_places` (места гостя, профиль) |
 | `page`, `pageSize`, `totalCount` | Integer | `pagination.page`, `.page_size`, `.total_count` |
 | `hasMore` | Boolean | `pagination.has_more` |
 | `totalGoodPower` | Double | `total_good_power` |
 | `totalGoodPowerAllTime` | Double | `total_good_power_all_time` |
 | `maxGoodPower` | Double | `max_good_power` |
+
+### `GgGuestPlaces` — места гостевых 100 очков (`gg_v2_rankings.guest_places`)
+
+| Поле | Тип | JSON |
+|---|---|---|
+| `goodPower` | Integer | `good_power` — место 100 очков в периоде |
+| `games`, `goodPowerPerGame`, `goodEnergy`, `goodEnergyPerGame`, `sponsoredGames` | Integer | последнее место: игроков с показателем + 1 |
+| `allTimeGoodPower` | Integer | `all_time_good_power` — место 100 в All-Time (шапка профиля) |
+
+Подпись места — функция `ggPlaceLabelOf(place)`: `#12` / `#1.234`, без места `''`
+(бейдж строки скрывается, «#0» не показывается).
 
 ### `GgMetric` — одна метрика профиля
 

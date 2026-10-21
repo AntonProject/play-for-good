@@ -13,6 +13,7 @@ import 'package:flutter/material.dart' hide RepeatMode;
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter/foundation.dart' show kDebugMode;
 
 Future<String> inviteUser(String invitedEmail) async {
   try {
@@ -40,7 +41,7 @@ Future<String> inviteUser(String invitedEmail) async {
       return 'cannot_invite_self';
     }
 
-    print('Inviting user: $invitedEmail');
+    _log('Inviting user: $invitedEmail');
 
     // Check if email is already invited
     final existingInvite = await supabase
@@ -64,11 +65,11 @@ Future<String> inviteUser(String invitedEmail) async {
       'invited_email': invitedEmail.toLowerCase().trim(),
     });
 
-    print('Invite created successfully');
+    _log('Invite created successfully');
 
     // Send invitation email via Edge Function
     try {
-      print('Sending invitation email...');
+      _log('Sending invitation email...');
       final emailResponse = await supabase.functions.invoke(
         'send-invite-email',
         body: {
@@ -77,25 +78,31 @@ Future<String> inviteUser(String invitedEmail) async {
         },
       );
 
-      print('Email response status: ${emailResponse.status}');
-      print('Email response data: ${emailResponse.data}');
+      _log('Email response status: ${emailResponse.status}');
+      _log('Email response data: ${emailResponse.data}');
 
       if (emailResponse.status == 200 &&
           emailResponse.data?['success'] == true) {
-        print('Invitation email sent successfully');
+        _log('Invitation email sent successfully');
       } else {
-        print(
+        _log(
             'Failed to send invitation email: ${emailResponse.data?['error']}');
         // Don't fail the whole invite process if email fails
       }
     } catch (emailError) {
-      print('Error sending invitation email: $emailError');
+      _log('Error sending invitation email: $emailError');
       // Don't fail the whole invite process if email fails
     }
 
     return 'success';
   } catch (e) {
-    print('Error inviting user: $e');
+    _log('Error inviting user: $e');
     return 'error';
   }
+}
+
+// Logs only in debug builds; release builds print nothing (emails,
+// responses).
+void _log(Object? message) {
+  if (kDebugMode) print(message);
 }

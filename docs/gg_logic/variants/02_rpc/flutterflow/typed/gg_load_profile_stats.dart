@@ -10,8 +10,24 @@ Future<GgProfileStatsStruct> ggLoadProfileStats(
   bool test,
 ) async {
   // gg_v2_profile_stats, parsed into GgProfileStats (all response fields).
+  // Guest ('' / 'guest', 21.10.2026): the demo guest of the same period - 100
+  // Good Power, nothing else - with the guest places the server counts for the
+  // ranking (guest_places), so Energy, Meine Games, profile and Good Games
+  // show one guest place (before: #0 on Energy / Meine Games).
   if (userId == 'guest' || userId.isEmpty) {
-    throw ArgumentError('A registered profile userId is required');
+    final ranking = await SupaFlow.client.rpc(
+      'gg_v2_rankings',
+      params: {
+        'p_period': period,
+        'p_category': 'valuable',
+        'p_page': 1,
+        'p_page_size': 1,
+        'p_user_id': null,
+        'p_test': test,
+      },
+    );
+    if (ranking is! Map) throw StateError('Invalid ranking response');
+    return _guestStats(ranking);
   }
   final result = await SupaFlow.client.rpc(
     'gg_v2_profile_stats',
@@ -113,6 +129,37 @@ GgProfileStatsStruct _stats(Map m) {
     allTimeGamesCount: _i(allTime['games_count']),
     awards: _awards(m['awards']),
     awardFlags: _flags(m['award_flags']),
+    totalGoodPower: _d(m['total_good_power']),
+    totalGoodPowerAllTime: _d(m['total_good_power_all_time']),
+    test: _b(m['test']),
+    signupBonusMigrated: _b(m['signup_bonus_migrated']),
+    legacyBonusUsersCount: _i(m['legacy_bonus_users_count']),
+  );
+}
+
+GgProfileStatsStruct _guestStats(Map m) {
+  final places = _m(m['guest_places']);
+  GgMetricStruct metric(double value, String key) =>
+      GgMetricStruct(value: value, rank: _i(places[key]));
+  return GgProfileStatsStruct(
+    userId: 'guest',
+    requestedPeriod: _s(m['requested_period']),
+    period: _period(m['period']),
+    availablePeriods: _periods(m['available_periods']),
+    layoutMode: _layout(m['layout_mode']),
+    resultsFinalized: _b(m['results_finalized']),
+    awardsSeason: _s(m['awards_season']),
+    goodPower: metric(100, 'good_power'),
+    games: metric(0, 'games'),
+    goodPowerPerGame: metric(0, 'good_power_per_game'),
+    goodEnergy: metric(0, 'good_energy'),
+    goodEnergyPerGame: metric(0, 'good_energy_per_game'),
+    sponsoredGames: metric(0, 'sponsored_games'),
+    allTimeRank: _i(places['all_time_good_power']),
+    allTimeGoodPower: 100,
+    allTimeGamesCount: 0,
+    awards: const [],
+    awardFlags: GgAwardFlagsStruct(),
     totalGoodPower: _d(m['total_good_power']),
     totalGoodPowerAllTime: _d(m['total_good_power_all_time']),
     test: _b(m['test']),

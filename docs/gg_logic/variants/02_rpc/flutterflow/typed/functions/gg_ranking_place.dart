@@ -8,6 +8,9 @@ int ggRankingPlace(GgRankingStruct? ranking) {
   // in the ranking's category: Good Power -> by points, the others by games /
   // Energy / sponsored games (guest_places; 21.10.2026: "Most active" showed
   // the Good Power place, e.g. #1, instead of the place after all players).
+  // The guest has its 100 only in periods that include today: in a closed
+  // season or last month it has 0 and the place after all players (22.10.2026:
+  // 2025/26 showed the guest at #8).
   if (ranking == null) return 0;
   if (ranking.hasCurrentUser()) {
     final me = ranking.currentUser;
@@ -23,6 +26,11 @@ int ggRankingPlace(GgRankingStruct? ranking) {
     case GgCategory.social:
       return places.sponsoredGames > 0 ? places.sponsoredGames : ranking.totalCount + 1;
     default:
+      final now = DateTime.now().toUtc();
+      final from = ranking.period.start;
+      final to = ranking.period.endExclusive;
+      final guestNow = (from == null || !from.isAfter(now)) && (to == null || to.isAfter(now));
+      if (!guestNow) return ranking.totalCount + 1;
       return places.goodPower > 0 ? places.goodPower : ranking.guestRank;
   }
 }

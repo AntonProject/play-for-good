@@ -12,16 +12,22 @@ double ggHomeGaugeOf(
   // Guest (ranking requested without a user; Home shows the gauge to a guest
   // only after the demo 100): mine = 100, max at least 100, avg = the average
   // of the users of this environment - the same 100 that gives the guest place.
+  // The guest has the 100 only in periods that include today; in a closed
+  // season or last month mine = 0 (22.10.2026).
   if (ranking == null) return 0;
+  final now = DateTime.now().toUtc();
+  final from = ranking.period.start;
+  final to = ranking.period.endExclusive;
+  final guestNow = (from == null || !from.isAfter(now)) && (to == null || to.isAfter(now));
   final guest = ranking.requestedUserId.isEmpty && !ranking.hasCurrentUser();
   final top = ranking.hasMaxGoodPower()
       ? ranking.maxGoodPower
       : ranking.topPlayers.isNotEmpty
           ? ranking.topPlayers.first.goodPower
           : 0.0;
-  final max = guest && top < 100 ? 100.0 : top;
+  final max = guest && guestNow && top < 100 ? 100.0 : top;
   final mine = guest
-      ? 100.0
+      ? (guestNow ? 100.0 : 0.0)
       : ranking.hasCurrentUser()
           ? ranking.currentUser.goodPower
           : 0.0;

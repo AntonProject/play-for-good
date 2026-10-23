@@ -7,8 +7,9 @@ String ggRowStyleOf(
 ) {
   // Row look of places 1-3: final_first .. current_third; 'none' otherwise.
   if (ranking == null || player == null || !player.hasRank()) return 'none';
-  // The demo guest row is not a real place 1-3 (no podium look).
-  if (player.userId == 'guest') return 'none';
+  // The demo guest in the list at places 1-3 looks like any player there
+  // (22.10.2026); without points (closed season, other categories) - none.
+  if (player.userId == 'guest' && player.score <= 0) return 'none';
   // Own row without points (place after all ranked players): no podium look.
   if (ranking.hasCurrentUser() &&
       ranking.currentUser.userId == player.userId &&

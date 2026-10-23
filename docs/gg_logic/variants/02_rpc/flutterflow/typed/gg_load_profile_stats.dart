@@ -14,7 +14,11 @@ Future<GgProfileStatsStruct> ggLoadProfileStats(
   // Good Power, nothing else - with the guest places the server counts for the
   // ranking (guest_places), so Energy, Meine Games, profile and Good Games
   // show one guest place (before: #0 on Energy / Meine Games).
-  if (userId == 'guest' || userId.isEmpty) {
+  // 22.10.2026: the guest has the 100 only in periods that include today; a
+  // guest viewer sees the guest inside the Good Power list (ggListIdsOf), so
+  // the Good Power places of other players from the guest's place on are one
+  // lower here too.
+  Future<Map> guestRanking() async {
     final ranking = await SupaFlow.client.rpc(
       'gg_v2_rankings',
       params: {
@@ -27,14 +31,44 @@ Future<GgProfileStatsStruct> ggLoadProfileStats(
       },
     );
     if (ranking is! Map) throw StateError('Invalid ranking response');
-    return _guestStats(ranking);
+    return ranking;
+  }
+
+  if (userId == 'guest' || userId.isEmpty) {
+    return _guestStats(await guestRanking());
   }
   final result = await SupaFlow.client.rpc(
     'gg_v2_profile_stats',
     params: {'p_user_id': userId, 'p_period': period, 'p_test': test},
   );
   if (result is! Map) throw StateError('Invalid profile response');
-  return _stats(result);
+  final stats = _stats(result);
+  if (SupaFlow.client.auth.currentUser == null) {
+    _shiftForGuest(stats, await guestRanking());
+  }
+  return stats;
+}
+
+bool _guestNow(GgPeriodStruct period) {
+  final now = DateTime.now().toUtc();
+  final from = period.start;
+  final to = period.endExclusive;
+  return (from == null || !from.isAfter(now)) && (to == null || to.isAfter(now));
+}
+
+void _shiftForGuest(GgProfileStatsStruct stats, Map ranking) {
+  final places = _m(ranking['guest_places']);
+  int shift(int rank, int? guestPlace) =>
+      guestPlace != null && guestPlace > 0 && rank > 0 && rank >= guestPlace ? rank + 1 : rank;
+  if (_guestNow(_period(ranking['period'])) && stats.hasGoodPower()) {
+    stats.goodPower = GgMetricStruct(
+      value: stats.goodPower.value,
+      rank: shift(stats.goodPower.rank, _i(places['good_power'])),
+    );
+  }
+  if (stats.hasAllTimeRank()) {
+    stats.allTimeRank = shift(stats.allTimeRank, _i(places['all_time_good_power']));
+  }
 }
 
 // --- JSON -> Data Types (gg_v2 RPC response, see docs/gg_logic/TYPED_SCHEMA.md)
@@ -139,17 +173,22 @@ GgProfileStatsStruct _stats(Map m) {
 
 GgProfileStatsStruct _guestStats(Map m) {
   final places = _m(m['guest_places']);
+  final period = _period(m['period']);
+  final total = _i(_m(m['pagination'])['total_count']) ?? 0;
   GgMetricStruct metric(double value, String key) =>
       GgMetricStruct(value: value, rank: _i(places[key]));
   return GgProfileStatsStruct(
     userId: 'guest',
     requestedPeriod: _s(m['requested_period']),
-    period: _period(m['period']),
+    period: period,
     availablePeriods: _periods(m['available_periods']),
     layoutMode: _layout(m['layout_mode']),
     resultsFinalized: _b(m['results_finalized']),
     awardsSeason: _s(m['awards_season']),
-    goodPower: metric(100, 'good_power'),
+    // Closed season / last month: 0, place after all players with points.
+    goodPower: _guestNow(period)
+        ? metric(100, 'good_power')
+        : GgMetricStruct(value: 0, rank: total + 1),
     games: metric(0, 'games'),
     goodPowerPerGame: metric(0, 'good_power_per_game'),
     goodEnergy: metric(0, 'good_energy'),

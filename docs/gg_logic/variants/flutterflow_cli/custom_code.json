@@ -824,6 +824,19 @@
       },
       {
         "kind": "function",
+        "name": "ggListIdsOf",
+        "file": "02_rpc/flutterflow/typed/functions/gg_list_ids_of.dart",
+        "arguments": [
+          {
+            "name": "ranking",
+            "type": "GgRanking",
+            "nullable": true
+          }
+        ],
+        "returns": "string[]"
+      },
+      {
+        "kind": "function",
         "name": "ggTopPlayerAt",
         "file": "02_rpc/flutterflow/typed/functions/gg_top_player_at.dart",
         "arguments": [

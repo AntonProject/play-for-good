@@ -134,9 +134,12 @@ GgAwardFlagsStruct _flags(dynamic raw) {
   );
 }
 
+// 0 in a metric = place 0 (26.10.2026, owner: "0 games, 0 points, place 1"
+// made no sense). The server gives the place after all players with points.
 GgMetricStruct _metric(dynamic raw) {
   final m = _m(raw);
-  return GgMetricStruct(value: _d(m['value']), rank: _i(m['rank']));
+  final value = _d(m['value']);
+  return GgMetricStruct(value: value, rank: (value ?? 0) > 0 ? _i(m['rank']) : 0);
 }
 
 GgProfileStatsStruct _stats(Map m) {
@@ -158,7 +161,7 @@ GgProfileStatsStruct _stats(Map m) {
     goodEnergy: _metric(stats['good_energy']),
     goodEnergyPerGame: _metric(stats['good_energy_per_game']),
     sponsoredGames: _metric(stats['sponsored_games']),
-    allTimeRank: _i(allTime['rank']),
+    allTimeRank: (_d(allTime['good_power']) ?? 0) > 0 ? _i(allTime['rank']) : 0,
     allTimeGoodPower: _d(allTime['good_power']),
     allTimeGamesCount: _i(allTime['games_count']),
     awards: _awards(m['awards']),
@@ -174,9 +177,9 @@ GgProfileStatsStruct _stats(Map m) {
 GgProfileStatsStruct _guestStats(Map m) {
   final places = _m(m['guest_places']);
   final period = _period(m['period']);
-  final total = _i(_m(m['pagination'])['total_count']) ?? 0;
+  // The guest has no games / €nergy: those places are 0 (as for any 0).
   GgMetricStruct metric(double value, String key) =>
-      GgMetricStruct(value: value, rank: _i(places[key]));
+      GgMetricStruct(value: value, rank: value > 0 ? _i(places[key]) : 0);
   return GgProfileStatsStruct(
     userId: 'guest',
     requestedPeriod: _s(m['requested_period']),
@@ -185,10 +188,10 @@ GgProfileStatsStruct _guestStats(Map m) {
     layoutMode: _layout(m['layout_mode']),
     resultsFinalized: _b(m['results_finalized']),
     awardsSeason: _s(m['awards_season']),
-    // Closed season / last month: 0, place after all players with points.
+    // Closed season / last month: 0 Good Power, place 0.
     goodPower: _guestNow(period)
         ? metric(100, 'good_power')
-        : GgMetricStruct(value: 0, rank: total + 1),
+        : GgMetricStruct(value: 0, rank: 0),
     games: metric(0, 'games'),
     goodPowerPerGame: metric(0, 'good_power_per_game'),
     goodEnergy: metric(0, 'good_energy'),

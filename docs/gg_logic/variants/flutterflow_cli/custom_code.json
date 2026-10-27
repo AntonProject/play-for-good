@@ -837,6 +837,19 @@
       },
       {
         "kind": "function",
+        "name": "ggTotalPowerOf",
+        "file": "02_rpc/flutterflow/typed/functions/gg_total_power_of.dart",
+        "arguments": [
+          {
+            "name": "ranking",
+            "type": "GgRanking",
+            "nullable": true
+          }
+        ],
+        "returns": "double"
+      },
+      {
+        "kind": "function",
         "name": "ggTopPlayerAt",
         "file": "02_rpc/flutterflow/typed/functions/gg_top_player_at.dart",
         "arguments": [

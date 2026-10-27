@@ -119,15 +119,18 @@ GgPlayerStruct? _player(dynamic raw) {
 List<GgPlayerStruct> _players(dynamic raw) =>
     [for (final p in _l(raw)) _player(p)].whereType<GgPlayerStruct>().toList();
 
+// The demo guest has 100 Good Power and nothing else: its places in games /
+// €nergy / sponsored games are 0 (0 in a metric = place 0, 26.10.2026; the
+// server gives the place after all players).
 GgGuestPlacesStruct _guestPlaces(dynamic raw) {
   final m = _m(raw);
   return GgGuestPlacesStruct(
     goodPower: _i(m['good_power']),
-    games: _i(m['games']),
-    goodPowerPerGame: _i(m['good_power_per_game']),
-    goodEnergy: _i(m['good_energy']),
-    goodEnergyPerGame: _i(m['good_energy_per_game']),
-    sponsoredGames: _i(m['sponsored_games']),
+    games: 0,
+    goodPowerPerGame: 0,
+    goodEnergy: 0,
+    goodEnergyPerGame: 0,
+    sponsoredGames: 0,
     allTimeGoodPower: _i(m['all_time_good_power']),
   );
 }

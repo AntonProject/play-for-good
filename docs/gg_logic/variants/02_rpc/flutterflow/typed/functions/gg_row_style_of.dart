@@ -10,10 +10,11 @@ String ggRowStyleOf(
   // The demo guest in the list at places 1-3 looks like any player there
   // (22.10.2026); without points (closed season, other categories) - none.
   if (player.userId == 'guest' && player.score <= 0) return 'none';
-  // Own row without points (place after all ranked players): no podium look.
+  // Own row without points (place after all ranked players, even #1-3 in a
+  // short list): no podium look.
   if (ranking.hasCurrentUser() &&
       ranking.currentUser.userId == player.userId &&
-      !(ranking.currentUser.hasRank() && ranking.currentUser.rank > 0)) {
+      !(ranking.currentUser.hasRank() && ranking.currentUser.rank > 0 && ranking.currentUser.score > 0)) {
     return 'none';
   }
   final rank = player.rank;

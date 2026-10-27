@@ -12,25 +12,25 @@ int ggRankingPlace(GgRankingStruct? ranking) {
   // season or last month it has 0 and the place after all players (22.10.2026:
   // 2025/26 showed the guest at #8).
   if (ranking == null) return 0;
+  // 0 in the category = place 0 (26.10.2026, owner; before: the place after
+  // all players with points, e.g. "0 games, #1").
   if (ranking.hasCurrentUser()) {
     final me = ranking.currentUser;
-    if (me.hasRank() && me.rank > 0) return me.rank;
-    return ranking.totalCount + 1;
+    if (me.hasRank() && me.rank > 0 && me.score > 0) return me.rank;
+    return 0;
   }
   final places = ranking.guestPlaces;
   switch (ranking.category) {
     case GgCategory.active:
-      return places.games > 0 ? places.games : ranking.totalCount + 1;
     case GgCategory.generous:
-      return places.goodEnergy > 0 ? places.goodEnergy : ranking.totalCount + 1;
     case GgCategory.social:
-      return places.sponsoredGames > 0 ? places.sponsoredGames : ranking.totalCount + 1;
+      return 0;
     default:
       final now = DateTime.now().toUtc();
       final from = ranking.period.start;
       final to = ranking.period.endExclusive;
       final guestNow = (from == null || !from.isAfter(now)) && (to == null || to.isAfter(now));
-      if (!guestNow) return ranking.totalCount + 1;
+      if (!guestNow) return 0;
       return places.goodPower > 0 ? places.goodPower : ranking.guestRank;
   }
 }
